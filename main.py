@@ -83,8 +83,8 @@ if __name__ == '__main__':
         plt.savefig(f'{const.IMG_PATH}/{i:02}.png')
         plt.close()
     client = TweepyClient('./config.json')
-    # for i in range((img_cnt + 3) // 4):
-    #     inner_loop_cnt = min(4, img_cnt - i * 4) # 残りの画像が4枚未満の時はその枚数を指定する
-    #     client.tweet(f'{frm.isostring()}のユニット別発電実績', [f'./img/{(i+j):02}.png' for j in range(inner_loop_cnt)])
+    for i in range((img_cnt + 3) // 4):
+        inner_loop_cnt = min(4, img_cnt - i * 4) # 残りの画像が4枚未満の時はその枚数を指定する
+        client.tweet(f'{frm.isostring()}のユニット別発電実績', [f'./img/{(i+j):02}.png' for j in range(inner_loop_cnt)])
     rmtree(const.IMG_PATH)
 

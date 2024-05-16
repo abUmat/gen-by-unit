@@ -43,23 +43,56 @@ def get_measurements(target_date_from: date, target_date_to: date) -> list[model
         ret += [model.Measurements(plant_name, unit_name, dt + i * delta, m, updated_at) for i, m in enumerate(measurements)]
     return ret
 
-def select_all_plants() -> list[model.Plant]:
+def get_groups() -> list[model.Group]:
     '''
-    plants.csvのデータをリストとして返す
+    groups.csvのデータをリストとして返す
+    '''
+    with open(const.GROUPS_CSV_PATH) as f:
+        rows = f.readlines()
+        rows.pop(0) # delete header
+        records = [row.strip().split(',') for row in rows]
+    return [model.Group(const.Area(int(area)), name) for area, name in records]
+
+def get_plants() -> list[model.Plant]:
+    '''
+    groups.csvとplants.csvのデータを結合し, Plantのリストとして返す\n
+    select * from plants\n
+    inner join groups on plants.group_id = groups.id\n
+    のイメージ
     '''
     with open(const.PLANTS_CSV_PATH) as f:
         rows = f.readlines()
         rows.pop(0) # delete header
         records = [row.strip().split(',') for row in rows]
-    return [model.Plant(name, const.Area(int(area))) for area, name in records]
+    groups = get_groups()
+    return [model.Plant(groups[int(group_id) - 1], key) for group_id, key in records]
 
-def select_all_units() -> dict[tuple[str, str], model.Unit]:
+def get_units() -> list[model.Unit]:
     '''
-    units.csvのデータとplants.csvのデータを結合し, key: (plant_name, unit_name), value: Unitのdictを返す
+    units.csvとplants.csvとgroups.csvのデータを結合し, Unitのリストとして返す\n
+    select * from units\n
+    inner join plants on units.plant_id = plants.id\n
+    inner join groups on plants.group_id = groups.id\n
+    のイメージ
     '''
     with open(const.UNITS_CSV_PATH) as f:
         rows = f.readlines()
         rows.pop(0) # delete header
         records = [row.strip().split(',') for row in rows]
-    plants = select_all_plants()
-    return {(plants[int(plant_id) - 1].name, name): model.Unit(i, plants[int(plant_id) - 1], const.UnitType(int(type_)), name, float(power)) for i, (plant_id, type_, name, power) in enumerate(records)}
+    plants = get_plants()
+    return [model.Unit(key,
+                       plants[int(plant_id) - 1],
+                       const.UnitType(int(type_)),
+                       name,
+                       float(power))
+            for plant_id, key, type_, name, power in records]
+
+def unit_dict(units: list[model.Unit]) -> dict[tuple[str, str], model.Unit]:
+    '''
+    (発電所判別名, ユニット判別名)をキーにしてmodel.Unitを返す辞書を作成\n
+    '''
+    ret = {}
+    for unit in units:
+        key = unit.plant.key, unit.key
+        ret[key] = unit
+    return ret

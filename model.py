@@ -1,23 +1,28 @@
 from dataclasses import dataclass
 import const
 
-@dataclass
-class Plant:
-    name: str
+@dataclass(frozen=True)
+class Group:
     area: const.Area
+    name: str
 
-@dataclass
+@dataclass(frozen=True)
+class Plant:
+    group: Group
+    key: str
+
+@dataclass(frozen=True)
 class Unit:
-    id_: int
+    key: str
     plant: Plant
     type_: const.UnitType
     name: str
     power: float
 
-@dataclass
+@dataclass(frozen=True)
 class Measurements:
-    plant_name: str
-    unit_name: str
+    plant_key_name: str
+    unit_key_name: str
     measured_at: int
     measurements: int
     updated_at: int

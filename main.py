@@ -48,11 +48,11 @@ if __name__ == '__main__':
     # 測定日時の順で発電量をソート
     measurements.sort(key=lambda x: x.measured_at)
 
-    # ユニットごとに48コマ(発電, 認定出力)を入れる
+    # ユニットごとに48コマ発電を入れる
     gen_by_unit = defaultdict(list)
     for m in measurements:
         u = unit_dict[(m.plant_key_name, m.unit_key_name)]
-        # mはkWh/30min, unit.powerは万kWなのでMWに変換
+        # mはkWh/30minなのでMWに変換
         gen_by_unit[u].append(m.measurements * 2 * 1e-3)
 
     # 画像枚数 切り上げる
@@ -79,6 +79,7 @@ if __name__ == '__main__':
                 for u in units:
                     if u.plant != p: continue
                     generations.append(gen_by_unit[u])
+                    # unit.powerは万kWなのでMWに変換
                     power_limits.append([u.power * 1e4 * 1e-3] * 48)
                     legends += [f'{u.name}']
             plt.plot(list(zip(*generations)))

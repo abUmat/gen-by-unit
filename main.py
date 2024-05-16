@@ -35,7 +35,7 @@ class TweepyClient:
         self.client.create_tweet(text=text, media_ids=[m.media_id for m in media])
 
 if __name__ == '__main__':
-    rmtree(const.IMG_PATH)
+    rmtree(const.IMG_PATH, ignore_errors=True)
     makedirs(const.IMG_PATH, exist_ok=True)
 
     groups = lib.get_groups()

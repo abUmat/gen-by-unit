@@ -2,6 +2,7 @@ from datetime import date, timedelta
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import json
+from collections import defaultdict
 from os import makedirs
 from shutil import rmtree
 import lib, const
@@ -36,50 +37,58 @@ class TweepyClient:
 if __name__ == '__main__':
     rmtree(const.IMG_PATH)
     makedirs(const.IMG_PATH, exist_ok=True)
-    units = lib.get_units()
 
-    # units.csvの順でグラフを作成するのでその順にタイトルをソート
-    titles = [(unit.plant.group.name, unit.plant.name, unit.name) for unit in sorted(units.values(), key=lambda x: x.id_)]
+    groups = lib.get_groups()
+    plants = lib.get_plants()
+    units = lib.get_units()
+    unit_dict = lib.unit_dict(units)
 
     frm = to = date.today() - timedelta(days=2)
     measurements = lib.get_measurements(frm, to)
+    # 測定日時の順で発電量をソート
+    measurements.sort(key=lambda x: x.measured_at)
 
-    # units.csvの順, その中で測定日時の順で発電量をソート
-    measurements.sort(key=lambda x: (units[x.plant_key_name, x.unit_key_name].id_, x.measured_at))
-
-    # ユニットごとに48コマ(発電, 認定出力)を入れる二次元配列
-    values = [[] for _ in range(len(units))]
+    # ユニットごとに48コマ(発電, 認定出力)を入れる
+    gen_by_unit = defaultdict(list)
     for m in measurements:
-        unit = units[(m.plant_key_name, m.unit_key_name)]
+        u = unit_dict[(m.plant_key_name, m.unit_key_name)]
         # mはkWh/30min, unit.powerは万kWなのでMWに変換
-        values[unit.id_ - 1].append((m.measurements * 2 * 1e-3, unit.power * 1e4 * 1e-3))
+        gen_by_unit[u].append(m.measurements * 2 * 1e-3)
 
     # 画像枚数 切り上げる
-    img_cnt = (len(values) + const.GRAPH_CNT_IN_IMG - 1) // const.GRAPH_CNT_IN_IMG
+    img_cnt = (len(groups) + const.GRAPH_CNT_IN_IMG - 1) // const.GRAPH_CNT_IN_IMG
 
     for i in range(img_cnt):
-        # 対象画像中のグラフに使用するタイトルと値を選択
-        ts, vs = titles[i * 24:(i + 1) * 24], values[i * 24:(i + 1) * 24]
-
         # 画像設定
         plt.figure(figsize=const.IMG_SIZE)
         plt.subplots_adjust(left=0.03, right=0.99, bottom=0.05, top=0.97)
 
         # グラフ描画
-        for j, (title, value) in enumerate(zip(ts, vs)):
+        for j, group in enumerate(groups[i * const.GRAPH_CNT_IN_IMG: (i + 1) * const.GRAPH_CNT_IN_IMG]):
             # 画像内の場所指定
             # matplotlibでは, 1から横向きに順番付けされているが, 縦に並べたいので適当に変換する
             position = (j % const.GRAPH_ROW_CNT) * const.GRAPH_COL_CNT + j // const.GRAPH_ROW_CNT + 1
             plt.subplot(const.GRAPH_ROW_CNT, const.GRAPH_COL_CNT, position)
 
-            plt.title(f'{title[0]}：{title[1]}：{title[2]}', fontproperties=gothic_font)
-            plt.plot(value)
+            plt.title(group.name, fontproperties=gothic_font)
+            generations = []
+            power_limits = []
+            legends = []
+            for p in plants:
+                if p.group != group: continue
+                for u in units:
+                    if u.plant != p: continue
+                    generations.append(gen_by_unit[u])
+                    power_limits.append([u.power * 1e4 * 1e-3] * 48)
+                    legends += [f'{p.name+u.name}']
+            plt.plot(list(zip(*generations)))
+            plt.plot(list(zip(*power_limits)))
             plt.ylabel('MW')
             plt.ylim(bottom=0)
 
             plt.xlim((-1, 48))
             plt.xticks([0, 12, 24, 36, 47], ['00:00', '06:00', '12:00', '18:00', '24:00'])
-            plt.legend(['発電', '認可出力'], prop=gothic_font)
+            plt.legend(legends, prop=gothic_font)
         # 画像保存
         plt.savefig(f'{const.IMG_PATH}/{i:02}.png')
         plt.close()

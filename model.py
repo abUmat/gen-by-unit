@@ -10,7 +10,6 @@ class Group:
 class Plant:
     group: Group
     key: str
-    name: str
 
 @dataclass(frozen=True)
 class Unit:

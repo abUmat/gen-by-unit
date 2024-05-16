@@ -80,7 +80,7 @@ if __name__ == '__main__':
                     if u.plant != p: continue
                     generations.append(gen_by_unit[u])
                     power_limits.append([u.power * 1e4 * 1e-3] * 48)
-                    legends += [f'{p.name+u.name}']
+                    legends += [f'{u.name}']
             plt.plot(list(zip(*generations)))
             plt.plot(list(zip(*power_limits)))
             plt.ylabel('MW')

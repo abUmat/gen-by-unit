@@ -65,7 +65,7 @@ def get_plants() -> list[model.Plant]:
         rows.pop(0) # delete header
         records = [row.strip().split(',') for row in rows]
     groups = get_groups()
-    return [model.Plant(groups[int(group_id) - 1], key, name) for group_id, key, name in records]
+    return [model.Plant(groups[int(group_id) - 1], key) for group_id, key in records]
 
 def get_units() -> list[model.Unit]:
     '''

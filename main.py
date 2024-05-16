@@ -61,7 +61,7 @@ if __name__ == '__main__':
     for i in range(img_cnt):
         # 画像設定
         plt.figure(figsize=const.IMG_SIZE)
-        plt.subplots_adjust(left=0.03, right=0.99, bottom=0.05, top=0.97)
+        plt.subplots_adjust(left=0.03, right=0.95, bottom=0.05, top=0.97, wspace=0.4)
 
         # グラフ描画
         for j, group in enumerate(groups[i * const.GRAPH_CNT_IN_IMG: (i + 1) * const.GRAPH_CNT_IN_IMG]):
@@ -88,7 +88,7 @@ if __name__ == '__main__':
 
             plt.xlim((-1, 48))
             plt.xticks([0, 12, 24, 36, 47], ['00:00', '06:00', '12:00', '18:00', '24:00'])
-            plt.legend(legends, prop=gothic_font)
+            plt.legend(legends, loc='upper left', bbox_to_anchor=(1, 1), prop=gothic_font)
         # 画像保存
         plt.savefig(f'{const.IMG_PATH}/{i:02}.png')
         plt.close()

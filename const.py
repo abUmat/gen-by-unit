@@ -15,7 +15,7 @@ PLANTS_CSV_PATH = './plant_data/plants.csv'
 UNITS_CSV_PATH = './plant_data/units.csv'
 
 GRAPH_ROW_CNT = 4
-GRAPH_COL_CNT = 6
+GRAPH_COL_CNT = 4
 GRAPH_CNT_IN_IMG = GRAPH_ROW_CNT * GRAPH_COL_CNT
 IMG_SIZE = (24, 13.5)
 

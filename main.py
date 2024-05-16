@@ -1,12 +1,12 @@
-from datetime import date, timedelta
+from datetime import datetime, timedelta, timezone
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
-import json
 from collections import defaultdict
 from os import makedirs
 from shutil import rmtree
 import lib, const, tweepy_client
 
+JST = timezone(timedelta(hours=+9), 'JST')
 gothic_font = fm.FontProperties(fname=const.IPA_GOTHIC_FONT_PATH)
 minchou_font = fm.FontProperties(fname=const.IPA_MINCHOU_FONT_PATH)
 
@@ -21,7 +21,7 @@ if __name__ == '__main__':
     units = lib.get_units()
     unit_dict = lib.unit_dict(units)
 
-    frm = to = date.today() - timedelta(days=2)
+    frm = to = datetime.now(JST).date() - timedelta(days=2)
     measurements = lib.get_measurements(frm, to)
     # 測定日時の順で発電量をソート
     measurements.sort(key=lambda x: x.measured_at)

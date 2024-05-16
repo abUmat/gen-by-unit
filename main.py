@@ -10,10 +10,12 @@ import lib, const, tweepy_client
 gothic_font = fm.FontProperties(fname=const.IPA_GOTHIC_FONT_PATH)
 minchou_font = fm.FontProperties(fname=const.IPA_MINCHOU_FONT_PATH)
 
-if __name__ == '__main__':
+def setup():
     rmtree(const.IMG_PATH, ignore_errors=True)
     makedirs(const.IMG_PATH, exist_ok=True)
 
+if __name__ == '__main__':
+    setup()
     groups = lib.get_groups()
     plants = lib.get_plants()
     units = lib.get_units()
@@ -89,5 +91,3 @@ if __name__ == '__main__':
         text_s.append(f'{frm.isoformat()}のユニット別発電実績')
         media_paths_s.append([f'./img/{(i * 4 + j):02}.png' for j in range(inner_loop_cnt)])
     client.tweet_many(text_s, media_paths_s)
-    rmtree(const.IMG_PATH)
-

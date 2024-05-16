@@ -74,10 +74,10 @@ if __name__ == '__main__':
                 plt.xticks([0, 12, 24, 36, 47], ['00:00', '06:00', '12:00', '18:00', '24:00'])
                 if legends and legends[0]:
                     plt.legend(legends,
-                            loc='lower left',
-                            bbox_to_anchor=(1, 0),
-                            ncol=(len(legends) + const.SUBPLOT_LEGENDS_ROW_CNT - 1) // const.SUBPLOT_LEGENDS_ROW_CNT,
-                            prop=gothic_font)
+                               loc='lower left',
+                               bbox_to_anchor=(1, 0),
+                               ncol=(len(legends) + const.SUBPLOT_LEGENDS_ROW_CNT - 1) // const.SUBPLOT_LEGENDS_ROW_CNT,
+                               prop=gothic_font)
             # 画像保存
             plt.suptitle(area.area_name(), fontproperties=gothic_font)
             plt.savefig(f'{const.IMG_PATH}/{img_cnt:02}.png')

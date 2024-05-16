@@ -29,10 +29,27 @@ class TweepyClient:
                               config['twitter']['accessTokenSecret'])
         self.api = tweepy.API(auth)
     def tweet(self, text: str, media_paths: list[str]=[]) -> None:
+        '''
+        1件ツイートする
+        '''
         if not media_paths:
             self.client.create_tweet(text=text)
         media = [self.api.media_upload(filename=media_path) for media_path in media_paths]
         self.client.create_tweet(text=text, media_ids=[m.media_id for m in media])
+    def tweet_many(self, text_s: list[str], media_paths_s: list[list[str]]) -> None:
+        '''
+        連続ツイートする
+        '''
+        assert(len(text_s) <= 10)
+        assert(len(media_paths_s) <= 10)
+        # 長さを合わせる
+        while len(text_s) < len(media_paths_s):
+            text_s.append('')
+        while len(media_paths_s) < len(text_s):
+            media_paths_s.append([])
+        for text, media_paths in zip(text_s, media_paths_s):
+            self.tweet(text, media_paths)
+
 
 if __name__ == '__main__':
     rmtree(const.IMG_PATH, ignore_errors=True)
@@ -106,8 +123,12 @@ if __name__ == '__main__':
             plt.close()
             img_cnt += 1
     client = TweepyClient('./config.json')
-    # for i in range((img_cnt + 3) // 4):
-    #     inner_loop_cnt = min(4, img_cnt - i * 4) # 残りの画像が4枚未満の時はその枚数を指定する
-    #     client.tweet(f'{frm.isostring()}のユニット別発電実績', [f'./img/{(i+j):02}.png' for j in range(inner_loop_cnt)])
-    # rmtree(const.IMG_PATH)
+    text_s = []
+    media_paths_s = []
+    for i in range((img_cnt + 3) // 4):
+        inner_loop_cnt = min(4, img_cnt - i * 4) # 残りの画像が4枚未満の時はその枚数を指定する
+        text_s.append(f'{frm.isoformat()}のユニット別発電実績')
+        media_paths_s.append([f'./img/{(i * 4 + j):02}.png' for j in range(inner_loop_cnt)])
+    client.tweet_many(text_s, media_paths_s)
+    rmtree(const.IMG_PATH)
 

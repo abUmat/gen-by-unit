@@ -23,6 +23,9 @@ SUBPLOT_LEGENDS_ROW_CNT = 12
 
 IMG_PATH = './img'
 
+TWITTER_API_CONFIG_FILE_PATH = './config.json'
+TWITTER_MEDIA_CNT_PER_TWEET = 4
+
 class Area(Enum):
     HOKKAIDO = 1
     TOHOKU = 2

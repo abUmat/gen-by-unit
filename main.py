@@ -83,11 +83,10 @@ if __name__ == '__main__':
             plt.savefig(f'{const.IMG_PATH}/{img_cnt:02}.png')
             plt.close()
             img_cnt += 1
-    client = tweepy_client.TweepyClient('./config.json')
-    text_s = []
-    media_paths_s = []
-    for i in range((img_cnt + 3) // 4):
-        inner_loop_cnt = min(4, img_cnt - i * 4) # 残りの画像が4枚未満の時はその枚数を指定する
-        text_s.append(f'{frm.isoformat()}のユニット別発電実績')
-        media_paths_s.append([f'./img/{(i * 4 + j):02}.png' for j in range(inner_loop_cnt)])
+
+    # tweet
+    text_s = [f'{frm.isoformat()}のユニット別発電実績']
+    images = [f'{const.IMG_PATH}/{i:02}.png' for i in range(img_cnt)] # 全画像のパス
+    media_paths_s = [images[i: i + const.TWITTER_MEDIA_CNT_PER_TWEET] for i in range(0, img_cnt, const.TWITTER_MEDIA_CNT_PER_TWEET)] # 4枚ごとのリストに変換
+    client = tweepy_client.TweepyClient(const.TWITTER_API_CONFIG_FILE_PATH)
     client.tweet_many(text_s, media_paths_s)

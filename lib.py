@@ -43,23 +43,42 @@ def get_measurements(target_date_from: date, target_date_to: date) -> list[model
         ret += [model.Measurements(plant_name, unit_name, dt + i * delta, m, updated_at) for i, m in enumerate(measurements)]
     return ret
 
-def select_all_plants() -> list[model.Plant]:
+def _get_groups() -> list[model.Group]:
     '''
-    plants.csvのデータをリストとして返す
+    groups.csvのデータをリストとして返す
+    '''
+    with open(const.GROUPS_CSV_PATH) as f:
+        rows = f.readlines()
+        rows.pop(0) # delete header
+        records = [row.strip().split(',') for row in rows]
+    return [model.Group(const.Area(int(area)), name) for area, name in records]
+
+def _get_plants() -> list[model.Plant]:
+    '''
+    groups.csvとplants.csvのデータを結合し, Plantのリストとして返す
     '''
     with open(const.PLANTS_CSV_PATH) as f:
         rows = f.readlines()
         rows.pop(0) # delete header
         records = [row.strip().split(',') for row in rows]
-    return [model.Plant(name, const.Area(int(area))) for area, name in records]
+    groups = _get_groups()
+    return [model.Plant(groups[int(group_id) - 1], key, name) for group_id, key, name in records]
 
-def select_all_units() -> dict[tuple[str, str], model.Unit]:
+def get_units() -> dict[tuple[str, str], model.Unit]:
     '''
-    units.csvのデータとplants.csvのデータを結合し, key: (plant_name, unit_name), value: Unitのdictを返す
+    units.csvのデータとplants.csvのデータを結合し, key: (plant_key_name, unit_key_name), value: Unitのdictを返す
     '''
     with open(const.UNITS_CSV_PATH) as f:
         rows = f.readlines()
         rows.pop(0) # delete header
         records = [row.strip().split(',') for row in rows]
-    plants = select_all_plants()
-    return {(plants[int(plant_id) - 1].name, name): model.Unit(i, plants[int(plant_id) - 1], const.UnitType(int(type_)), name, float(power)) for i, (plant_id, type_, name, power) in enumerate(records)}
+    plants = _get_plants()
+    ret = {}
+    for i, (plant_id_str, key, type_str, name, power) in enumerate(records):
+        plant_id = int(plant_id_str) - 1
+        plant = plants[plant_id]
+        type_ = const.UnitType(int(type_str))
+        k = (plant.key, key)
+        v = model.Unit(i, key, plant, type_, name, float(power))
+        ret[k] = v
+    return ret

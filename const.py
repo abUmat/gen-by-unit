@@ -10,6 +10,7 @@ DATETIME_FORMAT_SLASHED = '%Y/%m/%d %H:%M:%S'
 IPA_GOTHIC_FONT_PATH = './IPAexfont00401/ipaexg.ttf'
 IPA_MINCHOU_FONT_PATH = './IPAexfont00401/ipaexm.ttf'
 
+GROUPS_CSV_PATH = './plant_data/groups.csv'
 PLANTS_CSV_PATH = './plant_data/plants.csv'
 UNITS_CSV_PATH = './plant_data/units.csv'
 

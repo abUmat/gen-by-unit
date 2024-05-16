@@ -34,22 +34,23 @@ class TweepyClient:
         self.client.create_tweet(text=text, media_ids=[m.media_id for m in media])
 
 if __name__ == '__main__':
+    rmtree(const.IMG_PATH)
     makedirs(const.IMG_PATH, exist_ok=True)
-    units = lib.select_all_units()
+    units = lib.get_units()
 
     # units.csvの順でグラフを作成するのでその順にタイトルをソート
-    titles = [(unit.plant.name, unit.name) for unit in sorted(units.values(), key=lambda x: x.id_)]
+    titles = [(unit.plant.group.name, unit.plant.name, unit.name) for unit in sorted(units.values(), key=lambda x: x.id_)]
 
     frm = to = date.today() - timedelta(days=2)
     measurements = lib.get_measurements(frm, to)
 
     # units.csvの順, その中で測定日時の順で発電量をソート
-    measurements.sort(key=lambda x: (units[x.plant_name, x.unit_name].id_, x.measured_at))
+    measurements.sort(key=lambda x: (units[x.plant_key_name, x.unit_key_name].id_, x.measured_at))
 
     # ユニットごとに48コマ(発電, 認定出力)を入れる二次元配列
     values = [[] for _ in range(len(units))]
     for m in measurements:
-        unit = units[(m.plant_name, m.unit_name)]
+        unit = units[(m.plant_key_name, m.unit_key_name)]
         # mはkWh/30min, unit.powerは万kWなのでMWに変換
         values[unit.id_ - 1].append((m.measurements * 2 * 1e-3, unit.power * 1e4 * 1e-3))
 
@@ -71,7 +72,7 @@ if __name__ == '__main__':
             position = (j % const.GRAPH_ROW_CNT) * const.GRAPH_COL_CNT + j // const.GRAPH_ROW_CNT + 1
             plt.subplot(const.GRAPH_ROW_CNT, const.GRAPH_COL_CNT, position)
 
-            plt.title(f'{title[0]}：{title[1]}', fontproperties=gothic_font)
+            plt.title(f'{title[0]}：{title[1]}：{title[2]}', fontproperties=gothic_font)
             plt.plot(value)
             plt.ylabel('MW')
             plt.ylim(bottom=0)
@@ -83,8 +84,8 @@ if __name__ == '__main__':
         plt.savefig(f'{const.IMG_PATH}/{i:02}.png')
         plt.close()
     client = TweepyClient('./config.json')
-    for i in range((img_cnt + 3) // 4):
-        inner_loop_cnt = min(4, img_cnt - i * 4) # 残りの画像が4枚未満の時はその枚数を指定する
-        client.tweet(f'{frm.isostring()}のユニット別発電実績', [f'./img/{(i+j):02}.png' for j in range(inner_loop_cnt)])
-    rmtree(const.IMG_PATH)
+    # for i in range((img_cnt + 3) // 4):
+    #     inner_loop_cnt = min(4, img_cnt - i * 4) # 残りの画像が4枚未満の時はその枚数を指定する
+    #     client.tweet(f'{frm.isostring()}のユニット別発電実績', [f'./img/{(i+j):02}.png' for j in range(inner_loop_cnt)])
+    # rmtree(const.IMG_PATH)
 

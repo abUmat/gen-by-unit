@@ -34,6 +34,28 @@ class Area(Enum):
     SHIKOKU = 8
     KYUSHU = 9
     OKINAWA = 10
+    def area_name(self):
+        match self:
+            case self.HOKKAIDO:
+                return '北海道エリア'
+            case self.TOHOKU:
+                return '東北エリア'
+            case self.TOKYO:
+                return '東京エリア'
+            case self.CHUBU:
+                return '中部エリア'
+            case self.HOKURIKU:
+                return '北陸エリア'
+            case self.KANSAI:
+                return '関西エリア'
+            case self.CHUGOKU:
+                return '中国エリア'
+            case self.SHIKOKU:
+                return '四国エリア'
+            case self.KYUSHU:
+                return '九州エリア'
+            case self.OKINAWA:
+                return '沖縄エリア'
 
 class UnitType(Enum):
     NUCLEAR = 1

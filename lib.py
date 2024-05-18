@@ -1,5 +1,8 @@
 import requests
 from datetime import date, datetime, timedelta
+import matplotlib.pyplot as plt
+from matplotlib.font_manager import FontProperties
+from PIL import Image, ImageDraw, ImageFont
 import const, model
 
 def get_measurements(target_date_from: date, target_date_to: date) -> list[model.Measurements]:
@@ -96,3 +99,63 @@ def unit_dict(units: list[model.Unit]) -> dict[tuple[str, str], model.Unit]:
         key = unit.plant.key, unit.key
         ret[key] = unit
     return ret
+
+def subplot(group: model.Group,
+            plants: list[model.Plant],
+            units: list[model.Unit],
+            gen_by_unit: dict[tuple[str, str], model.Unit],
+            position: int,
+            fp: FontProperties) -> None:
+    '''
+    groupに所属するplant, unitの発電量と認可出力をpositionで指定した位置にsubplotする\n
+    fpにmatplotlib.font_manager.FontPropertiesでフォントを指定する
+    '''
+    # 場所指定
+    plt.subplot(const.GRAPH_ROW_CNT, const.GRAPH_COL_CNT, position)
+
+    plt.title(group.name, fontproperties=fp)
+
+    # 発電だけに凡例をつけたいのでちょっと工夫
+    # 発電 -> 認可出力の順にプロットしたいので一旦集計
+    generations = []
+    power_limits = []
+    legends = []
+    for p in plants:
+        if p.group != group: continue
+        for u in units:
+            if u.plant != p: continue
+            generations.append(gen_by_unit[u])
+            # unit.powerは万kWなのでMWに変換
+            power_limits.append([u.power * 1e4 * 1e-3] * 48)
+            legends.append(u.name)
+    for g in generations:
+        plt.plot(g)
+    for pl in power_limits:
+        plt.plot(pl)
+
+    plt.ylabel('MW')
+    plt.ylim(bottom=0)
+
+    plt.xlim((-1, 48))
+    plt.xticks([0, 12, 24, 36, 47], ['00:00', '06:00', '12:00', '18:00', '24:00'])
+
+    # 凡例
+    if legends and legends[0]:
+        plt.legend(legends,
+                   loc='lower left',
+                   bbox_to_anchor=(1, 0),
+                   ncol=(len(legends) + const.SUBPLOT_LEGENDS_ROW_CNT - 1) // const.SUBPLOT_LEGENDS_ROW_CNT,
+                   prop=fp)
+
+def add_citation(img_path: str, font_path: str) -> None:
+    '''
+    グラフ画像の右下に出典を記入し上書き保存する
+    '''
+    img = Image.open(img_path)
+    draw = ImageDraw.Draw(img)
+    font = ImageFont.truetype(font_path, const.OCCTO_CITATION_FONT_SIZE)
+    padding = 10
+    corner = const.IMG_SIZE
+    position = [x * 100 - padding for x in corner]
+    draw.text(position, const.OCCTO_CITATION, 'black', font=font, anchor='rd')
+    img.save(img_path)

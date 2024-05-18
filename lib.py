@@ -105,11 +105,12 @@ def subplot(group: model.Group,
             units: list[model.Unit],
             gen_by_unit: dict[tuple[str, str], model.Unit],
             position: int,
-            fp: FontProperties) -> None:
+            font_path: str) -> None:
     '''
-    groupに所属するplant, unitの発電量と認可出力をpositionで指定した位置にsubplotする\n
-    fpにmatplotlib.font_manager.FontPropertiesでフォントを指定する
+    groupに所属するplant, unitの発電量と認可出力をpositionで指定した位置にsubplotする
     '''
+    # font
+    fp = FontProperties(fname=font_path)
     # 場所指定
     plt.subplot(const.GRAPH_ROW_CNT, const.GRAPH_COL_CNT, position)
 

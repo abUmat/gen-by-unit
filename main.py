@@ -7,8 +7,6 @@ from shutil import rmtree
 import lib, const, tweepy_client
 
 JST = timezone(timedelta(hours=+9), 'JST')
-gothic_font = fm.FontProperties(fname=const.IPA_GOTHIC_FONT_PATH)
-minchou_font = fm.FontProperties(fname=const.IPA_MINCHOU_FONT_PATH)
 
 def setup():
     rmtree(const.IMG_PATH, ignore_errors=True)
@@ -52,9 +50,9 @@ if __name__ == '__main__':
                 # 画像内の場所指定 matplotlibでは, 左上から横向きに順番付けされているが, 縦に並べたいので適当に変換する
                 position = (j % const.GRAPH_ROW_CNT) * const.GRAPH_COL_CNT + j // const.GRAPH_ROW_CNT + 1
 
-                lib.subplot(group, plants, units, gen_by_unit, position, gothic_font)
+                lib.subplot(group, plants, units, gen_by_unit, position, const.IPA_GOTHIC_FONT_PATH)
             # 画像保存
-            plt.suptitle(area.area_name(), fontproperties=gothic_font)
+            plt.suptitle(area.area_name(), fontproperties=fm.FontProperties(fname=const.IPA_GOTHIC_FONT_PATH))
             plt.savefig(path)
             plt.close()
             lib.add_citation(path, const.IPA_GOTHIC_FONT_PATH)
@@ -65,4 +63,4 @@ if __name__ == '__main__':
     images = [f'{const.IMG_PATH}/{i:02}.png' for i in range(img_cnt)] # 全画像のパス
     media_paths_s = [images[i: i + const.TWITTER_MEDIA_CNT_PER_TWEET] for i in range(0, img_cnt, const.TWITTER_MEDIA_CNT_PER_TWEET)] # 4枚ごとのリストに変換
     client = tweepy_client.TweepyClient(const.TWITTER_API_CONFIG_FILE_PATH)
-    client.tweet_many(text_s, media_paths_s)
+    #client.tweet_many(text_s, media_paths_s)

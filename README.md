@@ -9,6 +9,7 @@ OCCTOの[ユニット別発電実績公開システム](https://hatsuden-kokai.o
 - [使用方法](#使用方法)
 - [ライセンス](#ライセンス)
 - [作者](#作者)
+- [参考](#参考)
 
 ## 概要
 
@@ -38,3 +39,19 @@ TwitterAPIの登録を行い, 認証情報を `./config.json` に保存する. `
 ## 作者
 
 [Twitterリンク](https://twitter.com/PjAUaLTfE)
+
+## 参考
+
+### 石炭火力発電所の発電方式について
+
+- [資源エネルギー庁_石炭火力発電所一覧_(2020-07-13)](https://www.meti.go.jp/shingikai/enecho/denryoku_gas/denryoku_gas/pdf/026_s01_00.pdf)
+- [特定非営利活動法人気候ネットワーク_―提言レポート―石炭火力2030フェーズアウトの道筋](https://www.kikonet.org/wp/wp-content/uploads/2019/03/Report_Japan-Coal-phase-Out_JP.pdf)(2024-05-18時点)
+
+### LNG火力発電所の発電方式について
+
+各社HP等ののGTや燃焼温度、LHV基準発電効率から推測
+
+### 水力発電所の発電方式について
+
+- [北海道電力_主な水力発電所](https://www.hepco.co.jp/energy/water_power/hydroelectric_ps.html)(2024-05-18時点)
+- [水力ドットコム_日本の水力発電所](http://www.suiryoku.com/)(2024-05-18時点)

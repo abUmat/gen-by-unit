@@ -26,6 +26,9 @@ IMG_PATH = './img'
 TWITTER_API_CONFIG_FILE_PATH = './config.json'
 TWITTER_MEDIA_CNT_PER_TWEET = 4
 
+OCCTO_CITATION = '電力広域的運営推進機関 ユニット別発電実績公開システム より 作成'
+OCCTO_CITATION_FONT_SIZE = 24
+
 class Area(Enum):
     HOKKAIDO = 1
     TOHOKU = 2

@@ -1,4 +1,4 @@
-plant_id,type,name,power
+plant_id,key,type,name,power
 1,１号機,1,1号機,57.9
 1,２号機,1,2号機,57.9
 1,３号機,1,3号機,91.2

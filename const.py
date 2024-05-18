@@ -13,6 +13,7 @@ IPA_MINCHOU_FONT_PATH = './IPAexfont00401/ipaexm.ttf'
 GROUPS_CSV_PATH = './plant_data/groups.csv'
 PLANTS_CSV_PATH = './plant_data/plants.csv'
 UNITS_CSV_PATH = './plant_data/units.csv'
+JOINED_CSV_PATH = './plant_data/joined.csv'
 
 GRAPH_ROW_CNT = 4
 GRAPH_COL_CNT = 4

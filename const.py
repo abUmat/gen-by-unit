@@ -30,6 +30,44 @@ TWITTER_MEDIA_CNT_PER_TWEET = 4
 OCCTO_CITATION = '電力広域的運営推進機関 ユニット別発電実績公開システム より 作成'
 OCCTO_CITATION_FONT_SIZE = 24
 
+class GraphColors(Enum):
+    NUCLEAR_COLORS = ('#708090',
+                      '#696969',
+                      '#808080',
+                      '#A9A9A9',
+                      '#C0C0C0',
+                      '#D3D3D3',
+                      '#DCDCDC')
+
+    HYDRO_COLORS = ('#0000FF',
+                    '#ADD8E6',
+                    '#00FFFF',
+                    '#5F9EA0',
+                    '#AFEEEE',
+                    '#4682B4')
+
+    COAL_COLORS = ('#4B3621',
+                   '#8B4513',
+                   '#A0522D',
+                   '#D2B48C',
+                   '#8B7355')
+
+    LNG_COLORS = ('#FF0000',
+                  '#FFA500',
+                  '#FF69B4',
+                  '#FF4500',
+                  '#CD5C5C',
+                  '#DAA520',
+                  '#FF8C00',
+                  '#FFA07A')
+
+    OIL_COLORS = ('#32CD32',
+                  '#9ACD32',
+                  '#7FFF00')
+
+    OTHER_COLORS = ('#000000',
+                    '#757575')
+
 class Area(Enum):
     '''
     グループが連系されている系統エリア
@@ -89,6 +127,20 @@ class FuelType(Enum):
     '太陽光太陽熱'
     OTHER = 9
     'その他(不明含む)'
+    def colors(self) -> GraphColors:
+        match self:
+            case FuelType.NUCLEAR:
+                return GraphColors.NUCLEAR_COLORS
+            case FuelType.HYDRO:
+                return GraphColors.HYDRO_COLORS
+            case FuelType.COAL:
+                return GraphColors.COAL_COLORS
+            case FuelType.LNG:
+                return GraphColors.LNG_COLORS
+            case FuelType.OIL:
+                return GraphColors.OIL_COLORS
+            case FuelType.GEOTHERMAL | FuelType.WIND | FuelType.SOLAR | FuelType.OTHER:
+                return GraphColors.OTHER_COLORS
 
 class UnitType(Enum):
     '''

@@ -80,7 +80,7 @@ class Area(Enum):
     SHIKOKU = 8
     KYUSHU = 9
     OKINAWA = 10
-    def area_name(self):
+    def to_str(self):
         match self:
             case Area.HOKKAIDO:
                 return '北海道エリア'
@@ -204,3 +204,45 @@ class UnitType(Enum):
                 return FuelType.SOLAR
             case UnitType.OTHER:
                 return FuelType.OTHER
+
+    def to_str(self) -> str:
+        '''
+        文字列に変換する
+        '''
+        match self:
+            case UnitType.NUCLEAR:
+                return '原子力'
+            case UnitType.HYDRO:
+                return '一般水力'
+            case UnitType.PUMPED:
+                return '純揚水'
+            case UnitType.HYBRID_PUMPED:
+                return '混合揚水'
+            case UnitType.COAL:
+                return '石炭'
+            case UnitType.SUB_C:
+                return 'SUB-C'
+            case UnitType.SC:
+                return 'SC'
+            case UnitType.USC:
+                return 'USC'
+            case UnitType.LNG:
+                return 'LNG汽力'
+            case UnitType.CC:
+                return 'CC'
+            case UnitType.ACC:
+                return 'ACC'
+            case UnitType.MACC:
+                return 'MACC'
+            case UnitType.MACC2:
+                return 'MACCⅡ'
+            case UnitType.OIL:
+                return '石油汽力'
+            case UnitType.GEOTHERMAL:
+                return '地熱'
+            case UnitType.WIND:
+                return '風力'
+            case UnitType.SOLAR:
+                return '太陽光'
+            case UnitType.OTHER:
+                return 'その他'

@@ -123,7 +123,7 @@ def subplot(group: model.Group,
                 break
         # unit.powerは万kWなのでMWに変換
         power_limits.append([u.power * 1e4 * 1e-3] * 48)
-        legends.append(f'{u.name}({u.type_.to_str()})')
+        legends.append(f'{u.name}:{u.type_.to_str()}')
     for g, c in zip(generations, colors):
         plt.plot(g, color=c, linewidth=3)
     for pl in power_limits:

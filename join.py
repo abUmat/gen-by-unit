@@ -11,13 +11,13 @@ if __name__ == '__main__':
               '発電方式',
               '凡例のユニット名',
               '認可出力(万kW)',
-            sep=',', file=f)
+              sep=',', file=f)
         for unit in units:
             print(unit.group.area.name,
-                unit.group.name,
-                unit.plant_key_name,
-                unit.unit_key_name,
-                unit.type_.name,
-                unit.name,
-                unit.power,
-                sep=',', file=f)
+                  unit.group.name,
+                  unit.plant_key_name,
+                  unit.unit_key_name,
+                  unit.type_.name,
+                  unit.name,
+                  unit.power,
+                  sep=',', file=f)

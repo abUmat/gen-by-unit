@@ -105,28 +105,37 @@ def subplot(group: model.Group,
     # 場所指定
     plt.subplot(const.GRAPH_ROW_CNT, const.GRAPH_COL_CNT, position)
 
-    plt.title(group.name, fontproperties=fp)
+    plt.title(group.name, fontproperties=fp, fontsize=const.GRAPH_TITLE_FONT_SIZE)
 
     # 発電だけに凡例をつけたいのでちょっと工夫
     # 発電 -> 認可出力の順にプロットしたいので一旦集計
     generations = []
+    colors = []
     power_limits = []
     legends = []
-    for p in plants:
-        if p.group != group: continue
-        for u in units:
-            if u.plant != p: continue
-            generations.append(gen_by_unit[u])
-            # unit.powerは万kWなのでMWに変換
-            power_limits.append([u.power * 1e4 * 1e-3] * 48)
-            legends.append(u.name)
-    for g in generations:
-        plt.plot(g)
+    for u in units:
+        if u.group != group: continue
+        generations.append(gen_by_unit[u])
+        # color 燃料別 かぶらないように
+        for c in u.type_.fuel().colors().value:
+            if c not in colors:
+                colors.append(c)
+                break
+        # unit.powerは万kWなのでMWに変換
+        power_limits.append([u.power * 1e4 * 1e-3] * 48)
+        legends.append(f'{u.name}({u.type_.to_str()})')
+    for g, c in zip(generations, colors):
+        plt.plot(g, color=c, linewidth=3)
     for pl in power_limits:
-        plt.plot(pl)
+        plt.plot(pl, '-.', color='grey')
 
+    mx = 0
+    for g in generations:
+        mx = max(mx, max(g, default=0))
+    for pl in power_limits:
+        mx = max(mx, max(pl, default=0))
     plt.ylabel('MW')
-    plt.ylim(bottom=0)
+    plt.ylim(bottom=0, top=mx * 1.05)
 
     plt.xlim((-1, 48))
     plt.xticks([0, 12, 24, 36, 47], ['00:00', '06:00', '12:00', '18:00', '24:00'])

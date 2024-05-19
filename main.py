@@ -42,7 +42,7 @@ if __name__ == '__main__':
             path = f'{const.IMG_PATH}/{img_cnt:02}.png'
             # 画像設定
             plt.figure(figsize=const.IMG_SIZE)
-            plt.subplots_adjust(left=0.03, right=0.95, bottom=0.05, top=0.93, wspace=0.4)
+            plt.subplots_adjust(left=0.03, right=0.92, bottom=0.05, top=0.90, wspace=0.45, hspace=0.3)
 
             # グラフ描画
             for j, group in enumerate(target_groups[i * const.GRAPH_CNT_IN_IMG: (i + 1) * const.GRAPH_CNT_IN_IMG]):
@@ -51,7 +51,7 @@ if __name__ == '__main__':
 
                 lib.subplot(group, units, gen_by_unit, position, const.IPA_GOTHIC_FONT_PATH)
             # 画像保存
-            plt.suptitle(area.area_name(), fontproperties=fm.FontProperties(fname=const.IPA_GOTHIC_FONT_PATH))
+            plt.suptitle(area.to_str(), fontproperties=fm.FontProperties(fname=const.IPA_GOTHIC_FONT_PATH), fontsize=const.GRAPH_SUPTITLE_FONT_SIZE)
             plt.savefig(path)
             plt.close()
             lib.add_citation(path, const.IPA_GOTHIC_FONT_PATH)

@@ -132,12 +132,10 @@ def subplot(group: model.Group,
     plt.xticks([0, 12, 24, 36, 47], ['00:00', '06:00', '12:00', '18:00', '24:00'])
 
     # 凡例
-    if legends and legends[0]:
-        plt.legend(legends,
-                   loc='lower left',
-                   bbox_to_anchor=(1, 0),
-                   ncol=(len(legends) + const.SUBPLOT_LEGENDS_ROW_CNT - 1) // const.SUBPLOT_LEGENDS_ROW_CNT,
-                   prop=fp)
+    plt.legend(legends,
+               loc='lower left',
+               bbox_to_anchor=(1, 0),
+               prop=fp)
 
 def add_citation(img_path: str, font_path: str) -> None:
     '''

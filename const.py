@@ -16,11 +16,11 @@ UNITS_CSV_PATH = './plant_data/units.csv'
 JOINED_CSV_PATH = './plant_data/joined.csv'
 
 GRAPH_ROW_CNT = 4
-GRAPH_COL_CNT = 4
+GRAPH_COL_CNT = 3
 GRAPH_CNT_IN_IMG = GRAPH_ROW_CNT * GRAPH_COL_CNT
 IMG_SIZE = (24, 13.5)
-
-SUBPLOT_LEGENDS_ROW_CNT = 12
+GRAPH_SUPTITLE_FONT_SIZE = 24
+GRAPH_TITLE_FONT_SIZE = 18
 
 IMG_PATH = './img'
 
@@ -29,6 +29,44 @@ TWITTER_MEDIA_CNT_PER_TWEET = 4
 
 OCCTO_CITATION = '電力広域的運営推進機関 ユニット別発電実績公開システム より 作成'
 OCCTO_CITATION_FONT_SIZE = 24
+
+class GraphColors(Enum):
+    NUCLEAR_COLORS = ('#708090',
+                      '#696969',
+                      '#808080',
+                      '#A9A9A9',
+                      '#C0C0C0',
+                      '#D3D3D3',
+                      '#DCDCDC')
+
+    HYDRO_COLORS = ('#0000FF',
+                    '#ADD8E6',
+                    '#00FFFF',
+                    '#5F9EA0',
+                    '#AFEEEE',
+                    '#4682B4')
+
+    COAL_COLORS = ('#4B3621',
+                   '#8B4513',
+                   '#A0522D',
+                   '#D2B48C',
+                   '#8B7355')
+
+    LNG_COLORS = ('#FF0000',
+                  '#FFA500',
+                  '#FF69B4',
+                  '#FF4500',
+                  '#CD5C5C',
+                  '#DAA520',
+                  '#FF8C00',
+                  '#FFA07A')
+
+    OIL_COLORS = ('#32CD32',
+                  '#9ACD32',
+                  '#7FFF00')
+
+    OTHER_COLORS = ('#000000',
+                    '#757575')
 
 class Area(Enum):
     '''
@@ -44,7 +82,7 @@ class Area(Enum):
     SHIKOKU = 8
     KYUSHU = 9
     OKINAWA = 10
-    def area_name(self):
+    def to_str(self):
         match self:
             case Area.HOKKAIDO:
                 return '北海道エリア'
@@ -89,6 +127,20 @@ class FuelType(Enum):
     '太陽光太陽熱'
     OTHER = 9
     'その他(不明含む)'
+    def colors(self) -> GraphColors:
+        match self:
+            case FuelType.NUCLEAR:
+                return GraphColors.NUCLEAR_COLORS
+            case FuelType.HYDRO:
+                return GraphColors.HYDRO_COLORS
+            case FuelType.COAL:
+                return GraphColors.COAL_COLORS
+            case FuelType.LNG:
+                return GraphColors.LNG_COLORS
+            case FuelType.OIL:
+                return GraphColors.OIL_COLORS
+            case FuelType.GEOTHERMAL | FuelType.WIND | FuelType.SOLAR | FuelType.OTHER:
+                return GraphColors.OTHER_COLORS
 
 class UnitType(Enum):
     '''
@@ -154,3 +206,45 @@ class UnitType(Enum):
                 return FuelType.SOLAR
             case UnitType.OTHER:
                 return FuelType.OTHER
+
+    def to_str(self) -> str:
+        '''
+        文字列に変換する
+        '''
+        match self:
+            case UnitType.NUCLEAR:
+                return '原子力'
+            case UnitType.HYDRO:
+                return '一般水力'
+            case UnitType.PUMPED:
+                return '純揚水'
+            case UnitType.HYBRID_PUMPED:
+                return '混合揚水'
+            case UnitType.COAL:
+                return '石炭'
+            case UnitType.SUB_C:
+                return 'SUB-C'
+            case UnitType.SC:
+                return 'SC'
+            case UnitType.USC:
+                return 'USC'
+            case UnitType.LNG:
+                return 'LNG汽力'
+            case UnitType.CC:
+                return 'CC'
+            case UnitType.ACC:
+                return 'ACC'
+            case UnitType.MACC:
+                return 'MACC'
+            case UnitType.MACC2:
+                return 'MACCⅡ'
+            case UnitType.OIL:
+                return '石油汽力'
+            case UnitType.GEOTHERMAL:
+                return '地熱'
+            case UnitType.WIND:
+                return '風力'
+            case UnitType.SOLAR:
+                return '太陽光'
+            case UnitType.OTHER:
+                return 'その他'

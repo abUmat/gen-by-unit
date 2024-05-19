@@ -7,14 +7,10 @@ class Group:
     name: str
 
 @dataclass(frozen=True)
-class Plant:
-    group: Group
-    key: str
-
-@dataclass(frozen=True)
 class Unit:
-    key: str
-    plant: Plant
+    group: Group
+    plant_key_name: str
+    unit_key_name: str
     type_: const.UnitType
     name: str
     power: float

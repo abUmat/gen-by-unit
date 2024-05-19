@@ -56,39 +56,31 @@ def get_groups() -> list[model.Group]:
         records = [row.strip().split(',') for row in rows]
     return [model.Group(const.Area(int(area)), name) for area, name in records]
 
-def get_plants() -> list[model.Plant]:
-    '''
-    groups.csvとplants.csvのデータを結合し, Plantのリストとして返す\n
-    select * from plants\n
-    inner join groups on plants.group_id = groups.id\n
-    のイメージ
-    '''
-    with open(const.PLANTS_CSV_PATH) as f:
-        rows = f.readlines()
-        rows.pop(0) # delete header
-        records = [row.strip().split(',') for row in rows]
-    groups = get_groups()
-    return [model.Plant(groups[int(group_id) - 1], key) for group_id, key in records]
 
 def get_units() -> list[model.Unit]:
     '''
-    units.csvとplants.csvとgroups.csvのデータを結合し, Unitのリストとして返す\n
+    units.csvとgroups.csvのデータを結合し, Unitのリストとして返す\n
     select * from units\n
-    inner join plants on units.plant_id = plants.id\n
-    inner join groups on plants.group_id = groups.id\n
+    inner join groups on units.group_id = groups.id\n
     のイメージ
     '''
     with open(const.UNITS_CSV_PATH) as f:
         rows = f.readlines()
         rows.pop(0) # delete header
         records = [row.strip().split(',') for row in rows]
-    plants = get_plants()
-    return [model.Unit(key,
-                       plants[int(plant_id) - 1],
+    groups = get_groups()
+    return [model.Unit(groups[int(group_id) - 1],
+                       plant_key_name,
+                       unit_key_name,
                        const.UnitType(int(type_)),
                        name,
                        float(power))
-            for plant_id, key, type_, name, power in records]
+            for group_id,
+                plant_key_name,
+                unit_key_name,
+                type_,
+                name,
+                power in records]
 
 def unit_dict(units: list[model.Unit]) -> dict[tuple[str, str], model.Unit]:
     '''
@@ -96,57 +88,63 @@ def unit_dict(units: list[model.Unit]) -> dict[tuple[str, str], model.Unit]:
     '''
     ret = {}
     for unit in units:
-        key = unit.plant.key, unit.key
+        key = unit.plant_key_name, unit.unit_key_name
         ret[key] = unit
     return ret
 
 def subplot(group: model.Group,
-            plants: list[model.Plant],
             units: list[model.Unit],
             gen_by_unit: dict[tuple[str, str], model.Unit],
             position: int,
             font_path: str) -> None:
     '''
-    groupに所属するplant, unitの発電量と認可出力をpositionで指定した位置にsubplotする
+    groupに所属するunitの発電量と認可出力をpositionで指定した位置にsubplotする
     '''
     # font
     fp = FontProperties(fname=font_path)
     # 場所指定
     plt.subplot(const.GRAPH_ROW_CNT, const.GRAPH_COL_CNT, position)
 
-    plt.title(group.name, fontproperties=fp)
+    plt.title(group.name, fontproperties=fp, fontsize=const.GRAPH_TITLE_FONT_SIZE)
 
     # 発電だけに凡例をつけたいのでちょっと工夫
     # 発電 -> 認可出力の順にプロットしたいので一旦集計
     generations = []
+    colors = []
     power_limits = []
     legends = []
-    for p in plants:
-        if p.group != group: continue
-        for u in units:
-            if u.plant != p: continue
-            generations.append(gen_by_unit[u])
-            # unit.powerは万kWなのでMWに変換
-            power_limits.append([u.power * 1e4 * 1e-3] * 48)
-            legends.append(u.name)
-    for g in generations:
-        plt.plot(g)
+    for u in units:
+        if u.group != group: continue
+        generations.append(gen_by_unit[u])
+        # color 燃料別 かぶらないように
+        for c in u.type_.fuel().colors().value:
+            if c not in colors:
+                colors.append(c)
+                break
+        # unit.powerは万kWなのでMWに変換
+        power_limits.append([u.power * 1e4 * 1e-3] * 48)
+        legends.append(f'{u.name}({u.type_.to_str()})')
+    for g, c in zip(generations, colors):
+        plt.plot(g, color=c, linewidth=3)
     for pl in power_limits:
-        plt.plot(pl)
+        plt.plot(pl, '-.', color='grey')
 
+    mx = 0
+    for g in generations:
+        mx = max(mx, max(g, default=0))
+    for pl in power_limits:
+        mx = max(mx, max(pl, default=0))
     plt.ylabel('MW')
-    plt.ylim(bottom=0)
+    plt.ylim(bottom=0, top=mx * 1.05)
 
     plt.xlim((-1, 48))
     plt.xticks([0, 12, 24, 36, 47], ['00:00', '06:00', '12:00', '18:00', '24:00'])
 
     # 凡例
-    if legends and legends[0]:
-        plt.legend(legends,
-                   loc='lower left',
-                   bbox_to_anchor=(1, 0),
-                   ncol=(len(legends) + const.SUBPLOT_LEGENDS_ROW_CNT - 1) // const.SUBPLOT_LEGENDS_ROW_CNT,
-                   prop=fp)
+    plt.legend(legends,
+               loc='lower left',
+               bbox_to_anchor=(1, 0),
+               prop=fp)
 
 def add_citation(img_path: str, font_path: str) -> None:
     '''

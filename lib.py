@@ -56,39 +56,31 @@ def get_groups() -> list[model.Group]:
         records = [row.strip().split(',') for row in rows]
     return [model.Group(const.Area(int(area)), name) for area, name in records]
 
-def get_plants() -> list[model.Plant]:
-    '''
-    groups.csvとplants.csvのデータを結合し, Plantのリストとして返す\n
-    select * from plants\n
-    inner join groups on plants.group_id = groups.id\n
-    のイメージ
-    '''
-    with open(const.PLANTS_CSV_PATH) as f:
-        rows = f.readlines()
-        rows.pop(0) # delete header
-        records = [row.strip().split(',') for row in rows]
-    groups = get_groups()
-    return [model.Plant(groups[int(group_id) - 1], key) for group_id, key in records]
 
 def get_units() -> list[model.Unit]:
     '''
-    units.csvとplants.csvとgroups.csvのデータを結合し, Unitのリストとして返す\n
+    units.csvとgroups.csvのデータを結合し, Unitのリストとして返す\n
     select * from units\n
-    inner join plants on units.plant_id = plants.id\n
-    inner join groups on plants.group_id = groups.id\n
+    inner join groups on units.group_id = groups.id\n
     のイメージ
     '''
     with open(const.UNITS_CSV_PATH) as f:
         rows = f.readlines()
         rows.pop(0) # delete header
         records = [row.strip().split(',') for row in rows]
-    plants = get_plants()
-    return [model.Unit(key,
-                       plants[int(plant_id) - 1],
+    groups = get_groups()
+    return [model.Unit(groups[int(group_id) - 1],
+                       plant_key_name,
+                       unit_key_name,
                        const.UnitType(int(type_)),
                        name,
                        float(power))
-            for plant_id, key, type_, name, power in records]
+            for group_id,
+                plant_key_name,
+                unit_key_name,
+                type_,
+                name,
+                power in records]
 
 def unit_dict(units: list[model.Unit]) -> dict[tuple[str, str], model.Unit]:
     '''
@@ -96,18 +88,17 @@ def unit_dict(units: list[model.Unit]) -> dict[tuple[str, str], model.Unit]:
     '''
     ret = {}
     for unit in units:
-        key = unit.plant.key, unit.key
+        key = unit.plant_key_name, unit.unit_key_name
         ret[key] = unit
     return ret
 
 def subplot(group: model.Group,
-            plants: list[model.Plant],
             units: list[model.Unit],
             gen_by_unit: dict[tuple[str, str], model.Unit],
             position: int,
             font_path: str) -> None:
     '''
-    groupに所属するplant, unitの発電量と認可出力をpositionで指定した位置にsubplotする
+    groupに所属するunitの発電量と認可出力をpositionで指定した位置にsubplotする
     '''
     # font
     fp = FontProperties(fname=font_path)

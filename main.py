@@ -15,7 +15,6 @@ def setup():
 if __name__ == '__main__':
     setup()
     groups = lib.get_groups()
-    plants = lib.get_plants()
     units = lib.get_units()
     unit_dict = lib.unit_dict(units)
 
@@ -50,7 +49,7 @@ if __name__ == '__main__':
                 # 画像内の場所指定 matplotlibでは, 左上から横向きに順番付けされているが, 縦に並べたいので適当に変換する
                 position = (j % const.GRAPH_ROW_CNT) * const.GRAPH_COL_CNT + j // const.GRAPH_ROW_CNT + 1
 
-                lib.subplot(group, plants, units, gen_by_unit, position, const.IPA_GOTHIC_FONT_PATH)
+                lib.subplot(group, units, gen_by_unit, position, const.IPA_GOTHIC_FONT_PATH)
             # 画像保存
             plt.suptitle(area.area_name(), fontproperties=fm.FontProperties(fname=const.IPA_GOTHIC_FONT_PATH))
             plt.savefig(path)

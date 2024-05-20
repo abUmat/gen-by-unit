@@ -31,12 +31,24 @@ if __name__ == '__main__':
         gen_by_unit[u].append(m.measurements * 2 * 1e-3)
 
     img_cnt = 0
+    # ツイートするテキストと画像
+    all_text_s: list[str] = []
+    all_images_s: list[list[str]] = []
 
     for area in const.Area:
         target_groups = [g for g in groups if g.area == area]
 
         # 今回ループのエリアの画像枚数 切り上げる
         img_cnt_per_area = (len(target_groups) + const.GRAPH_CNT_IN_IMG - 1) // const.GRAPH_CNT_IN_IMG
+
+        # ツイート内容
+        text_s: list[str] = []
+        images_s: list[list[str]] = []
+        for i in range(0, img_cnt_per_area, 4):
+            text_s.append(f'{area.to_str()} {frm.isoformat()}のユニット別発電実績{f"その{i // 4 + 1}" if i else ""}')
+            images_s.append([f'{const.IMG_PATH}/{img_cnt + j:02}.png' for j in range(i, min(img_cnt_per_area, i + 4))])
+        all_text_s += text_s
+        all_images_s += images_s
 
         for i in range(img_cnt_per_area):
             path = f'{const.IMG_PATH}/{img_cnt:02}.png'
@@ -58,8 +70,5 @@ if __name__ == '__main__':
             img_cnt += 1
 
     # tweet
-    text_s = [f'{frm.isoformat()}のユニット別発電実績']
-    images = [f'{const.IMG_PATH}/{i:02}.png' for i in range(img_cnt)] # 全画像のパス
-    media_paths_s = [images[i: i + const.TWITTER_MEDIA_CNT_PER_TWEET] for i in range(0, img_cnt, const.TWITTER_MEDIA_CNT_PER_TWEET)] # 4枚ごとのリストに変換
     client = tweepy_client.TweepyClient(const.TWITTER_API_CONFIG_FILE_PATH)
-    client.tweet_many(text_s, media_paths_s)
+    client.tweet_many(all_text_s, all_images_s)

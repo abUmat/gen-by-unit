@@ -17,14 +17,18 @@ class TweepyClient:
         auth.set_access_token(config['twitter']['accessToken'],
                               config['twitter']['accessTokenSecret'])
         self.api = tweepy.API(auth)
-    def tweet(self, text: str, media_paths: list[str]=[]) -> None:
+    def tweet(self, text: str, media_paths: list[str]=[], in_reply_to_tweet_id: str='') -> str:
         '''
-        1件ツイートする
+        1件ツイートしTweetIDを返す
         '''
         if not media_paths:
-            self.client.create_tweet(text=text)
+            if in_reply_to_tweet_id:
+                return self.client.create_tweet(text=text, in_reply_to_tweet_id=in_reply_to_tweet_id).data['id']
+            return self.client.create_tweet(text=text).data['id']
         media = [self.api.media_upload(filename=media_path) for media_path in media_paths]
-        self.client.create_tweet(text=text, media_ids=[m.media_id for m in media])
+        if in_reply_to_tweet_id:
+            return self.client.create_tweet(text=text, media_ids=[m.media_id for m in media], in_reply_to_tweet_id=in_reply_to_tweet_id).data['id']
+        return self.client.create_tweet(text=text, media_ids=[m.media_id for m in media]).data['id']
     def tweet_many(self, text_s: list[str], media_paths_s: list[list[str]]) -> None:
         '''
         連続ツイートする
@@ -36,5 +40,6 @@ class TweepyClient:
             text_s.append('')
         while len(media_paths_s) < len(text_s):
             media_paths_s.append([])
+        in_reply_to_tweet_id = ''
         for text, media_paths in zip(text_s, media_paths_s):
-            self.tweet(text, media_paths)
+            in_reply_to_tweet_id = self.tweet(text, media_paths, in_reply_to_tweet_id)

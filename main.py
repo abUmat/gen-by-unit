@@ -44,9 +44,9 @@ if __name__ == '__main__':
         # ツイート内容
         text_s: list[str] = []
         images_s: list[list[str]] = []
-        for i in range(0, img_cnt_per_area, 4):
-            text_s.append(f'{area.to_str()} {frm.isoformat()}のユニット別発電実績{f"その{i // 4 + 1}" if i else ""}')
-            images_s.append([f'{const.IMG_PATH}/{img_cnt + j:02}.png' for j in range(i, min(img_cnt_per_area, i + 4))])
+        for i in range(0, img_cnt_per_area, const.TWITTER_MEDIA_CNT_PER_TWEET):
+            text_s.append(f'{area.to_str()} {frm.isoformat()}のユニット別発電実績{f"その{i // const.TWITTER_MEDIA_CNT_PER_TWEET + 1}" if i else ""}')
+            images_s.append([f'{const.IMG_PATH}/{img_cnt + j:02}.png' for j in range(i, min(img_cnt_per_area, i + const.TWITTER_MEDIA_CNT_PER_TWEET))])
         all_text_s += text_s
         all_images_s += images_s
 

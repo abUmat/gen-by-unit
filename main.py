@@ -62,4 +62,4 @@ if __name__ == '__main__':
     images = [f'{const.IMG_PATH}/{i:02}.png' for i in range(img_cnt)] # 全画像のパス
     media_paths_s = [images[i: i + const.TWITTER_MEDIA_CNT_PER_TWEET] for i in range(0, img_cnt, const.TWITTER_MEDIA_CNT_PER_TWEET)] # 4枚ごとのリストに変換
     client = tweepy_client.TweepyClient(const.TWITTER_API_CONFIG_FILE_PATH)
-    # client.tweet_many(text_s, media_paths_s)
+    client.tweet_many(text_s, media_paths_s)

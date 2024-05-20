@@ -10,6 +10,7 @@ OCCTOの[ユニット別発電実績公開システム](https://hatsuden-kokai.o
 - [ライセンス](#ライセンス)
 - [作者](#作者)
 - [参考](#参考)
+- [お願い](#お願い)
 
 ## 概要
 
@@ -55,3 +56,7 @@ TwitterAPIの登録を行い, 認証情報を `./config.json` に保存する. `
 
 - [北海道電力_主な水力発電所](https://www.hepco.co.jp/energy/water_power/hydroelectric_ps.html)(2024-05-18時点)
 - [水力ドットコム_日本の水力発電所](http://www.suiryoku.com/)(2024-05-18時点)
+
+## お願い
+
+発電方式について間違いがあった場合は教えていただけると幸いです（TwitterDMでもIssueでも）。

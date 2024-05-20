@@ -127,6 +127,8 @@ class FuelType(Enum):
     '太陽光太陽熱'
     OTHER = 9
     'その他(不明含む)'
+    BIOMASS = 10
+    'バイオマス'
     def colors(self) -> GraphColors:
         match self:
             case FuelType.NUCLEAR:
@@ -139,7 +141,7 @@ class FuelType(Enum):
                 return GraphColors.LNG_COLORS
             case FuelType.OIL:
                 return GraphColors.OIL_COLORS
-            case FuelType.GEOTHERMAL | FuelType.WIND | FuelType.SOLAR | FuelType.OTHER:
+            case FuelType.GEOTHERMAL | FuelType.WIND | FuelType.SOLAR | FuelType.OTHER | FuelType.BIOMASS:
                 return GraphColors.OTHER_COLORS
 
 class UnitType(Enum):
@@ -182,6 +184,8 @@ class UnitType(Enum):
     '太陽光太陽熱'
     OTHER = 90
     'その他(不明含む)'
+    BIOMASS = 91
+    'バイオマス'
 
     def fuel(self) -> FuelType:
         '''
@@ -206,6 +210,8 @@ class UnitType(Enum):
                 return FuelType.SOLAR
             case UnitType.OTHER:
                 return FuelType.OTHER
+            case UnitType.BIOMASS:
+                return FuelType.BIOMASS
 
     def to_str(self) -> str:
         '''
@@ -248,3 +254,5 @@ class UnitType(Enum):
                 return '太陽光'
             case UnitType.OTHER:
                 return 'その他'
+            case UnitType.BIOMASS:
+                return 'バイオマス'

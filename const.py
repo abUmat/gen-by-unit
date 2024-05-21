@@ -1,4 +1,7 @@
 from enum import Enum
+from datetime import timezone, timedelta
+
+JST = timezone(timedelta(hours=+9), 'JST')
 
 BASE_URL = 'https://hatsuden-kokai.occto.or.jp/hks-web-public'
 DISCLAIMER_ENDPOINT = '/disclaimer-agree/next'
@@ -27,6 +30,7 @@ IMG_PATH = './img'
 TWITTER_API_CONFIG_FILE_PATH = './config.json'
 TWITTER_MEDIA_CNT_PER_TWEET = 4
 
+OCCTO_REQUEST_HOUR_TH = 16
 OCCTO_CITATION = '電力広域的運営推進機関 ユニット別発電実績公開システム より 作成'
 OCCTO_CITATION_FONT_SIZE = 24
 

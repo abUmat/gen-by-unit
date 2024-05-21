@@ -1,12 +1,9 @@
-from datetime import datetime, timedelta, timezone
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 from collections import defaultdict
 from os import makedirs
 from shutil import rmtree
 import lib, const, tweepy_client
-
-JST = timezone(timedelta(hours=+9), 'JST')
 
 def setup():
     rmtree(const.IMG_PATH, ignore_errors=True)
@@ -18,7 +15,7 @@ if __name__ == '__main__':
     units = lib.get_units()
     unit_dict = lib.unit_dict(units)
 
-    frm = to = datetime.now(JST).date() - timedelta(days=2)
+    frm = to = lib.get_request_date_param_by_time()
     measurements = lib.get_measurements(frm, to)
     # 測定日時の順で発電量をソート
     measurements.sort(key=lambda x: x.measured_at)

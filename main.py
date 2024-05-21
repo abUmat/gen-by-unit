@@ -77,7 +77,7 @@ def main():
 
     # tweet
     client = tweepy_client.TweepyClient(const.TWITTER_API_CONFIG_FILE_PATH)
-    # client.tweet_many(all_text_s, all_images_s)
+    client.tweet_many(all_text_s, all_images_s)
     txt = '\n\t\t\t\t' + '\n\t\t\t\t'.join([f'{text} with image {img}' for text, img in zip(all_text_s, all_images_s)])
     logger.info(f'Successfully tweeted message {txt}')
 

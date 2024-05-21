@@ -118,7 +118,7 @@ def unit_dict(units: list[model.Unit]) -> dict[tuple[str, str], model.Unit]:
 
 def subplot(group: model.Group,
             units: list[model.Unit],
-            gen_by_unit: dict[tuple[str, str], model.Unit],
+            gen_by_unit: dict[model.Unit, list[float]],
             position: int,
             font_path: str) -> None:
     '''
@@ -156,10 +156,8 @@ def subplot(group: model.Group,
         plt.plot(pl, '-.', color='grey')
 
     mx = 0
-    for g in generations:
-        mx = max(mx, max(g, default=0))
-    for pl in power_limits:
-        mx = max(mx, max(pl, default=0))
+    for g in generations: mx = max(mx, max(g))
+    for pl in power_limits: mx = max(mx, max(pl))
     plt.ylabel('MW')
     plt.ylim(bottom=0, top=mx * 1.05)
 

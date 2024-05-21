@@ -21,7 +21,7 @@ if __name__ == '__main__':
     measurements.sort(key=lambda x: x.measured_at)
 
     # ユニットごとに48コマ発電を入れる
-    gen_by_unit = defaultdict(list)
+    gen_by_unit: defaultdict[model.Unit, list[float]] = defaultdict(list)
     for m in measurements:
         try:
             u = unit_dict[(m.plant_key_name, m.unit_key_name)]

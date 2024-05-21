@@ -21,14 +21,18 @@ class TweepyClient:
         '''
         1件ツイートしTweetIDを返す
         '''
-        if not media_paths:
+        if media_paths:
+            media = [self.api.media_upload(filename=media_path) for media_path in media_paths]
             if in_reply_to_tweet_id:
-                return self.client.create_tweet(text=text, in_reply_to_tweet_id=in_reply_to_tweet_id).data['id']
-            return self.client.create_tweet(text=text).data['id']
-        media = [self.api.media_upload(filename=media_path) for media_path in media_paths]
-        if in_reply_to_tweet_id:
-            return self.client.create_tweet(text=text, media_ids=[m.media_id for m in media], in_reply_to_tweet_id=in_reply_to_tweet_id).data['id']
-        return self.client.create_tweet(text=text, media_ids=[m.media_id for m in media]).data['id']
+                resp = self.client.create_tweet(text=text, media_ids=[m.media_id for m in media], in_reply_to_tweet_id=in_reply_to_tweet_id)
+            else:
+                resp = self.client.create_tweet(text=text, media_ids=[m.media_id for m in media])
+        else:
+            if in_reply_to_tweet_id:
+                resp = self.client.create_tweet(text=text, in_reply_to_tweet_id=in_reply_to_tweet_id)
+            else:
+                resp = self.client.create_tweet(text=text)
+        return resp.data['id']
     def tweet_many(self, text_s: list[str], media_paths_s: list[list[str]]) -> None:
         '''
         連続ツイートする

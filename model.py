@@ -22,3 +22,15 @@ class Measurements:
     measured_at: int
     measurements: int
     updated_at: int
+
+class CSVParseError(Exception):
+    """CSVファイルの解析中にエラーが発生した場合に使用するカスタム例外"""
+    def __init__(self, message, line_number=None):
+        self.message = message
+        self.line_number = line_number
+        super().__init__(self.message)
+
+    def __str__(self):
+        if self.line_number is not None:
+            return f"{self.message} (line {self.line_number})"
+        return self.message

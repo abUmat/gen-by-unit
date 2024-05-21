@@ -3,27 +3,33 @@ import matplotlib.font_manager as fm
 from collections import defaultdict
 from os import makedirs
 from shutil import rmtree
-import lib, const, tweepy_client
+import requests
+import json
+import lib, const, model, tweepy_client
+from log_config import logger
 
-def setup():
+
+def main():
     rmtree(const.IMG_PATH, ignore_errors=True)
     makedirs(const.IMG_PATH, exist_ok=True)
-
-if __name__ == '__main__':
-    setup()
     groups = lib.get_groups()
     units = lib.get_units()
     unit_dict = lib.unit_dict(units)
 
     frm = to = lib.get_request_date_param_by_time()
+    logger.info(f'from: {frm.isoformat()}, to: {to.isoformat()}')
     measurements = lib.get_measurements(frm, to)
+    logger.info('Measurement data retrieval completed successfully.')
     # 測定日時の順で発電量をソート
     measurements.sort(key=lambda x: x.measured_at)
 
     # ユニットごとに48コマ発電を入れる
-    gen_by_unit = defaultdict(list)
+    gen_by_unit: defaultdict[model.Unit, list[float]] = defaultdict(list)
     for m in measurements:
-        u = unit_dict[(m.plant_key_name, m.unit_key_name)]
+        try:
+            u = unit_dict[(m.plant_key_name, m.unit_key_name)]
+        except Exception as e:
+            raise e
         # mはkWh/30minなのでMWに変換
         gen_by_unit[u].append(m.measurements * 2 * 1e-3)
 
@@ -62,10 +68,50 @@ if __name__ == '__main__':
             # 画像保存
             plt.suptitle(area.to_str(), fontproperties=fm.FontProperties(fname=const.IPA_GOTHIC_FONT_PATH), fontsize=const.GRAPH_SUPTITLE_FONT_SIZE)
             plt.savefig(path)
+            logger.info(f'Image successfully saved to {path}')
             plt.close()
+
             lib.add_citation(path, const.IPA_GOTHIC_FONT_PATH)
+            logger.info(f'Successfully added attribution to {path}')
             img_cnt += 1
 
     # tweet
     client = tweepy_client.TweepyClient(const.TWITTER_API_CONFIG_FILE_PATH)
     client.tweet_many(all_text_s, all_images_s)
+    txt = '\n\t\t\t\t' + '\n\t\t\t\t'.join([f'{text} with image {img}' for text, img in zip(all_text_s, all_images_s)])
+    logger.info(f'Successfully tweeted message {txt}')
+
+def handler(event, context):
+    try:
+        main()
+        return {
+            'statusCode': 200,
+            'body': json.dumps({
+                'message': 'Request successful'
+            })
+        }
+    except requests.exceptions.RequestException as e:
+        return {
+            'statusCode': 400,
+            'body': json.dumps({
+                'error': e
+            })
+        }
+    except model.CSVParseError as e:
+        return {
+            'statusCode': 502,
+            'body': json.dumps({
+                'error': e
+            })
+        }
+    except Exception as e:
+        return {
+            'statusCode': 500,
+            'body': json.dumps({
+                'error': e
+            })
+        }
+
+if __name__ == '__main__':
+    handler(None, None)
+

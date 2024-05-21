@@ -34,24 +34,40 @@ def get_measurements(target_date_from: date, target_date_to: date) -> list[model
     session = requests.session()
 
     # sessionの履歴のために無駄打ちリクエストを2回
-    if not session.post(const.BASE_URL + const.DISCLAIMER_ENDPOINT, params={'agreed': 0}).ok: exit()
-    if not session.post(const.BASE_URL + const.SEARCH_ENDPOINT, files=form_data).ok: exit()
+    try:
+        session.post(const.BASE_URL + const.DISCLAIMER_ENDPOINT, params={'agreed': 0}).raise_for_status()
+    except Exception as e:
+        raise e
+    try:
+        session.post(const.BASE_URL + const.SEARCH_ENDPOINT, files=form_data).raise_for_status()
+    except Exception as e:
+        raise e
 
     # csv取得
-    response = session.get(const.BASE_URL + const.DOWNLOAD_ENDPOINT, params=params)
-    firstloop = True # for skipping header
+    try:
+        response = session.get(const.BASE_URL + const.DOWNLOAD_ENDPOINT, params=params)
+        response.raise_for_status()
+    except Exception as e:
+        raise e
     ret = []
-    for row in response.text.split('\n'):
+    for i, row in enumerate(response.text.split('\n')):
         if len(row) == 0: break # last row
-        if firstloop: # skip header
-            firstloop = False
+        if not i: # skip header
             continue
-        _, _, plant_name, unit_name, _, dt, *measurements_s, _, updated_at = [x.strip().strip('"') for x in row.split(',')]
-        measurements = [int(x) if x else 0 for x in measurements_s] # str to int
+        splited = row.split(',')
+        if len(splited) != 56:
+            raise model.CSVParseError(f'column missing in csv file', i)
 
-        dt = int(datetime.strptime(dt, const.DATE_FORMAT_SLASHED).timestamp())
-        delta = timedelta(minutes=30).seconds
-        updated_at = int(datetime.strptime(updated_at, const.DATETIME_FORMAT_SLASHED).timestamp())
+        _, _, plant_name, unit_name, _, dt, *measurements_s, _, updated_at = [x.strip().strip('"') for x in splited]
+
+        try:
+            measurements = [int(x) if x else 0 for x in measurements_s] # str to int
+            dt = int(datetime.strptime(dt, const.DATE_FORMAT_SLASHED).timestamp())
+            delta = timedelta(minutes=30).seconds
+            updated_at = int(datetime.strptime(updated_at, const.DATETIME_FORMAT_SLASHED).timestamp())
+        except Exception as e:
+            raise model.CSVParseError(f'row contents is not expected: {row}', i)
+
         ret += [model.Measurements(plant_name, unit_name, dt + i * delta, m, updated_at) for i, m in enumerate(measurements)]
     return ret
 
@@ -64,7 +80,6 @@ def get_groups() -> list[model.Group]:
         rows.pop(0) # delete header
         records = [row.strip().split(',') for row in rows]
     return [model.Group(const.Area(int(area)), name) for area, name in records]
-
 
 def get_units() -> list[model.Unit]:
     '''
@@ -103,7 +118,7 @@ def unit_dict(units: list[model.Unit]) -> dict[tuple[str, str], model.Unit]:
 
 def subplot(group: model.Group,
             units: list[model.Unit],
-            gen_by_unit: dict[tuple[str, str], model.Unit],
+            gen_by_unit: dict[model.Unit, list[float]],
             position: int,
             font_path: str) -> None:
     '''
@@ -124,12 +139,14 @@ def subplot(group: model.Group,
     legends = []
     for u in units:
         if u.group != group: continue
-        generations.append(gen_by_unit[u])
+        generations.append(gen_by_unit.get(u, [0] * 48))
         # color 燃料別 かぶらないように
         for c in u.type_.fuel().colors().value:
             if c not in colors:
                 colors.append(c)
                 break
+        else:
+            raise Exception('The number of colors is not sufficient.')
         # unit.powerは万kWなのでMWに変換
         power_limits.append([u.power * 1e4 * 1e-3] * 48)
         legends.append(f'{u.name}:{u.type_.to_str()}')
@@ -139,10 +156,8 @@ def subplot(group: model.Group,
         plt.plot(pl, '-.', color='grey')
 
     mx = 0
-    for g in generations:
-        mx = max(mx, max(g, default=0))
-    for pl in power_limits:
-        mx = max(mx, max(pl, default=0))
+    for g in generations: mx = max(mx, max(g))
+    for pl in power_limits: mx = max(mx, max(pl))
     plt.ylabel('MW')
     plt.ylim(bottom=0, top=mx * 1.05)
 

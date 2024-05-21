@@ -5,6 +5,15 @@ from matplotlib.font_manager import FontProperties
 from PIL import Image, ImageDraw, ImageFont
 import const, model
 
+def get_request_date_param_by_time() -> date:
+    '''
+    現在時刻によってリクエスト日を決定する
+    '''
+    now = datetime.now(const.JST)
+    if now.hour >= const.OCCTO_REQUEST_HOUR_TH:
+        return now.date() - timedelta(days=1)
+    return now.date() - timedelta(days=2)
+
 def get_measurements(target_date_from: date, target_date_to: date) -> list[model.Measurements]:
     '''
     閉区間[target_date_from, target_date_to]のユニット別発電実績をOCCTOの公開システムから取得し,

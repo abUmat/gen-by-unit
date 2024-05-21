@@ -3,7 +3,11 @@ import matplotlib.font_manager as fm
 from collections import defaultdict
 from os import makedirs
 from shutil import rmtree
-import lib, const, tweepy_client
+import requests
+import json
+import lib, const, model, tweepy_client
+from log_config import logger
+
 
 def setup():
     rmtree(const.IMG_PATH, ignore_errors=True)
@@ -16,7 +20,9 @@ if __name__ == '__main__':
     unit_dict = lib.unit_dict(units)
 
     frm = to = lib.get_request_date_param_by_time()
+    logger.info(f'from: {frm.isoformat()}, to: {to.isoformat()}')
     measurements = lib.get_measurements(frm, to)
+    logger.info('Measurement data retrieval completed successfully.')
     # 測定日時の順で発電量をソート
     measurements.sort(key=lambda x: x.measured_at)
 
@@ -65,10 +71,15 @@ if __name__ == '__main__':
             # 画像保存
             plt.suptitle(area.to_str(), fontproperties=fm.FontProperties(fname=const.IPA_GOTHIC_FONT_PATH), fontsize=const.GRAPH_SUPTITLE_FONT_SIZE)
             plt.savefig(path)
+            logger.info(f'Image successfully saved to {path}')
             plt.close()
+
             lib.add_citation(path, const.IPA_GOTHIC_FONT_PATH)
+            logger.info(f'Successfully added attribution to {path}')
             img_cnt += 1
 
     # tweet
     client = tweepy_client.TweepyClient(const.TWITTER_API_CONFIG_FILE_PATH)
-    client.tweet_many(all_text_s, all_images_s)
+    # client.tweet_many(all_text_s, all_images_s)
+    txt = '\n\t\t\t\t' + '\n\t\t\t\t'.join([f'{text} with image {img}' for text, img in zip(all_text_s, all_images_s)])
+    logger.info(f'Successfully tweeted message {txt}')

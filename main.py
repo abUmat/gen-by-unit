@@ -23,7 +23,10 @@ if __name__ == '__main__':
     # ユニットごとに48コマ発電を入れる
     gen_by_unit = defaultdict(list)
     for m in measurements:
-        u = unit_dict[(m.plant_key_name, m.unit_key_name)]
+        try:
+            u = unit_dict[(m.plant_key_name, m.unit_key_name)]
+        except Exception as e:
+            raise e
         # mはkWh/30minなのでMWに変換
         gen_by_unit[u].append(m.measurements * 2 * 1e-3)
 

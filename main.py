@@ -9,12 +9,9 @@ import lib, const, model, tweepy_client
 from log_config import logger
 
 
-def setup():
+def main():
     rmtree(const.IMG_PATH, ignore_errors=True)
     makedirs(const.IMG_PATH, exist_ok=True)
-
-if __name__ == '__main__':
-    setup()
     groups = lib.get_groups()
     units = lib.get_units()
     unit_dict = lib.unit_dict(units)
@@ -83,3 +80,38 @@ if __name__ == '__main__':
     # client.tweet_many(all_text_s, all_images_s)
     txt = '\n\t\t\t\t' + '\n\t\t\t\t'.join([f'{text} with image {img}' for text, img in zip(all_text_s, all_images_s)])
     logger.info(f'Successfully tweeted message {txt}')
+
+def handler(event, context):
+    try:
+        main()
+        return {
+            'statusCode': 200,
+            'body': json.dumps({
+                'message': 'Request successful'
+            })
+        }
+    except requests.exceptions.RequestException as e:
+        return {
+            'statusCode': 400,
+            'body': json.dumps({
+                'error': e
+            })
+        }
+    except model.CSVParseError as e:
+        return {
+            'statusCode': 502,
+            'body': json.dumps({
+                'error': e
+            })
+        }
+    except Exception as e:
+        return {
+            'statusCode': 500,
+            'body': json.dumps({
+                'error': e
+            })
+        }
+
+if __name__ == '__main__':
+    handler(None, None)
+

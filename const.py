@@ -50,11 +50,11 @@ class GraphColors(Enum):
                     '#20B2AA',
                     '#008080')
 
-    COAL_COLORS = ('#4B3621',
-                   '#8B4513',
-                   '#B9835C',
-                   '#D2B48C',
-                   '#8B7355')
+    FOSSIL_FUEL_COLORS = ('#4B3621',
+                          '#8B4513',
+                          '#B9835C',
+                          '#D2B48C',
+                          '#8B7355')
 
     LNG_COLORS = ('#FFFACD',
                   '#FFFD43',
@@ -68,6 +68,10 @@ class GraphColors(Enum):
     OIL_COLORS = ('#32CD32',
                   '#9ACD32',
                   '#7FFF00')
+
+    RENEWABLE_COLORS = ('#32CD32',
+                        '#9ACD32',
+                        '#7FFF00')
 
     OTHER_COLORS = ('#000000',
                     '#757575')
@@ -133,20 +137,24 @@ class FuelType(Enum):
     'その他(不明含む)'
     BIOMASS = 10
     'バイオマス'
+    OTHER_FOSSIL_FUEL = 11
+    '重油、原油、天然ガス、LNG、アスファルト等'
     def colors(self) -> GraphColors:
         match self:
             case FuelType.NUCLEAR:
                 return GraphColors.NUCLEAR_COLORS
             case FuelType.HYDRO:
                 return GraphColors.HYDRO_COLORS
-            case FuelType.COAL:
-                return GraphColors.COAL_COLORS
+            case FuelType.COAL | FuelType.OIL | FuelType.OTHER_FOSSIL_FUEL:
+                return GraphColors.FOSSIL_FUEL_COLORS
             case FuelType.LNG:
                 return GraphColors.LNG_COLORS
-            case FuelType.OIL:
-                return GraphColors.OIL_COLORS
-            case FuelType.GEOTHERMAL | FuelType.WIND | FuelType.SOLAR | FuelType.OTHER | FuelType.BIOMASS:
+            case FuelType.GEOTHERMAL | FuelType.WIND | FuelType.SOLAR | FuelType.BIOMASS:
+                return GraphColors.RENEWABLE_COLORS
+            case FuelType.OTHER:
                 return GraphColors.OTHER_COLORS
+            case _:
+                raise Exception(f'cannot estimate FuelType {self.name}\'s colors')
 
 class UnitType(Enum):
     '''
@@ -190,6 +198,8 @@ class UnitType(Enum):
     'その他(不明含む)'
     BIOMASS = 91
     'バイオマス'
+    OTHER_CONVENTIONAL = 92
+    '化石燃料汽力(重油、原油、天然ガス、LNG、アスファルト等)'
 
     def fuel(self) -> FuelType:
         '''
@@ -216,6 +226,10 @@ class UnitType(Enum):
                 return FuelType.OTHER
             case UnitType.BIOMASS:
                 return FuelType.BIOMASS
+            case UnitType.OTHER_CONVENTIONAL:
+                return FuelType.OTHER_FOSSIL_FUEL
+            case _:
+                raise Exception(f'cannot estimate UnitType {self.name}\'s fuel type')
 
     def to_str(self) -> str:
         '''
@@ -260,3 +274,7 @@ class UnitType(Enum):
                 return 'その他'
             case UnitType.BIOMASS:
                 return 'バイオマス'
+            case UnitType.OTHER_CONVENTIONAL:
+                return '化石燃料汽力'
+            case _:
+                raise Exception(f'cannot convert UnitType {self.name} to string')

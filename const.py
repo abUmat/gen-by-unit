@@ -35,35 +35,35 @@ OCCTO_CITATION = '電力広域的運営推進機関 ユニット別発電実績�
 OCCTO_CITATION_FONT_SIZE = 24
 
 class GraphColors(Enum):
-    NUCLEAR_COLORS = ('#708090',
+    NUCLEAR_COLORS = ('#424242',
+                      '#4C5C68',
+                      '#6E7B8B',
                       '#696969',
                       '#808080',
                       '#A9A9A9',
-                      '#C0C0C0',
-                      '#D3D3D3',
-                      '#DCDCDC')
+                      '#D3D3D3')
 
-    HYDRO_COLORS = ('#0000FF',
-                    '#ADD8E6',
+    HYDRO_COLORS = ('#1A237E',
+                    '#0000FF',
+                    '#00BFFF',
                     '#00FFFF',
-                    '#5F9EA0',
-                    '#AFEEEE',
-                    '#4682B4')
+                    '#20B2AA',
+                    '#008080')
 
     COAL_COLORS = ('#4B3621',
                    '#8B4513',
-                   '#A0522D',
+                   '#B9835C',
                    '#D2B48C',
                    '#8B7355')
 
-    LNG_COLORS = ('#FF0000',
-                  '#FFA500',
-                  '#FF69B4',
+    LNG_COLORS = ('#FFFACD',
+                  '#FFFD43',
+                  '#FFD700',
+                  '#FFA07A',
                   '#FF4500',
-                  '#CD5C5C',
-                  '#DAA520',
-                  '#FF8C00',
-                  '#FFA07A')
+                  '#FF0000',
+                  '#FF69B4',
+                  '#FF1493')
 
     OIL_COLORS = ('#32CD32',
                   '#9ACD32',

@@ -131,15 +131,17 @@ def subplot(group: model.Group,
 
     plt.title(group.name, fontproperties=fp, fontsize=const.GRAPH_TITLE_FONT_SIZE)
 
-    # 発電だけに凡例をつけたいのでちょっと工夫
-    # 発電 -> 認可出力の順にプロットしたいので一旦集計
+    # 発電と認可出力の集計
     generations = []
+    power_limit = 0
+    labels = []
     colors = []
-    power_limits = []
-    legends = []
     for u in units:
         if u.group != group: continue
         generations.append(gen_by_unit.get(u, [0] * 48))
+        # unit.powerは万kWなのでMWに変換
+        power_limit += u.power * 1e4 * 1e-3
+        labels.append(f'{u.name}{":" if u.name else ""}{u.type_.to_str()}')
         # color 燃料別 かぶらないように
         for c in u.type_.fuel().colors().value:
             if c not in colors:
@@ -147,25 +149,25 @@ def subplot(group: model.Group,
                 break
         else:
             raise Exception('The number of colors is not sufficient.')
-        # unit.powerは万kWなのでMWに変換
-        power_limits.append([u.power * 1e4 * 1e-3] * 48)
-        legends.append(f'{u.name}:{u.type_.to_str()}')
-    for g, c in zip(generations, colors):
-        plt.plot(g, color=c, linewidth=3)
-    for pl in power_limits:
-        plt.plot(pl, '-.', color='grey')
 
-    mx = 0
-    for g in generations: mx = max(mx, max(g))
-    for pl in power_limits: mx = max(mx, max(pl))
+    # 上から1号機, 2号機の順に積みあがってほしいので逆転させる
+    generations.reverse()
+    labels.reverse()
+    colors.reverse()
+    plt.stackplot(range(48), generations, labels=labels, colors=colors, edgecolor='black')
+    plt.plot([power_limit] * 48, '-.', color='grey')
+
     plt.ylabel('MW')
-    plt.ylim(bottom=0, top=mx * 1.05)
+    plt.ylim(bottom=0)
 
     plt.xlim((-1, 48))
     plt.xticks([0, 12, 24, 36, 47], ['00:00', '06:00', '12:00', '18:00', '24:00'])
 
+    # 凡例の順番を上から1号機, 2号機となるようにする
+    h, l = plt.gca().get_legend_handles_labels()
     # 凡例
-    plt.legend(legends,
+    plt.legend(h[::-1],
+               l[::-1],
                loc='lower left',
                bbox_to_anchor=(1, 0),
                prop=fp)

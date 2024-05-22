@@ -104,24 +104,24 @@ def handler(event, context):
         return {
             'statusCode': 400,
             'body': json.dumps({
-                'error': e
+                'error': str(e)
             })
         }
     except model.CSVParseError as e:
         return {
             'statusCode': 502,
             'body': json.dumps({
-                'error': e
+                'error': str(e)
             })
         }
     except Exception as e:
         return {
             'statusCode': 500,
             'body': json.dumps({
-                'error': e
+                'error': str(e)
             })
         }
 
 if __name__ == '__main__':
-    handler(None, None)
+    logger.info(handler(None, None))
 

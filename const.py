@@ -199,7 +199,7 @@ class UnitType(Enum):
     BIOMASS = 91
     'バイオマス'
     OTHER_CONVENTIONAL = 92
-    '従来型汽力(重油、原油、天然ガス、LNG)'
+    '化石燃料汽力(重油、原油、天然ガス、LNG、アスファルト等)'
 
     def fuel(self) -> FuelType:
         '''
@@ -275,6 +275,6 @@ class UnitType(Enum):
             case UnitType.BIOMASS:
                 return 'バイオマス'
             case UnitType.OTHER_CONVENTIONAL:
-                return '従来型汽力'
+                return '化石燃料汽力'
             case _:
                 raise Exception(f'cannot convert UnitType {self.name} to string')

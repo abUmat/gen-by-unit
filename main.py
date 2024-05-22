@@ -75,10 +75,20 @@ def main():
             logger.info(f'Successfully added attribution to {path}')
             img_cnt += 1
 
+    # ツイートをまとめる
+    all_text_s_merged = []
+    all_images_s_merged = []
+    for t, img in zip(all_text_s, all_images_s):
+        if len(all_images_s_merged) > 0 and len(all_images_s_merged[-1]) + len(img) <= const.TWITTER_MEDIA_CNT_PER_TWEET:
+            all_text_s_merged[-1] += '\n' + t
+            all_images_s_merged[-1] += img
+        else:
+            all_text_s_merged.append(t)
+            all_images_s_merged.append(img)
     # tweet
     client = tweepy_client.TweepyClient(const.TWITTER_API_CONFIG_FILE_PATH)
-    client.tweet_many(all_text_s, all_images_s)
-    txt = '\n\t\t\t\t' + '\n\t\t\t\t'.join([f'{text} with image {img}' for text, img in zip(all_text_s, all_images_s)])
+    client.tweet_many(all_text_s_merged, all_images_s_merged)
+    txt = '\n\t\t\t\t' + '\n\t\t\t\t'.join([f'{text} with image {img}' for text, img in zip(all_text_s_merged, all_images_s_merged)])
     logger.info(f'Successfully tweeted message {txt}')
 
 def handler(event, context):
@@ -94,24 +104,24 @@ def handler(event, context):
         return {
             'statusCode': 400,
             'body': json.dumps({
-                'error': e
+                'error': str(e)
             })
         }
     except model.CSVParseError as e:
         return {
             'statusCode': 502,
             'body': json.dumps({
-                'error': e
+                'error': str(e)
             })
         }
     except Exception as e:
         return {
             'statusCode': 500,
             'body': json.dumps({
-                'error': e
+                'error': str(e)
             })
         }
 
 if __name__ == '__main__':
-    handler(None, None)
+    logger.info(handler(None, None))
 

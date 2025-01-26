@@ -6,7 +6,7 @@ resource "aws_lambda_function" "gen_by_unit" {
   source_code_hash = filebase64sha256("lambda.zip") # ZIPのハッシュを使用
   package_type     = "Zip"
   handler          = "main.handler"
-  memory_size      = 128
+  memory_size      = 256
   timeout          = 900
   role             = aws_iam_role.gen_by_unit.arn
 

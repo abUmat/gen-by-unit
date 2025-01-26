@@ -197,6 +197,10 @@ def create_area_graphs(
     # 今回ループのエリアの画像枚数 切り上げる
     img_cnt_per_area = (len(target_groups) + const.GRAPH_CNT_IN_IMG - 1) // const.GRAPH_CNT_IN_IMG
 
+    # ツイート内容
+    text = f'{area.name} {frm.isoformat()}のユニット別発電実績'
+    images = [[f'{const.IMG_PATH}/{img_cnt + i:02}.png' for i in range(img_cnt_per_area)]]
+
     for i in range(img_cnt_per_area):
         path = f'{const.IMG_PATH}/{img_cnt:02}.png'
         # 画像設定
@@ -218,9 +222,6 @@ def create_area_graphs(
         add_citation(path, const.IPA_GOTHIC_FONT_PATH)
         img_cnt += 1
 
-    # ツイート内容
-    text = f'{area.name} {frm.isoformat()}のユニット別発電実績'
-    images = [[f'{const.IMG_PATH}/{img_cnt + i:02}.png' for i in range(img_cnt_per_area)]]
     return text, images, img_cnt
 
 def subplot(group: model.Group,

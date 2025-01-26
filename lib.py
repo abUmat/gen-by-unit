@@ -1,10 +1,10 @@
 import requests
 import json
 from datetime import date, datetime, timedelta
-import matplotlib.pyplot as plt
-import matplotlib.font_manager as fm
-from matplotlib.font_manager import FontProperties
-from PIL import Image, ImageDraw, ImageFont
+import sys
+sys.path.append('./packages')
+from packages.matplotlib import pyplot as plt
+from packages.PIL import Image, ImageDraw, ImageFont
 import const, model
 
 def kwh30min_to_mw(kwh30min: float) -> float:
@@ -211,7 +211,7 @@ def create_area_graphs(
             subplot(group, unit_summaries, gen_by_unit, position, const.IPA_GOTHIC_FONT_PATH)
 
         # 画像保存
-        plt.suptitle(area.name, fontproperties=fm.FontProperties(fname=const.IPA_GOTHIC_FONT_PATH), fontsize=const.GRAPH_SUPTITLE_FONT_SIZE)
+        plt.suptitle(area.name, fontproperties={'fname': const.IPA_GOTHIC_FONT_PATH}, fontsize=const.GRAPH_SUPTITLE_FONT_SIZE)
         plt.savefig(path)
         plt.close()
 
@@ -231,12 +231,10 @@ def subplot(group: model.Group,
     '''
     groupに所属するunitの発電量と認可出力をpositionで指定した位置にsubplotする
     '''
-    # font
-    fp = FontProperties(fname=font_path)
     # 場所指定
     plt.subplot(const.GRAPH_ROW_CNT, const.GRAPH_COL_CNT, position)
 
-    plt.title(group.name, fontproperties=fp, fontsize=const.GRAPH_TITLE_FONT_SIZE)
+    plt.title(label=group.name, fontproperties={'fname': font_path}, fontsize=const.GRAPH_TITLE_FONT_SIZE)
 
     # 発電と認可出力の集計
     generations = []
@@ -277,7 +275,7 @@ def subplot(group: model.Group,
                l[::-1],
                loc='lower left',
                bbox_to_anchor=(1, 0),
-               prop=fp)
+               prop={'fname': font_path})
 
 def add_citation(img_path: str, font_path: str) -> None:
     '''

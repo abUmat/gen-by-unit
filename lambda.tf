@@ -1,23 +1,20 @@
 resource "aws_lambda_function" "gen_by_unit" {
-  function_name = "prd-hobby-gen_by_unit"
-  architectures = ["x86_64"]
-  runtime       = var.python_runtime
-  filename      = "lambda.zip"
-  package_type  = "Zip"
-  handler       = "main.handler"
-  memory_size   = 128
-  timeout       = 900
-  role          = aws_iam_role.gen_by_unit.arn
+  function_name    = "prd-hobby-gen_by_unit"
+  architectures    = ["x86_64"]
+  runtime          = var.python_runtime
+  filename         = "lambda.zip"
+  source_code_hash = filebase64sha256("lambda.zip") # ZIPのハッシュを使用
+  package_type     = "Zip"
+  handler          = "main.handler"
+  memory_size      = 128
+  timeout          = 900
+  role             = aws_iam_role.gen_by_unit.arn
 
   environment {
     variables = {
       "IMG_PATH" = "/tmp/img"
     }
   }
-  layers = [
-    "arn:aws:lambda:us-east-1:770693421928:layer:Klayers-p310-requests:17",
-    "arn:aws:lambda:us-east-1:770693421928:layer:Klayers-p310-matplotlib:2",
-  ]
 }
 
 resource "aws_iam_role" "gen_by_unit" {

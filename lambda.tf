@@ -8,6 +8,16 @@ resource "aws_lambda_function" "gen_by_unit" {
   memory_size   = 128
   timeout       = 900
   role          = aws_iam_role.gen_by_unit.arn
+
+  environment {
+    variables = {
+      "IMG_PATH" = "/tmp/img"
+    }
+  }
+  layers = [
+    "arn:aws:lambda:us-east-1:770693421928:layer:Klayers-p310-requests:17",
+    "arn:aws:lambda:us-east-1:770693421928:layer:Klayers-p310-matplotlib:2",
+  ]
 }
 
 resource "aws_iam_role" "gen_by_unit" {

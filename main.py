@@ -2,9 +2,7 @@ from collections import defaultdict
 from os import makedirs
 from shutil import rmtree
 import json
-import sys
-sys.path.append('./packages')
-from packages import requests
+import requests
 import lib, const, model, tweepy_client
 from log_config import logger
 
@@ -60,7 +58,7 @@ def main():
             all_images_s_merged.append(img)
     # tweet
     client = tweepy_client.TweepyClient(const.TWITTER_API_CONFIG_FILE_PATH)
-    # client.tweet_many(all_text_s_merged, all_images_s_merged)
+    client.tweet_many(all_text_s_merged, all_images_s_merged)
     txt = '\n' + '\n\n'.join([f'{text}\n with image {img}' for text, img in zip(all_text_s_merged, all_images_s_merged)])
     logger.info(f'Successfully tweeted message {txt}')
 

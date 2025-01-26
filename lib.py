@@ -1,9 +1,15 @@
 import requests
+import json
 from datetime import date, datetime, timedelta
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 from matplotlib.font_manager import FontProperties
 from PIL import Image, ImageDraw, ImageFont
 import const, model
+
+def kwh30min_to_mw(kwh30min: float) -> float:
+    'kWh/30minをMWに変換'
+    return kwh30min * 2 * 1e-3
 
 def get_request_date_param_by_time() -> date:
     '''
@@ -62,62 +68,163 @@ def get_measurements(target_date_from: date, target_date_to: date) -> list[model
 
         try:
             measurements = [int(x) if x else 0 for x in measurements_s] # str to int
-            dt = int(datetime.strptime(dt, const.DATE_FORMAT_SLASHED).timestamp())
+            dt = int(datetime.strptime(dt, const.DATE_FORMAT_SLASHED).timestamp()) # dtのunixtime
             delta = timedelta(minutes=30).seconds
-            updated_at = int(datetime.strptime(updated_at, const.DATETIME_FORMAT_SLASHED).timestamp())
+            updated_at = int(datetime.strptime(updated_at, const.DATETIME_FORMAT_SLASHED).timestamp()) # updated_atのunixtime
         except Exception as e:
             raise model.CSVParseError(f'row contents is not expected: {row}', i)
 
-        ret += [model.Measurements(plant_name, unit_name, dt + i * delta, m, updated_at) for i, m in enumerate(measurements)]
+        ret += [model.Measurements(plant_name=plant_name, unit_name=unit_name, measured_at=dt + i * delta, measurements=m, updated_at=updated_at) for i, m in enumerate(measurements)]
     return ret
 
-def get_groups() -> list[model.Group]:
+def _load_areas() -> list[model.Area]:
     '''
-    groups.csvのデータをリストとして返す
+    areas.jsonのデータをリストとして返す
     '''
-    with open(const.GROUPS_CSV_PATH) as f:
-        rows = f.readlines()
-        rows.pop(0) # delete header
-        records = [row.strip().split(',') for row in rows]
-    return [model.Group(const.Area(int(area)), name) for area, name in records]
+    with open('./json_data/areas.json') as f:
+        area_json_list = json.load(f)
+    return [model.Area(**area) for area in area_json_list]
 
-def get_units() -> list[model.Unit]:
+def _load_groups() -> list[model.Group]:
     '''
-    units.csvとgroups.csvのデータを結合し, Unitのリストとして返す\n
-    select * from units\n
-    inner join groups on units.group_id = groups.id\n
-    のイメージ
+    groups.jsonのデータをリストとして返す
     '''
-    with open(const.UNITS_CSV_PATH) as f:
-        rows = f.readlines()
-        rows.pop(0) # delete header
-        records = [row.strip().split(',') for row in rows]
-    groups = get_groups()
-    return [model.Unit(groups[int(group_id) - 1],
-                       plant_key_name,
-                       unit_key_name,
-                       const.UnitType(int(type_)),
-                       name,
-                       float(power))
-            for group_id,
-                plant_key_name,
-                unit_key_name,
-                type_,
-                name,
-                power in records]
+    with open('./json_data/groups.json') as f:
+        group_json_list = json.load(f)
+    return [model.Group(**group) for group in group_json_list]
 
-def unit_dict(units: list[model.Unit]) -> dict[tuple[str, str], model.Unit]:
+def _load_units() -> list[model.Unit]:
+    '''
+    units.jsonのデータをリストとして返す
+    '''
+    with open('./json_data/units.json') as f:
+        unit_json_list = json.load(f)
+    return [model.Unit(**unit) for unit in unit_json_list]
+
+def _load_unit_types() -> list[model.UnitType]:
+    '''
+    unit_types.jsonのデータをリストとして返す
+    '''
+    with open('./json_data/unit_types.json') as f:
+        unit_type_json_list = json.load(f)
+    return [model.UnitType(**unit_type) for unit_type in unit_type_json_list]
+
+def _load_fuel_types() -> list[model.FuelType]:
+    '''
+    fuel_types.jsonのデータをリストとして返す
+    '''
+    with open('./json_data/fuel_types.json') as f:
+        fuel_type_json_list = json.load(f)
+    return [model.FuelType(**fuel_type) for fuel_type in fuel_type_json_list]
+
+def _load_colors() -> list[model.Colors]:
+    '''
+    colors.jsonのデータをリストとして返す
+    '''
+    with open('./json_data/colors.json') as f:
+        color_json_list = json.load(f)
+    return [model.Colors(**color) for color in color_json_list]
+
+def _join_data(
+        areas: list[model.Area],
+        groups: list[model.Group],
+        units: list[model.Unit],
+        unit_types: list[model.UnitType],
+        fuel_types: list[model.FuelType],
+        colorss: list[model.Colors],
+        ) -> list[model.UnitSummary]:
+    '''
+    データを結合し, UnitSummaryのリストとして返す
+    '''
+    ret: list[model.UnitSummary] = []
+    for unit in units:
+        unit_summary = model.UnitSummary()
+        unit_summary.unit = unit
+        for group in groups:
+            if unit_summary.unit.group_id == group.group_id:
+                unit_summary.group = group
+                break
+        for area in areas:
+            if unit_summary.group.area_id == area.area_id:
+                unit_summary.area = area
+                break
+        for unit_type in unit_types:
+            if unit_summary.unit.unit_type_id == unit_type.unit_type_id:
+                unit_summary.unit_type = unit_type
+                break
+        for fuel_type in fuel_types:
+            if unit_summary.unit_type.fuel_type_id == fuel_type.fuel_type_id:
+                unit_summary.fuel_type = fuel_type
+                break
+        for colors in colorss:
+            if unit_summary.fuel_type.colors_id == colors.colors_id:
+                unit_summary.colors = colors
+                break
+        ret.append(unit_summary)
+    return ret
+
+def _unit_dict(units: list[model.UnitSummary]) -> dict[tuple[str, str], model.UnitSummary]:
     '''
     (発電所判別名, ユニット判別名)をキーにしてmodel.Unitを返す辞書を作成\n
     '''
     ret = {}
     for unit in units:
-        key = unit.plant_key_name, unit.unit_key_name
+        key = unit.unit.plant_name, unit.unit.unit_name
         ret[key] = unit
     return ret
 
+def load_data() -> tuple[list[model.Area], list[model.Group], list[model.UnitSummary], dict[tuple[str, str], model.UnitSummary]]:
+    areas = _load_areas()
+    groups = _load_groups()
+    units = _load_units()
+    unit_types = _load_unit_types()
+    fuel_types = _load_fuel_types()
+    colorss = _load_colors()
+    unit_summaries = _join_data(areas, groups, units, unit_types, fuel_types, colorss)
+    unit_dict = _unit_dict(unit_summaries)
+    return areas, groups, unit_summaries, unit_dict
+
+def create_area_graphs(
+        area: model.Area,
+        groups: list[model.Group],
+        unit_summaries: list[model.UnitSummary],
+        gen_by_unit: dict[model.UnitSummary, list[float]],
+        frm: date,
+        img_cnt: int,
+        ) -> tuple[str, list[str], int]:
+    target_groups = [g for g in groups if g.area_id == area.area_id]
+
+    # 今回ループのエリアの画像枚数 切り上げる
+    img_cnt_per_area = (len(target_groups) + const.GRAPH_CNT_IN_IMG - 1) // const.GRAPH_CNT_IN_IMG
+
+    for i in range(img_cnt_per_area):
+        path = f'{const.IMG_PATH}/{img_cnt:02}.png'
+        # 画像設定
+        plt.figure(figsize=const.IMG_SIZE)
+        plt.subplots_adjust(left=0.03, right=0.92, bottom=0.05, top=0.90, wspace=0.45, hspace=0.3)
+
+        # グラフ描画
+        for j, group in enumerate(target_groups[i * const.GRAPH_CNT_IN_IMG: (i + 1) * const.GRAPH_CNT_IN_IMG]):
+            # 画像内の場所指定 matplotlibでは, 左上から横向きに順番付けされているが, 縦に並べたいので適当に変換する
+            position = (j % const.GRAPH_ROW_CNT) * const.GRAPH_COL_CNT + j // const.GRAPH_ROW_CNT + 1
+
+            subplot(group, unit_summaries, gen_by_unit, position, const.IPA_GOTHIC_FONT_PATH)
+
+        # 画像保存
+        plt.suptitle(area.name, fontproperties=fm.FontProperties(fname=const.IPA_GOTHIC_FONT_PATH), fontsize=const.GRAPH_SUPTITLE_FONT_SIZE)
+        plt.savefig(path)
+        plt.close()
+
+        add_citation(path, const.IPA_GOTHIC_FONT_PATH)
+        img_cnt += 1
+
+    # ツイート内容
+    text = f'{area.name} {frm.isoformat()}のユニット別発電実績'
+    images = [[f'{const.IMG_PATH}/{img_cnt + i:02}.png' for i in range(img_cnt_per_area)]]
+    return text, images, img_cnt
+
 def subplot(group: model.Group,
-            units: list[model.Unit],
+            units: list[model.UnitSummary],
             gen_by_unit: dict[model.Unit, list[float]],
             position: int,
             font_path: str) -> None:
@@ -137,13 +244,13 @@ def subplot(group: model.Group,
     labels = []
     colors = []
     for u in units:
-        if u.group != group: continue
+        if u.group.group_id != group.group_id: continue
         generations.append(gen_by_unit.get(u, [0] * 48))
         # unit.powerは万kWなのでMWに変換
-        power_limit += u.power * 1e4 * 1e-3
-        labels.append(f'{u.name}{":" if u.name else ""}{u.type_.to_str()}')
+        power_limit += u.unit.power * 1e4 * 1e-3
+        labels.append(f'{u.unit.name}{":" if u.unit.name else ""}{u.unit_type.name}')
         # color 燃料別 かぶらないように
-        for c in u.type_.fuel().colors().value:
+        for c in u.colors.color_codes:
             if c not in colors:
                 colors.append(c)
                 break

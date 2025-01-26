@@ -1,0 +1,972 @@
+[
+  {
+    "group_id": 1,
+    "area_id": 1,
+    "name": "北海道電力 泊"
+  },
+  {
+    "group_id": 2,
+    "area_id": 1,
+    "name": "北海道電力 石狩湾新港"
+  },
+  {
+    "group_id": 3,
+    "area_id": 1,
+    "name": "北海道電力 苫東厚真"
+  },
+  {
+    "group_id": 4,
+    "area_id": 1,
+    "name": "北海道電力 砂川"
+  },
+  {
+    "group_id": 5,
+    "area_id": 1,
+    "name": "北海道電力 奈井江"
+  },
+  {
+    "group_id": 6,
+    "area_id": 1,
+    "name": "北海道電力 苫小牧"
+  },
+  {
+    "group_id": 7,
+    "area_id": 1,
+    "name": "北海道PE 苫小牧共同火力"
+  },
+  {
+    "group_id": 8,
+    "area_id": 1,
+    "name": "北海道電力 知内"
+  },
+  {
+    "group_id": 9,
+    "area_id": 1,
+    "name": "日本製鉄 室蘭中央"
+  },
+  {
+    "group_id": 10,
+    "area_id": 1,
+    "name": "釧路火力発電所(株) 釧路火力"
+  },
+  {
+    "group_id": 11,
+    "area_id": 1,
+    "name": "北海道電力 伊達"
+  },
+  {
+    "group_id": 12,
+    "area_id": 1,
+    "name": "北海道電力 京極"
+  },
+  {
+    "group_id": 13,
+    "area_id": 1,
+    "name": "北海道電力 新冠"
+  },
+  {
+    "group_id": 14,
+    "area_id": 1,
+    "name": "北海道電力 高見"
+  },
+  {
+    "group_id": 15,
+    "area_id": 2,
+    "name": "東北電力 女川原子力・東通原子力"
+  },
+  {
+    "group_id": 16,
+    "area_id": 2,
+    "name": "東北電力 東新潟火力"
+  },
+  {
+    "group_id": 17,
+    "area_id": 2,
+    "name": "東北電力 新仙台火力"
+  },
+  {
+    "group_id": 18,
+    "area_id": 2,
+    "name": "東北電力 上越火力"
+  },
+  {
+    "group_id": 19,
+    "area_id": 2,
+    "name": "東北電力 仙台火力"
+  },
+  {
+    "group_id": 20,
+    "area_id": 2,
+    "name": "東北電力 八戸火力"
+  },
+  {
+    "group_id": 21,
+    "area_id": 2,
+    "name": "福島天然ガス発電(株) 福島天然ガス"
+  },
+  {
+    "group_id": 22,
+    "area_id": 2,
+    "name": "東北電力 原町火力"
+  },
+  {
+    "group_id": 23,
+    "area_id": 2,
+    "name": "東北電力 能代火力"
+  },
+  {
+    "group_id": 24,
+    "area_id": 2,
+    "name": "相馬共同火力発電(株) 新地火力"
+  },
+  {
+    "group_id": 25,
+    "area_id": 2,
+    "name": "常磐共同火力 勿来"
+  },
+  {
+    "group_id": 26,
+    "area_id": 2,
+    "name": "酒田共同火力(株) 酒田共同火力"
+  },
+  {
+    "group_id": 27,
+    "area_id": 2,
+    "name": "東北電力 秋田火力"
+  },
+  {
+    "group_id": 28,
+    "area_id": 2,
+    "name": "日本製紙 石巻雲雀野"
+  },
+  {
+    "group_id": 29,
+    "area_id": 2,
+    "name": "糸魚川発電(株) 糸魚川"
+  },
+  {
+    "group_id": 30,
+    "area_id": 2,
+    "name": "日本製鉄 釜石火力"
+  },
+  {
+    "group_id": 31,
+    "area_id": 2,
+    "name": "エイブルエナジー合同会社 福島いわきバイオマス"
+  },
+  {
+    "group_id": 32,
+    "area_id": 2,
+    "name": "相馬エネルギーパーク 相馬石炭・バイオマス"
+  },
+  {
+    "group_id": 33,
+    "area_id": 2,
+    "name": "仙台パワーステーション(株) 仙台パワーステーション"
+  },
+  {
+    "group_id": 34,
+    "area_id": 2,
+    "name": "電源開発 奥只見"
+  },
+  {
+    "group_id": 35,
+    "area_id": 2,
+    "name": "電源開発 田子倉"
+  },
+  {
+    "group_id": 36,
+    "area_id": 2,
+    "name": "電源開発 奥清津"
+  },
+  {
+    "group_id": 37,
+    "area_id": 2,
+    "name": "電源開発 下郷"
+  },
+  {
+    "group_id": 38,
+    "area_id": 2,
+    "name": "東北電力 第二沼沢"
+  },
+  {
+    "group_id": 39,
+    "area_id": 3,
+    "name": "東京電力HD 東京柏崎刈羽"
+  },
+  {
+    "group_id": 40,
+    "area_id": 3,
+    "name": "日本原子力発電 東海第二"
+  },
+  {
+    "group_id": 41,
+    "area_id": 3,
+    "name": "JERA 川崎火力"
+  },
+  {
+    "group_id": 42,
+    "area_id": 3,
+    "name": "JERA 姉崎火力"
+  },
+  {
+    "group_id": 194,
+    "area_id": 3,
+    "name": "JERA 五井火力"
+  },
+  {
+    "group_id": 43,
+    "area_id": 3,
+    "name": "JERA 富津火力1号系列"
+  },
+  {
+    "group_id": 44,
+    "area_id": 3,
+    "name": "JERA 富津火力2号系列"
+  },
+  {
+    "group_id": 45,
+    "area_id": 3,
+    "name": "JERA 富津火力3号系列4号系列"
+  },
+  {
+    "group_id": 46,
+    "area_id": 3,
+    "name": "JERA 千葉火力1号系列2号系列"
+  },
+  {
+    "group_id": 47,
+    "area_id": 3,
+    "name": "JERA 千葉火力3号系列"
+  },
+  {
+    "group_id": 48,
+    "area_id": 3,
+    "name": "JERA 横浜火力"
+  },
+  {
+    "group_id": 49,
+    "area_id": 3,
+    "name": "JERA 上越火力"
+  },
+  {
+    "group_id": 50,
+    "area_id": 3,
+    "name": "JERA 鹿島火力"
+  },
+  {
+    "group_id": 51,
+    "area_id": 3,
+    "name": "(株)コベルコパワー真岡 真岡"
+  },
+  {
+    "group_id": 52,
+    "area_id": 3,
+    "name": "(株)扇島パワー 扇島パワー"
+  },
+  {
+    "group_id": 53,
+    "area_id": 3,
+    "name": "JERA 品川火力"
+  },
+  {
+    "group_id": 54,
+    "area_id": 3,
+    "name": "川崎天然ガス発電(株) 川崎天然ガス"
+  },
+  {
+    "group_id": 55,
+    "area_id": 3,
+    "name": "JFEスチール JFE千葉IPP"
+  },
+  {
+    "group_id": 56,
+    "area_id": 3,
+    "name": "JERA 袖ケ浦火力"
+  },
+  {
+    "group_id": 57,
+    "area_id": 3,
+    "name": "JERA 東扇島火力"
+  },
+  {
+    "group_id": 58,
+    "area_id": 3,
+    "name": "JERA 南横浜火力"
+  },
+  {
+    "group_id": 59,
+    "area_id": 3,
+    "name": "鹿島共同火力(株) 鹿島共同"
+  },
+  {
+    "group_id": 60,
+    "area_id": 3,
+    "name": "JERA 常陸那珂火力"
+  },
+  {
+    "group_id": 61,
+    "area_id": 3,
+    "name": "JERA 常陸那珂共同火力"
+  },
+  {
+    "group_id": 62,
+    "area_id": 3,
+    "name": "JERA 広野火力"
+  },
+  {
+    "group_id": 63,
+    "area_id": 3,
+    "name": "JERA 横須賀火力"
+  },
+  {
+    "group_id": 64,
+    "area_id": 3,
+    "name": "電源開発 磯子火力"
+  },
+  {
+    "group_id": 65,
+    "area_id": 3,
+    "name": "日本製鉄・鹿島パワー(株) 鹿島火力"
+  },
+  {
+    "group_id": 66,
+    "area_id": 3,
+    "name": "ENEOS 根岸ガス化複合"
+  },
+  {
+    "group_id": 67,
+    "area_id": 3,
+    "name": "(株)エフビット横須賀パワー 横須賀パワーステーション"
+  },
+  {
+    "group_id": 68,
+    "area_id": 3,
+    "name": "(株)中袖クリーンパワー 中袖クリーンパワー"
+  },
+  {
+    "group_id": 69,
+    "area_id": 3,
+    "name": "(株)新中袖発電所 新中袖"
+  },
+  {
+    "group_id": 70,
+    "area_id": 3,
+    "name": "カナデビア(株) 茨城工場第一"
+  },
+  {
+    "group_id": 71,
+    "area_id": 3,
+    "name": "ゼロワットパワー(株) 市原"
+  },
+  {
+    "group_id": 72,
+    "area_id": 3,
+    "name": "ENEOS 鹿島"
+  },
+  {
+    "group_id": 73,
+    "area_id": 3,
+    "name": "かみすパワー(株) 神栖火力"
+  },
+  {
+    "group_id": 74,
+    "area_id": 3,
+    "name": "鈴川エネルギーセンター(株) 鈴川エネルギーセンター"
+  },
+  {
+    "group_id": 75,
+    "area_id": 3,
+    "name": "東京電力RP 新高瀬川"
+  },
+  {
+    "group_id": 76,
+    "area_id": 3,
+    "name": "東京電力RP 玉原"
+  },
+  {
+    "group_id": 77,
+    "area_id": 3,
+    "name": "東京電力RP 葛野川"
+  },
+  {
+    "group_id": 78,
+    "area_id": 3,
+    "name": "東京電力RP 今市"
+  },
+  {
+    "group_id": 79,
+    "area_id": 3,
+    "name": "東京電力RP 神流川"
+  },
+  {
+    "group_id": 80,
+    "area_id": 3,
+    "name": "東京電力RP 塩原"
+  },
+  {
+    "group_id": 81,
+    "area_id": 3,
+    "name": "東京電力RP 安曇"
+  },
+  {
+    "group_id": 82,
+    "area_id": 3,
+    "name": "電源開発 沼原"
+  },
+  {
+    "group_id": 83,
+    "area_id": 4,
+    "name": "中部電力 浜岡原子力"
+  },
+  {
+    "group_id": 84,
+    "area_id": 4,
+    "name": "JERA 西名古屋火力"
+  },
+  {
+    "group_id": 85,
+    "area_id": 4,
+    "name": "JERA 新名古屋火力7号系列"
+  },
+  {
+    "group_id": 86,
+    "area_id": 4,
+    "name": "JERA 新名古屋火力8号系列"
+  },
+  {
+    "group_id": 87,
+    "area_id": 4,
+    "name": "JERA 川越火力1号機2号機"
+  },
+  {
+    "group_id": 88,
+    "area_id": 4,
+    "name": "JERA 川越火力3号系列"
+  },
+  {
+    "group_id": 89,
+    "area_id": 4,
+    "name": "JERA 川越火力4号系列"
+  },
+  {
+    "group_id": 90,
+    "area_id": 4,
+    "name": "JERA 知多火力"
+  },
+  {
+    "group_id": 91,
+    "area_id": 4,
+    "name": "JERA 知多第二火力"
+  },
+  {
+    "group_id": 92,
+    "area_id": 4,
+    "name": "JERA 四日市火力"
+  },
+  {
+    "group_id": 93,
+    "area_id": 4,
+    "name": "JERA 碧南火力"
+  },
+  {
+    "group_id": 94,
+    "area_id": 4,
+    "name": "JERA 武豊火力"
+  },
+  {
+    "group_id": 95,
+    "area_id": 4,
+    "name": "JERA 渥美火力"
+  },
+  {
+    "group_id": 96,
+    "area_id": 4,
+    "name": "中山名古屋共同発電(株) 名古屋"
+  },
+  {
+    "group_id": 97,
+    "area_id": 4,
+    "name": "コスモ石油 四日市霞"
+  },
+  {
+    "group_id": 98,
+    "area_id": 4,
+    "name": "出光興産 出光愛知第3"
+  },
+  {
+    "group_id": 99,
+    "area_id": 4,
+    "name": "明海発電(株) 豊橋"
+  },
+  {
+    "group_id": 100,
+    "area_id": 4,
+    "name": "中部電力 徳山"
+  },
+  {
+    "group_id": 101,
+    "area_id": 4,
+    "name": "関西電力 木曽"
+  },
+  {
+    "group_id": 102,
+    "area_id": 4,
+    "name": "電源開発 御母衣"
+  },
+  {
+    "group_id": 103,
+    "area_id": 4,
+    "name": "中部電力 奥美濃"
+  },
+  {
+    "group_id": 104,
+    "area_id": 4,
+    "name": "中部電力 奥矢作"
+  },
+  {
+    "group_id": 105,
+    "area_id": 4,
+    "name": "電源開発 新豊根"
+  },
+  {
+    "group_id": 106,
+    "area_id": 4,
+    "name": "中部電力 馬瀬川第一"
+  },
+  {
+    "group_id": 107,
+    "area_id": 5,
+    "name": "北陸電力 志賀原子力"
+  },
+  {
+    "group_id": 108,
+    "area_id": 5,
+    "name": "北陸電力 富山新港火力"
+  },
+  {
+    "group_id": 109,
+    "area_id": 5,
+    "name": "北陸電力 七尾大田火力"
+  },
+  {
+    "group_id": 110,
+    "area_id": 5,
+    "name": "北陸電力 敦賀火力"
+  },
+  {
+    "group_id": 111,
+    "area_id": 5,
+    "name": "北陸電力 富山火力"
+  },
+  {
+    "group_id": 112,
+    "area_id": 5,
+    "name": "北陸電力 福井火力"
+  },
+  {
+    "group_id": 113,
+    "area_id": 5,
+    "name": "北陸電力 有峰"
+  },
+  {
+    "group_id": 114,
+    "area_id": 5,
+    "name": "電源開発 手取川第一"
+  },
+  {
+    "group_id": 115,
+    "area_id": 5,
+    "name": "関西電力 下小鳥"
+  },
+  {
+    "group_id": 116,
+    "area_id": 5,
+    "name": "関西電力 音沢"
+  },
+  {
+    "group_id": 117,
+    "area_id": 5,
+    "name": "電源開発 長野"
+  },
+  {
+    "group_id": 118,
+    "area_id": 6,
+    "name": "関西電力 高浜"
+  },
+  {
+    "group_id": 119,
+    "area_id": 6,
+    "name": "関西電力 大飯"
+  },
+  {
+    "group_id": 120,
+    "area_id": 6,
+    "name": "関西電力 美浜"
+  },
+  {
+    "group_id": 121,
+    "area_id": 6,
+    "name": "日本原子力発電 敦賀"
+  },
+  {
+    "group_id": 122,
+    "area_id": 6,
+    "name": "関西電力 姫路第二"
+  },
+  {
+    "group_id": 123,
+    "area_id": 6,
+    "name": "関西電力 堺港"
+  },
+  {
+    "group_id": 124,
+    "area_id": 6,
+    "name": "関西電力 姫路第一"
+  },
+  {
+    "group_id": 125,
+    "area_id": 6,
+    "name": "泉北天然ガス発電(株) 泉北天然ガス"
+  },
+  {
+    "group_id": 126,
+    "area_id": 6,
+    "name": "(株)コベルコパワー神戸 神戸"
+  },
+  {
+    "group_id": 127,
+    "area_id": 6,
+    "name": "関西電力 舞鶴"
+  },
+  {
+    "group_id": 128,
+    "area_id": 6,
+    "name": "関西電力 南港"
+  },
+  {
+    "group_id": 129,
+    "area_id": 6,
+    "name": "電源開発 高砂火力"
+  },
+  {
+    "group_id": 130,
+    "area_id": 6,
+    "name": "関西電力 御坊"
+  },
+  {
+    "group_id": 131,
+    "area_id": 6,
+    "name": "関西電力 赤穂"
+  },
+  {
+    "group_id": 132,
+    "area_id": 6,
+    "name": "相生バイオエナジー(株) 相生バイオマス"
+  },
+  {
+    "group_id": 133,
+    "area_id": 6,
+    "name": "中山名古屋共同発電(株) 船町"
+  },
+  {
+    "group_id": 134,
+    "area_id": 6,
+    "name": "Daigasガスアンドパワーソリューション(株) 酉島エネルギーセンター"
+  },
+  {
+    "group_id": 135,
+    "area_id": 6,
+    "name": "日本製鉄 広畑"
+  },
+  {
+    "group_id": 136,
+    "area_id": 6,
+    "name": "関西電力 奥多々良木"
+  },
+  {
+    "group_id": 137,
+    "area_id": 6,
+    "name": "関西電力 大河内"
+  },
+  {
+    "group_id": 138,
+    "area_id": 6,
+    "name": "関西電力 奥吉野"
+  },
+  {
+    "group_id": 139,
+    "area_id": 6,
+    "name": "関西電力 喜撰山"
+  },
+  {
+    "group_id": 140,
+    "area_id": 6,
+    "name": "電源開発 池原"
+  },
+  {
+    "group_id": 141,
+    "area_id": 7,
+    "name": "中国電力 島根原子力"
+  },
+  {
+    "group_id": 142,
+    "area_id": 7,
+    "name": "中国電力 柳井1号系列"
+  },
+  {
+    "group_id": 143,
+    "area_id": 7,
+    "name": "中国電力 柳井2号系列"
+  },
+  {
+    "group_id": 144,
+    "area_id": 7,
+    "name": "中国電力 水島"
+  },
+  {
+    "group_id": 145,
+    "area_id": 7,
+    "name": "中国電力 三隅"
+  },
+  {
+    "group_id": 146,
+    "area_id": 7,
+    "name": "電源開発 竹原火力"
+  },
+  {
+    "group_id": 147,
+    "area_id": 7,
+    "name": "中国電力 玉島"
+  },
+  {
+    "group_id": 148,
+    "area_id": 7,
+    "name": "中国電力 新小野田"
+  },
+  {
+    "group_id": 149,
+    "area_id": 7,
+    "name": "中国電力 大崎"
+  },
+  {
+    "group_id": 150,
+    "area_id": 7,
+    "name": "UBE(株) 宇部興産"
+  },
+  {
+    "group_id": 151,
+    "area_id": 7,
+    "name": "周南パワー(株) トクヤマ東"
+  },
+  {
+    "group_id": 152,
+    "area_id": 7,
+    "name": "ENEOS 麻里布"
+  },
+  {
+    "group_id": 153,
+    "area_id": 7,
+    "name": "ENEOS 水島製油所"
+  },
+  {
+    "group_id": 154,
+    "area_id": 7,
+    "name": "水島エネルギーセンター(株) 水島MZ"
+  },
+  {
+    "group_id": 155,
+    "area_id": 7,
+    "name": "エネルギア・パワー山口(株) 防府バイオマス"
+  },
+  {
+    "group_id": 156,
+    "area_id": 7,
+    "name": "海田バイオマスパワー(株) 海田"
+  },
+  {
+    "group_id": 157,
+    "area_id": 7,
+    "name": "中国電力 俣野川"
+  },
+  {
+    "group_id": 158,
+    "area_id": 7,
+    "name": "中国電力 南原"
+  },
+  {
+    "group_id": 159,
+    "area_id": 8,
+    "name": "四国電力 伊方"
+  },
+  {
+    "group_id": 160,
+    "area_id": 8,
+    "name": "四国電力 坂出"
+  },
+  {
+    "group_id": 161,
+    "area_id": 8,
+    "name": "電源開発 橘湾火力"
+  },
+  {
+    "group_id": 162,
+    "area_id": 8,
+    "name": "四国電力 阿南"
+  },
+  {
+    "group_id": 163,
+    "area_id": 8,
+    "name": "四国電力 西条"
+  },
+  {
+    "group_id": 164,
+    "area_id": 8,
+    "name": "四国電力 橘湾"
+  },
+  {
+    "group_id": 165,
+    "area_id": 8,
+    "name": "住友共同電力(株) 壬生川火力"
+  },
+  {
+    "group_id": 166,
+    "area_id": 8,
+    "name": "土佐発電(株) 土佐"
+  },
+  {
+    "group_id": 167,
+    "area_id": 8,
+    "name": "住友共同電力(株) 新居浜西火力"
+  },
+  {
+    "group_id": 168,
+    "area_id": 8,
+    "name": "四国電力 本川"
+  },
+  {
+    "group_id": 169,
+    "area_id": 9,
+    "name": "九州電力 玄海原子力"
+  },
+  {
+    "group_id": 170,
+    "area_id": 9,
+    "name": "九州電力 川内原子力"
+  },
+  {
+    "group_id": 171,
+    "area_id": 9,
+    "name": "九州電力 新大分1号系列"
+  },
+  {
+    "group_id": 172,
+    "area_id": 9,
+    "name": "九州電力 新大分2号系列3号系列"
+  },
+  {
+    "group_id": 173,
+    "area_id": 9,
+    "name": "九州電力 新小倉"
+  },
+  {
+    "group_id": 174,
+    "area_id": 9,
+    "name": "電源開発 松浦火力"
+  },
+  {
+    "group_id": 175,
+    "area_id": 9,
+    "name": "電源開発 松島火力"
+  },
+  {
+    "group_id": 176,
+    "area_id": 9,
+    "name": "九州電力 松浦"
+  },
+  {
+    "group_id": 177,
+    "area_id": 9,
+    "name": "九州電力 苓北"
+  },
+  {
+    "group_id": 178,
+    "area_id": 9,
+    "name": "九州電力 豊前"
+  },
+  {
+    "group_id": 179,
+    "area_id": 9,
+    "name": "九州電力 苅田"
+  },
+  {
+    "group_id": 180,
+    "area_id": 9,
+    "name": "日本製鉄 大分製鐵"
+  },
+  {
+    "group_id": 181,
+    "area_id": 9,
+    "name": "(株)三池火力発電所 三池"
+  },
+  {
+    "group_id": 182,
+    "area_id": 9,
+    "name": "ENEOS 大分"
+  },
+  {
+    "group_id": 183,
+    "area_id": 9,
+    "name": "響灘エネルギーパーク合同会社 ひびき灘石炭・バイオマス"
+  },
+  {
+    "group_id": 184,
+    "area_id": 9,
+    "name": "(株)響灘火力発電所 響灘火力"
+  },
+  {
+    "group_id": 185,
+    "area_id": 9,
+    "name": "九州電力 小丸川"
+  },
+  {
+    "group_id": 186,
+    "area_id": 9,
+    "name": "九州電力 天山"
+  },
+  {
+    "group_id": 187,
+    "area_id": 9,
+    "name": "九州電力 大平"
+  },
+  {
+    "group_id": 188,
+    "area_id": 10,
+    "name": "沖縄電力 吉の浦"
+  },
+  {
+    "group_id": 189,
+    "area_id": 10,
+    "name": "沖縄電力 金武"
+  },
+  {
+    "group_id": 190,
+    "area_id": 10,
+    "name": "沖縄電力 具志川"
+  },
+  {
+    "group_id": 191,
+    "area_id": 10,
+    "name": "電源開発 石川石炭火力"
+  },
+  {
+    "group_id": 192,
+    "area_id": 10,
+    "name": "沖縄電力 石川"
+  },
+  {
+    "group_id": 193,
+    "area_id": 10,
+    "name": "沖縄電力 牧港"
+  }
+]

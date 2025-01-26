@@ -1,0 +1,12 @@
+[
+  { "area_id": 1, "name": "北海道エリア" },
+  { "area_id": 2, "name": "東北エリア" },
+  { "area_id": 3, "name": "東京エリア" },
+  { "area_id": 4, "name": "中部エリア" },
+  { "area_id": 5, "name": "北陸エリア" },
+  { "area_id": 6, "name": "関西エリア" },
+  { "area_id": 7, "name": "中国エリア" },
+  { "area_id": 8, "name": "四国エリア" },
+  { "area_id": 9, "name": "九州エリア" },
+  { "area_id": 10, "name": "沖縄エリア" }
+]

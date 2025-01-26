@@ -1,0 +1,22 @@
+[
+  { "unit_type_id": 10, "fuel_type_id": 1, "name": "原子力" },
+  { "unit_type_id": 20, "fuel_type_id": 2, "name": "一般水力" },
+  { "unit_type_id": 21, "fuel_type_id": 2, "name": "純揚水" },
+  { "unit_type_id": 22, "fuel_type_id": 2, "name": "混合揚水" },
+  { "unit_type_id": 30, "fuel_type_id": 3, "name": "石炭" },
+  { "unit_type_id": 31, "fuel_type_id": 3, "name": "SUB-C" },
+  { "unit_type_id": 32, "fuel_type_id": 3, "name": "SC" },
+  { "unit_type_id": 33, "fuel_type_id": 3, "name": "USC" },
+  { "unit_type_id": 40, "fuel_type_id": 4, "name": "LNG汽力" },
+  { "unit_type_id": 41, "fuel_type_id": 4, "name": "CC" },
+  { "unit_type_id": 42, "fuel_type_id": 4, "name": "ACC" },
+  { "unit_type_id": 43, "fuel_type_id": 4, "name": "MACC" },
+  { "unit_type_id": 44, "fuel_type_id": 4, "name": "MACC2" },
+  { "unit_type_id": 50, "fuel_type_id": 5, "name": "石油汽力" },
+  { "unit_type_id": 60, "fuel_type_id": 6, "name": "地熱" },
+  { "unit_type_id": 70, "fuel_type_id": 7, "name": "風力" },
+  { "unit_type_id": 80, "fuel_type_id": 8, "name": "太陽光" },
+  { "unit_type_id": 90, "fuel_type_id": 9, "name": "その他" },
+  { "unit_type_id": 91, "fuel_type_id": 10, "name": "バイオマス" },
+  { "unit_type_id": 92, "fuel_type_id": 11, "name": "化石燃料汽力" }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "colors_id": 1,
+    "name": "NUCLEAR_COLORS",
+    "color_codes": [
+      "#424242",
+      "#4C5C68",
+      "#6E7B8B",
+      "#696969",
+      "#808080",
+      "#A9A9A9",
+      "#D3D3D3"
+    ]
+  },
+  {
+    "colors_id": 2,
+    "name": "HYDRO_COLORS",
+    "color_codes": [
+      "#1A237E",
+      "#0000FF",
+      "#00BFFF",
+      "#00FFFF",
+      "#20B2AA",
+      "#008080"
+    ]
+  },
+  {
+    "colors_id": 3,
+    "name": "FOSSIL_FUEL_COLORS",
+    "color_codes": ["#4B3621", "#8B4513", "#B9835C", "#D2B48C", "#8B7355"]
+  },
+  {
+    "colors_id": 4,
+    "name": "LNG_COLORS",
+    "color_codes": [
+      "#FFFACD",
+      "#FFFD43",
+      "#FFD700",
+      "#FFA07A",
+      "#FF4500",
+      "#FF0000",
+      "#FF69B4",
+      "#FF1493"
+    ]
+  },
+  {
+    "colors_id": 5,
+    "name": "RENEWABLE_COLORS",
+    "color_codes": ["#32CD32", "#9ACD32", "#7FFF00"]
+  },
+  {
+    "colors_id": 6,
+    "name": "OTHER_COLORS",
+    "color_codes": ["#000000", "#757575"]
+  }
+]

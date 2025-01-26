@@ -1,0 +1,3906 @@
+[
+  {
+    "group_id": 1,
+    "plant_name": "泊発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 10,
+    "name": "1号機",
+    "power": 57.9
+  },
+  {
+    "group_id": 1,
+    "plant_name": "泊発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 10,
+    "name": "2号機",
+    "power": 57.9
+  },
+  {
+    "group_id": 1,
+    "plant_name": "泊発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 10,
+    "name": "3号機",
+    "power": 91.2
+  },
+  {
+    "group_id": 2,
+    "plant_name": "石狩湾新港発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 44,
+    "name": "1号機",
+    "power": 56.94
+  },
+  {
+    "group_id": 3,
+    "plant_name": "苫東厚真発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 31,
+    "name": "1号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 3,
+    "plant_name": "苫東厚真発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 32,
+    "name": "2号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 3,
+    "plant_name": "苫東厚真発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 33,
+    "name": "4号機",
+    "power": 70.0
+  },
+  {
+    "group_id": 4,
+    "plant_name": "砂川発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 31,
+    "name": "3号機",
+    "power": 12.5
+  },
+  {
+    "group_id": 4,
+    "plant_name": "砂川発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 31,
+    "name": "4号機",
+    "power": 12.5
+  },
+  {
+    "group_id": 5,
+    "plant_name": "奈井江発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 31,
+    "name": "1号機",
+    "power": 17.5
+  },
+  {
+    "group_id": 5,
+    "plant_name": "奈井江発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 31,
+    "name": "2号機",
+    "power": 17.5
+  },
+  {
+    "group_id": 6,
+    "plant_name": "苫小牧発電所",
+    "unit_name": "単独",
+    "unit_type_id": 50,
+    "name": "",
+    "power": 25.0
+  },
+  {
+    "group_id": 7,
+    "plant_name": "北海道ﾊﾟﾜｰｴﾝｼﾞﾆｱﾘﾝｸﾞ株式会社　苫小牧共同火力発電所3G",
+    "unit_name": "単独",
+    "unit_type_id": 50,
+    "name": "5号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 8,
+    "plant_name": "知内発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 50,
+    "name": "1号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 8,
+    "plant_name": "知内発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 50,
+    "name": "2号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 9,
+    "plant_name": "日本製鉄（株）室蘭中央発電所 第5号発電設備",
+    "unit_name": "室蘭中央5号",
+    "unit_type_id": 31,
+    "name": "5号機",
+    "power": 10.0
+  },
+  {
+    "group_id": 10,
+    "plant_name": "釧路火力発電所",
+    "unit_name": "1",
+    "unit_type_id": 30,
+    "name": "",
+    "power": 11.2
+  },
+  {
+    "group_id": 11,
+    "plant_name": "伊達発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 50,
+    "name": "1号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 11,
+    "plant_name": "伊達発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 50,
+    "name": "2号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 12,
+    "plant_name": "京極発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 20.0
+  },
+  {
+    "group_id": 12,
+    "plant_name": "京極発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 20.0
+  },
+  {
+    "group_id": 13,
+    "plant_name": "新冠発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 22,
+    "name": "1号機",
+    "power": 10.0
+  },
+  {
+    "group_id": 13,
+    "plant_name": "新冠発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 22,
+    "name": "2号機",
+    "power": 10.0
+  },
+  {
+    "group_id": 14,
+    "plant_name": "高見発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 22,
+    "name": "1号機",
+    "power": 10.0
+  },
+  {
+    "group_id": 14,
+    "plant_name": "高見発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 22,
+    "name": "2号機",
+    "power": 14.0
+  },
+  {
+    "group_id": 15,
+    "plant_name": "女川原子力発電所",
+    "unit_name": "女川原子力発電所2号機",
+    "unit_type_id": 10,
+    "name": "女川2号機",
+    "power": 82.5
+  },
+  {
+    "group_id": 15,
+    "plant_name": "女川原子力発電所",
+    "unit_name": "女川原子力発電所3号機",
+    "unit_type_id": 10,
+    "name": "女川3号機",
+    "power": 82.5
+  },
+  {
+    "group_id": 15,
+    "plant_name": "東通原子力発電所",
+    "unit_name": "東通原子力発電所1号機",
+    "unit_type_id": 10,
+    "name": "東通1号機",
+    "power": 110.0
+  },
+  {
+    "group_id": 16,
+    "plant_name": "東北電力東新潟火力発電所１号機",
+    "unit_name": "１号機",
+    "unit_type_id": 92,
+    "name": "1号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 16,
+    "plant_name": "東北電力東新潟火力発電所２号機",
+    "unit_name": "２号機",
+    "unit_type_id": 92,
+    "name": "2号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 16,
+    "plant_name": "東北電力東新潟火力発電所３号系列",
+    "unit_name": "３-１号系列",
+    "unit_type_id": 41,
+    "name": "3-1号系列",
+    "power": 60.5
+  },
+  {
+    "group_id": 16,
+    "plant_name": "東北電力東新潟火力発電所３号系列",
+    "unit_name": "３-２号系列",
+    "unit_type_id": 41,
+    "name": "3-2号系列",
+    "power": 60.5
+  },
+  {
+    "group_id": 16,
+    "plant_name": "東北電力東新潟火力発電所４号系列",
+    "unit_name": "４-１号系列",
+    "unit_type_id": 43,
+    "name": "4-1号系列",
+    "power": 82.6
+  },
+  {
+    "group_id": 16,
+    "plant_name": "東北電力東新潟火力発電所４号系列",
+    "unit_name": "４-２号系列",
+    "unit_type_id": 43,
+    "name": "4-2号系列",
+    "power": 87.4
+  },
+  {
+    "group_id": 17,
+    "plant_name": "東北電力新仙台火力発電所３号系列",
+    "unit_name": "３-１号機",
+    "unit_type_id": 43,
+    "name": "3-1号機",
+    "power": 52.3
+  },
+  {
+    "group_id": 17,
+    "plant_name": "東北電力新仙台火力発電所３号系列",
+    "unit_name": "３-２号機",
+    "unit_type_id": 43,
+    "name": "3-2号機",
+    "power": 52.3
+  },
+  {
+    "group_id": 18,
+    "plant_name": "東北電力上越火力発電所１号機",
+    "unit_name": "１号機",
+    "unit_type_id": 44,
+    "name": "1号機",
+    "power": 57.2
+  },
+  {
+    "group_id": 19,
+    "plant_name": "東北電力仙台火力発電所４号機",
+    "unit_name": "４号機",
+    "unit_type_id": 42,
+    "name": "4号機",
+    "power": 46.8
+  },
+  {
+    "group_id": 20,
+    "plant_name": "東北電力八戸火力発電所５号機",
+    "unit_name": "５号機",
+    "unit_type_id": 42,
+    "name": "5号機",
+    "power": 41.6
+  },
+  {
+    "group_id": 21,
+    "plant_name": "福島天然ガス発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 44,
+    "name": "1号機",
+    "power": 59.0
+  },
+  {
+    "group_id": 21,
+    "plant_name": "福島天然ガス発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 44,
+    "name": "2号機",
+    "power": 59.0
+  },
+  {
+    "group_id": 22,
+    "plant_name": "東北電力原町火力発電所１号機",
+    "unit_name": "１号機",
+    "unit_type_id": 33,
+    "name": "1号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 22,
+    "plant_name": "東北電力原町火力発電所２号機",
+    "unit_name": "２号機",
+    "unit_type_id": 33,
+    "name": "2号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 23,
+    "plant_name": "東北電力能代火力発電所１号機",
+    "unit_name": "１号機",
+    "unit_type_id": 32,
+    "name": "1号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 23,
+    "plant_name": "東北電力能代火力発電所２号機",
+    "unit_name": "２号機",
+    "unit_type_id": 33,
+    "name": "2号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 23,
+    "plant_name": "東北電力能代火力発電所３号機",
+    "unit_name": "３号機",
+    "unit_type_id": 33,
+    "name": "3号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 24,
+    "plant_name": "相馬共同火力発電株式会社新地火力発電所",
+    "unit_name": "新地1号機",
+    "unit_type_id": 32,
+    "name": "1号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 24,
+    "plant_name": "相馬共同火力発電株式会社新地火力発電所",
+    "unit_name": "新地2号機",
+    "unit_type_id": 32,
+    "name": "2号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 25,
+    "plant_name": "勿来発電所",
+    "unit_name": "勿来7号機",
+    "unit_type_id": 31,
+    "name": "7号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 25,
+    "plant_name": "勿来発電所",
+    "unit_name": "勿来8号機（東北系）",
+    "unit_type_id": 32,
+    "name": "8号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 25,
+    "plant_name": "勿来発電所",
+    "unit_name": "勿来9号機（東北系）",
+    "unit_type_id": 32,
+    "name": "9号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 26,
+    "plant_name": "酒田共同火力発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 31,
+    "name": "１号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 26,
+    "plant_name": "酒田共同火力発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 31,
+    "name": "２号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 27,
+    "plant_name": "東北電力秋田火力発電所４号機",
+    "unit_name": "４号機",
+    "unit_type_id": 50,
+    "name": "4号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 28,
+    "plant_name": "石巻雲雀野発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 31,
+    "name": "1号機",
+    "power": 14.9
+  },
+  {
+    "group_id": 29,
+    "plant_name": "糸魚川発電所",
+    "unit_name": "単独",
+    "unit_type_id": 31,
+    "name": "",
+    "power": 14.9
+  },
+  {
+    "group_id": 30,
+    "plant_name": "日本製鉄(株) 釜石火力発電所",
+    "unit_name": "釜石火力発電所",
+    "unit_type_id": 31,
+    "name": "",
+    "power": 13.6
+  },
+  {
+    "group_id": 31,
+    "plant_name": "福島いわきバイオマス発電所",
+    "unit_name": "1",
+    "unit_type_id": 91,
+    "name": "",
+    "power": 11.2
+  },
+  {
+    "group_id": 32,
+    "plant_name": "相馬石炭・バイオマス発電所",
+    "unit_name": "単独",
+    "unit_type_id": 31,
+    "name": "",
+    "power": 11.2
+  },
+  {
+    "group_id": 33,
+    "plant_name": "仙台パワーステーション",
+    "unit_name": "単独",
+    "unit_type_id": 31,
+    "name": "",
+    "power": 11.2
+  },
+  {
+    "group_id": 34,
+    "plant_name": "電源開発奥只見発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 20,
+    "name": "1号機",
+    "power": 12.0
+  },
+  {
+    "group_id": 34,
+    "plant_name": "電源開発奥只見発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 20,
+    "name": "2号機",
+    "power": 12.0
+  },
+  {
+    "group_id": 34,
+    "plant_name": "電源開発奥只見発電所",
+    "unit_name": "3号機",
+    "unit_type_id": 20,
+    "name": "3号機",
+    "power": 12.0
+  },
+  {
+    "group_id": 34,
+    "plant_name": "電源開発奥只見発電所",
+    "unit_name": "4号機",
+    "unit_type_id": 20,
+    "name": "4号機",
+    "power": 20.0
+  },
+  {
+    "group_id": 35,
+    "plant_name": "電源開発田子倉発電所(東北)",
+    "unit_name": "1号機",
+    "unit_type_id": 20,
+    "name": "1号機",
+    "power": 10.0
+  },
+  {
+    "group_id": 35,
+    "plant_name": "電源開発田子倉発電所(東北)",
+    "unit_name": "2号機",
+    "unit_type_id": 20,
+    "name": "2号機",
+    "power": 10.0
+  },
+  {
+    "group_id": 35,
+    "plant_name": "電源開発田子倉発電所(東北)",
+    "unit_name": "3号機",
+    "unit_type_id": 20,
+    "name": "3号機",
+    "power": 10.0
+  },
+  {
+    "group_id": 35,
+    "plant_name": "電源開発田子倉発電所(東北)",
+    "unit_name": "4号機",
+    "unit_type_id": 20,
+    "name": "4号機",
+    "power": 10.0
+  },
+  {
+    "group_id": 36,
+    "plant_name": "電源開発奥清津発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 36,
+    "plant_name": "電源開発奥清津発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 36,
+    "plant_name": "電源開発奥清津発電所",
+    "unit_name": "3号機",
+    "unit_type_id": 21,
+    "name": "3号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 36,
+    "plant_name": "電源開発奥清津発電所",
+    "unit_name": "4号機",
+    "unit_type_id": 21,
+    "name": "4号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 36,
+    "plant_name": "電源開発奥清津第二発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 21,
+    "name": "第二1号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 36,
+    "plant_name": "電源開発奥清津第二発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 21,
+    "name": "第二2号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 37,
+    "plant_name": "電源開発下郷発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 37,
+    "plant_name": "電源開発下郷発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 37,
+    "plant_name": "電源開発下郷発電所",
+    "unit_name": "3号機",
+    "unit_type_id": 21,
+    "name": "3号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 37,
+    "plant_name": "電源開発下郷発電所",
+    "unit_name": "4号機",
+    "unit_type_id": 21,
+    "name": "4号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 38,
+    "plant_name": "第二沼沢発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 23.0
+  },
+  {
+    "group_id": 38,
+    "plant_name": "第二沼沢発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 23.0
+  },
+  {
+    "group_id": 39,
+    "plant_name": "東京柏崎刈羽",
+    "unit_name": "柏崎刈羽1号機",
+    "unit_type_id": 10,
+    "name": "1号機",
+    "power": 110.0
+  },
+  {
+    "group_id": 39,
+    "plant_name": "東京柏崎刈羽",
+    "unit_name": "柏崎刈羽2号機",
+    "unit_type_id": 10,
+    "name": "2号機",
+    "power": 110.0
+  },
+  {
+    "group_id": 39,
+    "plant_name": "東京柏崎刈羽",
+    "unit_name": "柏崎刈羽3号機",
+    "unit_type_id": 10,
+    "name": "3号機",
+    "power": 110.0
+  },
+  {
+    "group_id": 39,
+    "plant_name": "東京柏崎刈羽",
+    "unit_name": "柏崎刈羽4号機",
+    "unit_type_id": 10,
+    "name": "4号機",
+    "power": 110.0
+  },
+  {
+    "group_id": 39,
+    "plant_name": "東京柏崎刈羽",
+    "unit_name": "柏崎刈羽5号機",
+    "unit_type_id": 10,
+    "name": "5号機",
+    "power": 110.0
+  },
+  {
+    "group_id": 39,
+    "plant_name": "東京柏崎刈羽",
+    "unit_name": "柏崎刈羽6号機",
+    "unit_type_id": 10,
+    "name": "6号機",
+    "power": 135.6
+  },
+  {
+    "group_id": 39,
+    "plant_name": "東京柏崎刈羽",
+    "unit_name": "柏崎刈羽7号機",
+    "unit_type_id": 10,
+    "name": "7号機",
+    "power": 135.6
+  },
+  {
+    "group_id": 40,
+    "plant_name": "東海第二発電所",
+    "unit_name": "単独",
+    "unit_type_id": 10,
+    "name": "",
+    "power": 110.0
+  },
+  {
+    "group_id": 41,
+    "plant_name": "川崎火力発電所１号系列１軸",
+    "unit_name": "川崎１ー１軸",
+    "unit_type_id": 43,
+    "name": "1-1軸",
+    "power": 50.0
+  },
+  {
+    "group_id": 41,
+    "plant_name": "川崎火力発電所１号系列２軸",
+    "unit_name": "川崎１ー２軸",
+    "unit_type_id": 43,
+    "name": "1-2軸",
+    "power": 50.0
+  },
+  {
+    "group_id": 41,
+    "plant_name": "川崎火力発電所１号系列３軸",
+    "unit_name": "川崎１ー３軸",
+    "unit_type_id": 43,
+    "name": "1-3軸",
+    "power": 50.0
+  },
+  {
+    "group_id": 41,
+    "plant_name": "川崎火力発電所２号系列１軸",
+    "unit_name": "川崎２ー１軸",
+    "unit_type_id": 43,
+    "name": "2-1軸",
+    "power": 50.0
+  },
+  {
+    "group_id": 41,
+    "plant_name": "川崎火力発電所２号系列２軸",
+    "unit_name": "川崎２ー２軸",
+    "unit_type_id": 44,
+    "name": "2-2軸",
+    "power": 71.0
+  },
+  {
+    "group_id": 41,
+    "plant_name": "川崎火力発電所２号系列３軸",
+    "unit_name": "川崎２ー３軸",
+    "unit_type_id": 44,
+    "name": "2-3軸",
+    "power": 71.0
+  },
+  {
+    "group_id": 42,
+    "plant_name": "姉崎火力発電所新１号機",
+    "unit_name": "姉崎新1号",
+    "unit_type_id": 44,
+    "name": "新1号機",
+    "power": 64.69
+  },
+  {
+    "group_id": 42,
+    "plant_name": "姉崎火力発電所新２号機",
+    "unit_name": "姉崎新2号",
+    "unit_type_id": 44,
+    "name": "新2号機",
+    "power": 64.69
+  },
+  {
+    "group_id": 42,
+    "plant_name": "姉崎火力発電所新３号機",
+    "unit_name": "姉崎新3号",
+    "unit_type_id": 44,
+    "name": "新3号機",
+    "power": 64.69
+  },
+  {
+    "group_id": 42,
+    "plant_name": "姉崎火力発電所５号機",
+    "unit_name": "姉崎５号",
+    "unit_type_id": 40,
+    "name": "5号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 42,
+    "plant_name": "姉崎火力発電所６号機",
+    "unit_name": "姉崎６号",
+    "unit_type_id": 40,
+    "name": "6号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 194,
+    "plant_name": "五井火力発電所1号機",
+    "unit_name": "五井1号",
+    "unit_type_id": 44,
+    "name": "1号機",
+    "power": 78
+  },
+  {
+    "group_id": 194,
+    "plant_name": "五井火力発電所2号機",
+    "unit_name": "五井2号",
+    "unit_type_id": 44,
+    "name": "2号",
+    "power": 78
+  },
+  {
+    "group_id": 43,
+    "plant_name": "富津火力発電所１号系列１軸",
+    "unit_name": "富津１ー１軸",
+    "unit_type_id": 41,
+    "name": "1-1軸",
+    "power": 16.7
+  },
+  {
+    "group_id": 43,
+    "plant_name": "富津火力発電所１号系列２軸",
+    "unit_name": "富津１ー２軸",
+    "unit_type_id": 41,
+    "name": "1-2軸",
+    "power": 16.7
+  },
+  {
+    "group_id": 43,
+    "plant_name": "富津火力発電所１号系列３軸",
+    "unit_name": "富津１ー３軸",
+    "unit_type_id": 41,
+    "name": "1-3軸",
+    "power": 16.7
+  },
+  {
+    "group_id": 43,
+    "plant_name": "富津火力発電所１号系列４軸",
+    "unit_name": "富津１ー４軸",
+    "unit_type_id": 41,
+    "name": "1-4軸",
+    "power": 16.7
+  },
+  {
+    "group_id": 43,
+    "plant_name": "富津火力発電所１号系列５軸",
+    "unit_name": "富津１ー５軸",
+    "unit_type_id": 41,
+    "name": "1-5軸",
+    "power": 16.7
+  },
+  {
+    "group_id": 43,
+    "plant_name": "富津火力発電所１号系列６軸",
+    "unit_name": "富津１ー６軸",
+    "unit_type_id": 41,
+    "name": "1-6軸",
+    "power": 16.7
+  },
+  {
+    "group_id": 43,
+    "plant_name": "富津火力発電所１号系列７軸",
+    "unit_name": "富津１ー７軸",
+    "unit_type_id": 41,
+    "name": "1-7軸",
+    "power": 16.5
+  },
+  {
+    "group_id": 44,
+    "plant_name": "富津火力発電所２号系列１軸",
+    "unit_name": "富津２ー１軸",
+    "unit_type_id": 42,
+    "name": "2-1軸",
+    "power": 16.2
+  },
+  {
+    "group_id": 44,
+    "plant_name": "富津火力発電所２号系列２軸",
+    "unit_name": "富津２ー２軸",
+    "unit_type_id": 42,
+    "name": "2-2軸",
+    "power": 16.2
+  },
+  {
+    "group_id": 44,
+    "plant_name": "富津火力発電所２号系列３軸",
+    "unit_name": "富津２ー３軸",
+    "unit_type_id": 42,
+    "name": "2-3軸",
+    "power": 16.2
+  },
+  {
+    "group_id": 44,
+    "plant_name": "富津火力発電所２号系列４軸",
+    "unit_name": "富津２ー４軸",
+    "unit_type_id": 42,
+    "name": "2-4軸",
+    "power": 16.2
+  },
+  {
+    "group_id": 44,
+    "plant_name": "富津火力発電所２号系列５軸",
+    "unit_name": "富津２ー５軸",
+    "unit_type_id": 42,
+    "name": "2-5軸",
+    "power": 16.2
+  },
+  {
+    "group_id": 44,
+    "plant_name": "富津火力発電所２号系列６軸",
+    "unit_name": "富津２ー６軸",
+    "unit_type_id": 42,
+    "name": "2-6軸",
+    "power": 16.2
+  },
+  {
+    "group_id": 44,
+    "plant_name": "富津火力発電所２号系列７軸",
+    "unit_name": "富津２ー７軸",
+    "unit_type_id": 42,
+    "name": "2-7軸",
+    "power": 16.2
+  },
+  {
+    "group_id": 45,
+    "plant_name": "富津火力発電所３号系列１軸",
+    "unit_name": "富津３ー１軸",
+    "unit_type_id": 42,
+    "name": "3-1軸",
+    "power": 38.0
+  },
+  {
+    "group_id": 45,
+    "plant_name": "富津火力発電所３号系列２軸",
+    "unit_name": "富津３ー２軸",
+    "unit_type_id": 42,
+    "name": "3-2軸",
+    "power": 38.0
+  },
+  {
+    "group_id": 45,
+    "plant_name": "富津火力発電所３号系列３軸",
+    "unit_name": "富津３ー３軸",
+    "unit_type_id": 42,
+    "name": "3-3軸",
+    "power": 38.0
+  },
+  {
+    "group_id": 45,
+    "plant_name": "富津火力発電所３号系列４軸",
+    "unit_name": "富津３ー４軸",
+    "unit_type_id": 42,
+    "name": "3-4軸",
+    "power": 38.0
+  },
+  {
+    "group_id": 45,
+    "plant_name": "富津火力発電所４号系列１軸",
+    "unit_name": "富津４ー１軸",
+    "unit_type_id": 43,
+    "name": "4-1軸",
+    "power": 50.7
+  },
+  {
+    "group_id": 45,
+    "plant_name": "富津火力発電所４号系列２軸",
+    "unit_name": "富津４ー２軸",
+    "unit_type_id": 43,
+    "name": "4-2軸",
+    "power": 50.7
+  },
+  {
+    "group_id": 45,
+    "plant_name": "富津火力発電所４号系列３軸",
+    "unit_name": "富津４ー３軸",
+    "unit_type_id": 43,
+    "name": "4-3軸",
+    "power": 50.7
+  },
+  {
+    "group_id": 46,
+    "plant_name": "千葉火力発電所１号系列１軸",
+    "unit_name": "千葉１ー１軸",
+    "unit_type_id": 42,
+    "name": "1-1軸",
+    "power": 36.0
+  },
+  {
+    "group_id": 46,
+    "plant_name": "千葉火力発電所１号系列２軸",
+    "unit_name": "千葉１ー２軸",
+    "unit_type_id": 42,
+    "name": "1-2軸",
+    "power": 36.0
+  },
+  {
+    "group_id": 46,
+    "plant_name": "千葉火力発電所１号系列３軸",
+    "unit_name": "千葉１ー３軸",
+    "unit_type_id": 42,
+    "name": "1-3軸",
+    "power": 36.0
+  },
+  {
+    "group_id": 46,
+    "plant_name": "千葉火力発電所１号系列４軸",
+    "unit_name": "千葉１ー４軸",
+    "unit_type_id": 42,
+    "name": "1-4軸",
+    "power": 36.0
+  },
+  {
+    "group_id": 46,
+    "plant_name": "千葉火力発電所２号系列１軸",
+    "unit_name": "千葉２ー１軸",
+    "unit_type_id": 42,
+    "name": "2-1軸",
+    "power": 36.0
+  },
+  {
+    "group_id": 46,
+    "plant_name": "千葉火力発電所２号系列２軸",
+    "unit_name": "千葉２ー２軸",
+    "unit_type_id": 42,
+    "name": "2-2軸",
+    "power": 36.0
+  },
+  {
+    "group_id": 46,
+    "plant_name": "千葉火力発電所２号系列３軸",
+    "unit_name": "千葉２ー３軸",
+    "unit_type_id": 42,
+    "name": "2-3軸",
+    "power": 36.0
+  },
+  {
+    "group_id": 46,
+    "plant_name": "千葉火力発電所２号系列４軸",
+    "unit_name": "千葉２ー４軸",
+    "unit_type_id": 42,
+    "name": "2-4軸",
+    "power": 36.0
+  },
+  {
+    "group_id": 47,
+    "plant_name": "千葉火力発電所３号系列１軸",
+    "unit_name": "千葉３ー１軸",
+    "unit_type_id": 43,
+    "name": "3-1軸",
+    "power": 50.0
+  },
+  {
+    "group_id": 47,
+    "plant_name": "千葉火力発電所３号系列２軸",
+    "unit_name": "千葉３ー２軸",
+    "unit_type_id": 43,
+    "name": "3-2軸",
+    "power": 50.0
+  },
+  {
+    "group_id": 47,
+    "plant_name": "千葉火力発電所３号系列３軸",
+    "unit_name": "千葉３ー３軸",
+    "unit_type_id": 43,
+    "name": "3-3軸",
+    "power": 50.0
+  },
+  {
+    "group_id": 48,
+    "plant_name": "横浜火力発電所７号系列１軸",
+    "unit_name": "横浜７ー１軸",
+    "unit_type_id": 42,
+    "name": "7-1軸",
+    "power": 37.7
+  },
+  {
+    "group_id": 48,
+    "plant_name": "横浜火力発電所7号系列２軸",
+    "unit_name": "横浜７ー２軸",
+    "unit_type_id": 42,
+    "name": "7-2軸",
+    "power": 37.7
+  },
+  {
+    "group_id": 48,
+    "plant_name": "横浜火力発電所7号系列３軸",
+    "unit_name": "横浜７ー３軸",
+    "unit_type_id": 42,
+    "name": "7-3軸",
+    "power": 37.7
+  },
+  {
+    "group_id": 48,
+    "plant_name": "横浜火力発電所7号系列４軸",
+    "unit_name": "横浜７ー４軸",
+    "unit_type_id": 42,
+    "name": "7-4軸",
+    "power": 37.7
+  },
+  {
+    "group_id": 48,
+    "plant_name": "横浜火力発電所８号系列１軸",
+    "unit_name": "横浜８ー１軸",
+    "unit_type_id": 42,
+    "name": "8-1軸",
+    "power": 37.7
+  },
+  {
+    "group_id": 48,
+    "plant_name": "横浜火力発電所８号系列２軸",
+    "unit_name": "横浜８ー２軸",
+    "unit_type_id": 42,
+    "name": "8-2軸",
+    "power": 37.7
+  },
+  {
+    "group_id": 48,
+    "plant_name": "横浜火力発電所８号系列３軸",
+    "unit_name": "横浜８ー３軸",
+    "unit_type_id": 42,
+    "name": "8-3軸",
+    "power": 37.7
+  },
+  {
+    "group_id": 48,
+    "plant_name": "横浜火力発電所８号系列４軸",
+    "unit_name": "横浜８ー４軸",
+    "unit_type_id": 42,
+    "name": "8-4軸",
+    "power": 37.7
+  },
+  {
+    "group_id": 49,
+    "plant_name": "上越火力発電所",
+    "unit_name": "１-１号機",
+    "unit_type_id": 42,
+    "name": "1-1号機",
+    "power": 59.5
+  },
+  {
+    "group_id": 49,
+    "plant_name": "上越火力発電所",
+    "unit_name": "１-２号機",
+    "unit_type_id": 42,
+    "name": "1-2号機",
+    "power": 59.5
+  },
+  {
+    "group_id": 49,
+    "plant_name": "上越火力発電所",
+    "unit_name": "２-１号機",
+    "unit_type_id": 42,
+    "name": "2-1号機",
+    "power": 59.5
+  },
+  {
+    "group_id": 49,
+    "plant_name": "上越火力発電所",
+    "unit_name": "２-２号機",
+    "unit_type_id": 42,
+    "name": "2-2号機",
+    "power": 59.5
+  },
+  {
+    "group_id": 50,
+    "plant_name": "鹿島火力発電所７号系列１軸",
+    "unit_name": "鹿島７ー１軸",
+    "unit_type_id": 42,
+    "name": "7-1軸",
+    "power": 42.0
+  },
+  {
+    "group_id": 50,
+    "plant_name": "鹿島火力発電所７号系列２軸",
+    "unit_name": "鹿島７ー２軸",
+    "unit_type_id": 42,
+    "name": "7-2軸",
+    "power": 42.0
+  },
+  {
+    "group_id": 50,
+    "plant_name": "鹿島火力発電所７号系列３軸",
+    "unit_name": "鹿島７ー３軸",
+    "unit_type_id": 42,
+    "name": "7-3軸",
+    "power": 42.0
+  },
+  {
+    "group_id": 51,
+    "plant_name": "真岡発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 43,
+    "name": "1号機",
+    "power": 62.41
+  },
+  {
+    "group_id": 51,
+    "plant_name": "真岡発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 43,
+    "name": "2号機",
+    "power": 62.41
+  },
+  {
+    "group_id": 52,
+    "plant_name": "扇島パワー",
+    "unit_name": "1",
+    "unit_type_id": 42,
+    "name": "1号機",
+    "power": 40.71
+  },
+  {
+    "group_id": 52,
+    "plant_name": "扇島パワー",
+    "unit_name": "2",
+    "unit_type_id": 42,
+    "name": "2号機",
+    "power": 40.71
+  },
+  {
+    "group_id": 52,
+    "plant_name": "扇島パワー",
+    "unit_name": "3",
+    "unit_type_id": 42,
+    "name": "3号機",
+    "power": 40.71
+  },
+  {
+    "group_id": 53,
+    "plant_name": "品川火力発電所１号系列１軸",
+    "unit_name": "品川１ー１軸",
+    "unit_type_id": 42,
+    "name": "1-1軸",
+    "power": 38.0
+  },
+  {
+    "group_id": 53,
+    "plant_name": "品川火力発電所１号系列２軸",
+    "unit_name": "品川１ー２軸",
+    "unit_type_id": 42,
+    "name": "1-2軸",
+    "power": 38.0
+  },
+  {
+    "group_id": 53,
+    "plant_name": "品川火力発電所１号系列３軸",
+    "unit_name": "品川１ー３軸",
+    "unit_type_id": 42,
+    "name": "1-3軸",
+    "power": 38.0
+  },
+  {
+    "group_id": 54,
+    "plant_name": "川崎天然ガス発電所",
+    "unit_name": "川天1号機",
+    "unit_type_id": 42,
+    "name": "1号機",
+    "power": 41.3
+  },
+  {
+    "group_id": 54,
+    "plant_name": "川崎天然ガス発電所",
+    "unit_name": "川天2号機",
+    "unit_type_id": 42,
+    "name": "2号機",
+    "power": 41.3
+  },
+  {
+    "group_id": 55,
+    "plant_name": "ＪＦＥスチール株式会社川鉄千葉クリーンパワーステーション",
+    "unit_name": "ＪＦＥ千葉ＩＰＰ",
+    "unit_type_id": 41,
+    "name": "",
+    "power": 46.61
+  },
+  {
+    "group_id": 56,
+    "plant_name": "袖ケ浦火力発電所１号機",
+    "unit_name": "袖ケ浦１号",
+    "unit_type_id": 40,
+    "name": "1号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 56,
+    "plant_name": "袖ケ浦火力発電所２号機",
+    "unit_name": "袖ケ浦２号",
+    "unit_type_id": 40,
+    "name": "2号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 56,
+    "plant_name": "袖ケ浦火力発電所３号機",
+    "unit_name": "袖ケ浦３号",
+    "unit_type_id": 40,
+    "name": "3号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 56,
+    "plant_name": "袖ケ浦火力発電所４号機",
+    "unit_name": "袖ケ浦４号",
+    "unit_type_id": 40,
+    "name": "4号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 57,
+    "plant_name": "東扇島火力発電所１号機",
+    "unit_name": "東扇島１号",
+    "unit_type_id": 40,
+    "name": "１号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 57,
+    "plant_name": "東扇島火力発電所２号機",
+    "unit_name": "東扇島２号",
+    "unit_type_id": 40,
+    "name": "２号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 58,
+    "plant_name": "南横浜火力発電所１号機",
+    "unit_name": "南横浜１号",
+    "unit_type_id": 40,
+    "name": "1号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 58,
+    "plant_name": "南横浜火力発電所２号機",
+    "unit_name": "南横浜２号",
+    "unit_type_id": 40,
+    "name": "2号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 58,
+    "plant_name": "南横浜火力発電所３号機",
+    "unit_name": "南横浜３号",
+    "unit_type_id": 40,
+    "name": "3号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 59,
+    "plant_name": "鹿島共同発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 40,
+    "name": "3号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 59,
+    "plant_name": "鹿島共同発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 50,
+    "name": "4号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 59,
+    "plant_name": "鹿島共同発電所",
+    "unit_name": "５号機",
+    "unit_type_id": 42,
+    "name": "5号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 60,
+    "plant_name": "常陸那珂火力発電所１号機",
+    "unit_name": "常陸那珂１号",
+    "unit_type_id": 33,
+    "name": "1号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 60,
+    "plant_name": "常陸那珂火力発電所２号機",
+    "unit_name": "常陸那珂２号",
+    "unit_type_id": 33,
+    "name": "2号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 61,
+    "plant_name": "常陸那珂共同火力発電所1号機",
+    "unit_name": "常陸那珂共同火力１号",
+    "unit_type_id": 33,
+    "name": "1号機",
+    "power": 65.0
+  },
+  {
+    "group_id": 62,
+    "plant_name": "広野火力発電所２号機",
+    "unit_name": "広野２号",
+    "unit_type_id": 50,
+    "name": "2号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 62,
+    "plant_name": "広野火力発電所５号機",
+    "unit_name": "広野５号",
+    "unit_type_id": 33,
+    "name": "5号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 62,
+    "plant_name": "広野火力発電所６号機",
+    "unit_name": "広野６号",
+    "unit_type_id": 33,
+    "name": "6号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 63,
+    "plant_name": "横須賀火力発電所1号機",
+    "unit_name": "横須賀1号",
+    "unit_type_id": 33,
+    "name": "1号機",
+    "power": 65.0
+  },
+  {
+    "group_id": 63,
+    "plant_name": "横須賀火力発電所2号機",
+    "unit_name": "横須賀2号",
+    "unit_type_id": 33,
+    "name": "2号機",
+    "power": 65.0
+  },
+  {
+    "group_id": 64,
+    "plant_name": "電源開発磯子火力発電所新１号機",
+    "unit_name": "1号機",
+    "unit_type_id": 33,
+    "name": "1号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 64,
+    "plant_name": "電源開発磯子火力発電所新２号機",
+    "unit_name": "2号機",
+    "unit_type_id": 33,
+    "name": "2号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 65,
+    "plant_name": "日本製鉄 鹿島発電所",
+    "unit_name": "ＮＳ鹿島",
+    "unit_type_id": 32,
+    "name": "1号機",
+    "power": 47.5
+  },
+  {
+    "group_id": 65,
+    "plant_name": "鹿島火力発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 33,
+    "name": "2号機",
+    "power": 64.5
+  },
+  {
+    "group_id": 66,
+    "plant_name": "根岸 ガス化複合発電所",
+    "unit_name": "単独",
+    "unit_type_id": 50,
+    "name": "",
+    "power": 43.145
+  },
+  {
+    "group_id": 67,
+    "plant_name": "株式会社エフビット横須賀パワー　横須賀パワーステーション",
+    "unit_name": "単独",
+    "unit_type_id": 41,
+    "name": "",
+    "power": 23.97
+  },
+  {
+    "group_id": 68,
+    "plant_name": "中袖クリーンパワー発電所",
+    "unit_name": "コンバインド",
+    "unit_type_id": 41,
+    "name": "",
+    "power": 10.739
+  },
+  {
+    "group_id": 69,
+    "plant_name": "新中袖発電所",
+    "unit_name": "単独",
+    "unit_type_id": 41,
+    "name": "",
+    "power": 11.24
+  },
+  {
+    "group_id": 70,
+    "plant_name": "カナデビア株式会社茨城工場第一発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 41,
+    "name": "2号機",
+    "power": 11.358
+  },
+  {
+    "group_id": 70,
+    "plant_name": "カナデビア株式会社茨城工場第一発電所",
+    "unit_name": "3号機",
+    "unit_type_id": 41,
+    "name": "3号機",
+    "power": 11.23
+  },
+  {
+    "group_id": 71,
+    "plant_name": "ゼロワットパワー株式会社　市原発電所",
+    "unit_name": "単独",
+    "unit_type_id": 41,
+    "name": "",
+    "power": 10.55
+  },
+  {
+    "group_id": 72,
+    "plant_name": "鹿島発電所",
+    "unit_name": "単独",
+    "unit_type_id": 92,
+    "name": "",
+    "power": 12.5
+  },
+  {
+    "group_id": 73,
+    "plant_name": "神栖火力発電所",
+    "unit_name": "単独",
+    "unit_type_id": 31,
+    "name": "",
+    "power": 11.2
+  },
+  {
+    "group_id": 74,
+    "plant_name": "鈴川エネルギーセンター発電所",
+    "unit_name": "単独",
+    "unit_type_id": 91,
+    "name": "",
+    "power": 11.2
+  },
+  {
+    "group_id": 75,
+    "plant_name": "新高瀬川発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 22,
+    "name": "1号機",
+    "power": 32.0
+  },
+  {
+    "group_id": 75,
+    "plant_name": "新高瀬川発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 22,
+    "name": "2号機",
+    "power": 32.0
+  },
+  {
+    "group_id": 75,
+    "plant_name": "新高瀬川発電所",
+    "unit_name": "3号機",
+    "unit_type_id": 22,
+    "name": "3号機",
+    "power": 32.0
+  },
+  {
+    "group_id": 75,
+    "plant_name": "新高瀬川発電所",
+    "unit_name": "4号機",
+    "unit_type_id": 22,
+    "name": "4号機",
+    "power": 32.0
+  },
+  {
+    "group_id": 76,
+    "plant_name": "玉原発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 76,
+    "plant_name": "玉原発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 76,
+    "plant_name": "玉原発電所",
+    "unit_name": "3号機",
+    "unit_type_id": 21,
+    "name": "3号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 76,
+    "plant_name": "玉原発電所",
+    "unit_name": "4号機",
+    "unit_type_id": 21,
+    "name": "4号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 77,
+    "plant_name": "葛野川発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 40.0
+  },
+  {
+    "group_id": 77,
+    "plant_name": "葛野川発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 40.0
+  },
+  {
+    "group_id": 77,
+    "plant_name": "葛野川発電所",
+    "unit_name": "4号機",
+    "unit_type_id": 21,
+    "name": "4号機",
+    "power": 40.0
+  },
+  {
+    "group_id": 78,
+    "plant_name": "今市発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 78,
+    "plant_name": "今市発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 78,
+    "plant_name": "今市発電所",
+    "unit_name": "3号機",
+    "unit_type_id": 21,
+    "name": "3号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 79,
+    "plant_name": "神流川発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 47.0
+  },
+  {
+    "group_id": 79,
+    "plant_name": "神流川発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 47.0
+  },
+  {
+    "group_id": 80,
+    "plant_name": "塩原発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 80,
+    "plant_name": "塩原発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 80,
+    "plant_name": "塩原発電所",
+    "unit_name": "3号機",
+    "unit_type_id": 21,
+    "name": "3号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 81,
+    "plant_name": "安曇発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 22,
+    "name": "1号機",
+    "power": 10.5
+  },
+  {
+    "group_id": 81,
+    "plant_name": "安曇発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 22,
+    "name": "2号機",
+    "power": 10.55
+  },
+  {
+    "group_id": 81,
+    "plant_name": "安曇発電所",
+    "unit_name": "3号機",
+    "unit_type_id": 22,
+    "name": "3号機",
+    "power": 10.3
+  },
+  {
+    "group_id": 81,
+    "plant_name": "安曇発電所",
+    "unit_name": "4号機",
+    "unit_type_id": 22,
+    "name": "4号機",
+    "power": 10.3
+  },
+  {
+    "group_id": 81,
+    "plant_name": "安曇発電所",
+    "unit_name": "5号機",
+    "unit_type_id": 22,
+    "name": "5号機",
+    "power": 10.3
+  },
+  {
+    "group_id": 81,
+    "plant_name": "安曇発電所",
+    "unit_name": "6号機",
+    "unit_type_id": 22,
+    "name": "6号機",
+    "power": 10.3
+  },
+  {
+    "group_id": 82,
+    "plant_name": "電源開発沼原発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 22.5
+  },
+  {
+    "group_id": 82,
+    "plant_name": "電源開発沼原発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 22.5
+  },
+  {
+    "group_id": 82,
+    "plant_name": "電源開発沼原発電所",
+    "unit_name": "3号機",
+    "unit_type_id": 21,
+    "name": "3号機",
+    "power": 22.5
+  },
+  {
+    "group_id": 83,
+    "plant_name": "浜岡原子力発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 10,
+    "name": "3号機",
+    "power": 110.0
+  },
+  {
+    "group_id": 83,
+    "plant_name": "浜岡原子力発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 10,
+    "name": "4号機",
+    "power": 113.7
+  },
+  {
+    "group_id": 83,
+    "plant_name": "浜岡原子力発電所",
+    "unit_name": "５号機",
+    "unit_type_id": 10,
+    "name": "5号機",
+    "power": 138.0
+  },
+  {
+    "group_id": 84,
+    "plant_name": "西名古屋火力発電所",
+    "unit_name": "７-１号機",
+    "unit_type_id": 44,
+    "name": "7-1号機",
+    "power": 118.82
+  },
+  {
+    "group_id": 84,
+    "plant_name": "西名古屋火力発電所",
+    "unit_name": "７-２号機",
+    "unit_type_id": 44,
+    "name": "7-2号機",
+    "power": 118.82
+  },
+  {
+    "group_id": 85,
+    "plant_name": "新名古屋火力発電所",
+    "unit_name": "７-１号機",
+    "unit_type_id": 42,
+    "name": "7-1号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 85,
+    "plant_name": "新名古屋火力発電所",
+    "unit_name": "７-２号機",
+    "unit_type_id": 42,
+    "name": "7-2号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 85,
+    "plant_name": "新名古屋火力発電所",
+    "unit_name": "７-３号機",
+    "unit_type_id": 42,
+    "name": "7-3号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 85,
+    "plant_name": "新名古屋火力発電所",
+    "unit_name": "７-４号機",
+    "unit_type_id": 42,
+    "name": "7-4号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 85,
+    "plant_name": "新名古屋火力発電所",
+    "unit_name": "７-５号機",
+    "unit_type_id": 42,
+    "name": "7-5号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 85,
+    "plant_name": "新名古屋火力発電所",
+    "unit_name": "７-６号機",
+    "unit_type_id": 42,
+    "name": "7-6号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 86,
+    "plant_name": "新名古屋火力発電所",
+    "unit_name": "８-１号機",
+    "unit_type_id": 43,
+    "name": "8-1号機",
+    "power": 40.0
+  },
+  {
+    "group_id": 86,
+    "plant_name": "新名古屋火力発電所",
+    "unit_name": "８-２号機",
+    "unit_type_id": 43,
+    "name": "8-2号機",
+    "power": 40.0
+  },
+  {
+    "group_id": 86,
+    "plant_name": "新名古屋火力発電所",
+    "unit_name": "８-３号機",
+    "unit_type_id": 43,
+    "name": "8-3号機",
+    "power": 40.0
+  },
+  {
+    "group_id": 86,
+    "plant_name": "新名古屋火力発電所",
+    "unit_name": "８-４号機",
+    "unit_type_id": 43,
+    "name": "8-4号機",
+    "power": 40.0
+  },
+  {
+    "group_id": 87,
+    "plant_name": "川越火力発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 40,
+    "name": "1号機",
+    "power": 70.0
+  },
+  {
+    "group_id": 87,
+    "plant_name": "川越火力発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 40,
+    "name": "2号機",
+    "power": 70.0
+  },
+  {
+    "group_id": 88,
+    "plant_name": "川越火力発電所",
+    "unit_name": "３-１号機",
+    "unit_type_id": 42,
+    "name": "3-1号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 88,
+    "plant_name": "川越火力発電所",
+    "unit_name": "３-２号機",
+    "unit_type_id": 42,
+    "name": "3-2号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 88,
+    "plant_name": "川越火力発電所",
+    "unit_name": "３-３号機",
+    "unit_type_id": 42,
+    "name": "3-3号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 88,
+    "plant_name": "川越火力発電所",
+    "unit_name": "３-４号機",
+    "unit_type_id": 42,
+    "name": "3-4号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 88,
+    "plant_name": "川越火力発電所",
+    "unit_name": "３-５号機",
+    "unit_type_id": 42,
+    "name": "3-5号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 88,
+    "plant_name": "川越火力発電所",
+    "unit_name": "３-６号機",
+    "unit_type_id": 42,
+    "name": "3-6号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 88,
+    "plant_name": "川越火力発電所",
+    "unit_name": "３-７号機",
+    "unit_type_id": 42,
+    "name": "3-7号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 89,
+    "plant_name": "川越火力発電所",
+    "unit_name": "４-１号機",
+    "unit_type_id": 42,
+    "name": "4-1号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 89,
+    "plant_name": "川越火力発電所",
+    "unit_name": "４-２号機",
+    "unit_type_id": 42,
+    "name": "4-2号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 89,
+    "plant_name": "川越火力発電所",
+    "unit_name": "４-３号機",
+    "unit_type_id": 42,
+    "name": "4-3号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 89,
+    "plant_name": "川越火力発電所",
+    "unit_name": "４-４号機",
+    "unit_type_id": 42,
+    "name": "4-4号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 89,
+    "plant_name": "川越火力発電所",
+    "unit_name": "４-５号機",
+    "unit_type_id": 42,
+    "name": "4-5号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 89,
+    "plant_name": "川越火力発電所",
+    "unit_name": "４-６号機",
+    "unit_type_id": 42,
+    "name": "4-6号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 89,
+    "plant_name": "川越火力発電所",
+    "unit_name": "４-７号機",
+    "unit_type_id": 42,
+    "name": "4-7号機",
+    "power": 24.3
+  },
+  {
+    "group_id": 90,
+    "plant_name": "知多火力発電所",
+    "unit_name": "５号機",
+    "unit_type_id": 42,
+    "name": "5号機",
+    "power": 70.0
+  },
+  {
+    "group_id": 90,
+    "plant_name": "知多火力発電所",
+    "unit_name": "６号機",
+    "unit_type_id": 42,
+    "name": "6号機",
+    "power": 85.4
+  },
+  {
+    "group_id": 91,
+    "plant_name": "知多第二火力発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 42,
+    "name": "1号機",
+    "power": 85.4
+  },
+  {
+    "group_id": 91,
+    "plant_name": "知多第二火力発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 42,
+    "name": "2号機",
+    "power": 85.4
+  },
+  {
+    "group_id": 92,
+    "plant_name": "四日市火力発電所",
+    "unit_name": "４-１号機",
+    "unit_type_id": 41,
+    "name": "4-1号機",
+    "power": 11.7
+  },
+  {
+    "group_id": 92,
+    "plant_name": "四日市火力発電所",
+    "unit_name": "４-２号機",
+    "unit_type_id": 41,
+    "name": "4-2号機",
+    "power": 11.7
+  },
+  {
+    "group_id": 92,
+    "plant_name": "四日市火力発電所",
+    "unit_name": "４-３号機",
+    "unit_type_id": 41,
+    "name": "4-3号機",
+    "power": 11.7
+  },
+  {
+    "group_id": 92,
+    "plant_name": "四日市火力発電所",
+    "unit_name": "４-４号機",
+    "unit_type_id": 41,
+    "name": "4-4号機",
+    "power": 11.7
+  },
+  {
+    "group_id": 92,
+    "plant_name": "四日市火力発電所",
+    "unit_name": "４-５号機",
+    "unit_type_id": 41,
+    "name": "4-5号機",
+    "power": 11.7
+  },
+  {
+    "group_id": 93,
+    "plant_name": "碧南火力発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 32,
+    "name": "1号機",
+    "power": 70.0
+  },
+  {
+    "group_id": 93,
+    "plant_name": "碧南火力発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 32,
+    "name": "2号機",
+    "power": 70.0
+  },
+  {
+    "group_id": 93,
+    "plant_name": "碧南火力発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 33,
+    "name": "3号機",
+    "power": 70.0
+  },
+  {
+    "group_id": 93,
+    "plant_name": "碧南火力発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 33,
+    "name": "4号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 93,
+    "plant_name": "碧南火力発電所",
+    "unit_name": "５号機",
+    "unit_type_id": 33,
+    "name": "5号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 94,
+    "plant_name": "武豊火力発電所",
+    "unit_name": "５号機",
+    "unit_type_id": 33,
+    "name": "5号機",
+    "power": 107.0
+  },
+  {
+    "group_id": 95,
+    "plant_name": "渥美火力発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 50,
+    "name": "3号機",
+    "power": 70.0
+  },
+  {
+    "group_id": 95,
+    "plant_name": "渥美火力発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 50,
+    "name": "4号機",
+    "power": 70.0
+  },
+  {
+    "group_id": 96,
+    "plant_name": "名古屋発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 31,
+    "name": "名古屋",
+    "power": 14.9
+  },
+  {
+    "group_id": 96,
+    "plant_name": "名古屋第二発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 31,
+    "name": "名古屋第二",
+    "power": 11.0
+  },
+  {
+    "group_id": 97,
+    "plant_name": "四日市霞発電所",
+    "unit_name": "単独",
+    "unit_type_id": 92,
+    "name": "",
+    "power": 23.0
+  },
+  {
+    "group_id": 98,
+    "plant_name": "出光愛知第3発電所",
+    "unit_name": "単独",
+    "unit_type_id": 50,
+    "name": "",
+    "power": 22.557
+  },
+  {
+    "group_id": 99,
+    "plant_name": "豊橋発電所",
+    "unit_name": "単独",
+    "unit_type_id": 31,
+    "name": "",
+    "power": 14.7
+  },
+  {
+    "group_id": 100,
+    "plant_name": "徳山発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 20,
+    "name": "1号機",
+    "power": 13.9
+  },
+  {
+    "group_id": 101,
+    "plant_name": "木曽発電所",
+    "unit_name": "単独",
+    "unit_type_id": 20,
+    "name": "",
+    "power": 11.6
+  },
+  {
+    "group_id": 102,
+    "plant_name": "電源開発御母衣発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 20,
+    "name": "1号機",
+    "power": 10.75
+  },
+  {
+    "group_id": 102,
+    "plant_name": "電源開発御母衣発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 20,
+    "name": "2号機",
+    "power": 10.75
+  },
+  {
+    "group_id": 103,
+    "plant_name": "奥美濃発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 103,
+    "plant_name": "奥美濃発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 103,
+    "plant_name": "奥美濃発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 21,
+    "name": "3号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 103,
+    "plant_name": "奥美濃発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 21,
+    "name": "4号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 103,
+    "plant_name": "奥美濃発電所",
+    "unit_name": "５号機",
+    "unit_type_id": 21,
+    "name": "5号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 103,
+    "plant_name": "奥美濃発電所",
+    "unit_name": "６号機",
+    "unit_type_id": 21,
+    "name": "6号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 104,
+    "plant_name": "奥矢作発電所",
+    "unit_name": "第一発電所",
+    "unit_type_id": 21,
+    "name": "第一",
+    "power": 32.3
+  },
+  {
+    "group_id": 104,
+    "plant_name": "奥矢作発電所",
+    "unit_name": "第二発電所",
+    "unit_type_id": 21,
+    "name": "第二",
+    "power": 78.0
+  },
+  {
+    "group_id": 105,
+    "plant_name": "電源開発新豊根発電所（中部）",
+    "unit_name": "1号機",
+    "unit_type_id": 22,
+    "name": "1号機",
+    "power": 22.5
+  },
+  {
+    "group_id": 105,
+    "plant_name": "電源開発新豊根発電所（中部）",
+    "unit_name": "2号機",
+    "unit_type_id": 22,
+    "name": "2号機",
+    "power": 22.5
+  },
+  {
+    "group_id": 105,
+    "plant_name": "電源開発新豊根発電所（中部）",
+    "unit_name": "3号機",
+    "unit_type_id": 22,
+    "name": "3号機",
+    "power": 22.5
+  },
+  {
+    "group_id": 105,
+    "plant_name": "電源開発新豊根発電所（中部）",
+    "unit_name": "4号機",
+    "unit_type_id": 22,
+    "name": "4号機",
+    "power": 22.5
+  },
+  {
+    "group_id": 105,
+    "plant_name": "電源開発新豊根発電所（中部）",
+    "unit_name": "5号機",
+    "unit_type_id": 22,
+    "name": "5号機",
+    "power": 22.5
+  },
+  {
+    "group_id": 106,
+    "plant_name": "馬瀬川第一発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 22,
+    "name": "1号機",
+    "power": 14.4
+  },
+  {
+    "group_id": 106,
+    "plant_name": "馬瀬川第一発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 22,
+    "name": "2号機",
+    "power": 14.4
+  },
+  {
+    "group_id": 107,
+    "plant_name": "北陸電力 志賀原子力発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 10,
+    "name": "1号機",
+    "power": 54.0
+  },
+  {
+    "group_id": 107,
+    "plant_name": "北陸電力 志賀原子力発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 10,
+    "name": "2号機",
+    "power": 120.6
+  },
+  {
+    "group_id": 108,
+    "plant_name": "北陸電力 富山新港火力発電所",
+    "unit_name": "石炭1号機",
+    "unit_type_id": 31,
+    "name": "石炭1号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 108,
+    "plant_name": "北陸電力 富山新港火力発電所",
+    "unit_name": "石炭2号機",
+    "unit_type_id": 31,
+    "name": "石炭2号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 108,
+    "plant_name": "北陸電力 富山新港火力発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 50,
+    "name": "1号機",
+    "power": 24.0
+  },
+  {
+    "group_id": 108,
+    "plant_name": "北陸電力 富山新港火力発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 40,
+    "name": "2号機",
+    "power": 50.0
+  },
+  {
+    "group_id": 108,
+    "plant_name": "北陸電力 富山新港火力発電所",
+    "unit_name": "LNG1号機",
+    "unit_type_id": 43,
+    "name": "LNG1号機",
+    "power": 42.47
+  },
+  {
+    "group_id": 109,
+    "plant_name": "北陸電力 七尾大田火力発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 33,
+    "name": "1号機",
+    "power": 50.0
+  },
+  {
+    "group_id": 109,
+    "plant_name": "北陸電力 七尾大田火力発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 33,
+    "name": "2号機",
+    "power": 70.0
+  },
+  {
+    "group_id": 110,
+    "plant_name": "北陸電力 敦賀火力発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 32,
+    "name": "1号機",
+    "power": 50.0
+  },
+  {
+    "group_id": 110,
+    "plant_name": "北陸電力 敦賀火力発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 33,
+    "name": "2号機",
+    "power": 70.0
+  },
+  {
+    "group_id": 111,
+    "plant_name": "北陸電力 富山火力発電所",
+    "unit_name": "4号機",
+    "unit_type_id": 50,
+    "name": "4号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 112,
+    "plant_name": "北陸電力 福井火力発電所",
+    "unit_name": "三国1号機",
+    "unit_type_id": 50,
+    "name": "三国1号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 113,
+    "plant_name": "北陸電力 有峰第一発電所",
+    "unit_name": "単独",
+    "unit_type_id": 20,
+    "name": "第一",
+    "power": 26.5
+  },
+  {
+    "group_id": 113,
+    "plant_name": "北陸電力 有峰第二発電所",
+    "unit_name": "単独",
+    "unit_type_id": 20,
+    "name": "第二",
+    "power": 12.3
+  },
+  {
+    "group_id": 114,
+    "plant_name": "電源開発 手取川第一",
+    "unit_name": "",
+    "unit_type_id": 20,
+    "name": "",
+    "power": 25.0
+  },
+  {
+    "group_id": 115,
+    "plant_name": "下小鳥発電所",
+    "unit_name": "単独",
+    "unit_type_id": 20,
+    "name": "",
+    "power": 14.2
+  },
+  {
+    "group_id": 116,
+    "plant_name": "音沢発電所",
+    "unit_name": "単独",
+    "unit_type_id": 20,
+    "name": "",
+    "power": 12.4
+  },
+  {
+    "group_id": 117,
+    "plant_name": "電源開発 長野発電所（北陸）",
+    "unit_name": "1号機",
+    "unit_type_id": 22,
+    "name": "1号機",
+    "power": 11.0
+  },
+  {
+    "group_id": 117,
+    "plant_name": "電源開発長野発電所（北陸）",
+    "unit_name": "2号機",
+    "unit_type_id": 22,
+    "name": "2号機",
+    "power": 11.0
+  },
+  {
+    "group_id": 118,
+    "plant_name": "高浜発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 10,
+    "name": "1号機",
+    "power": 82.6
+  },
+  {
+    "group_id": 118,
+    "plant_name": "高浜発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 10,
+    "name": "2号機",
+    "power": 82.6
+  },
+  {
+    "group_id": 118,
+    "plant_name": "高浜発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 10,
+    "name": "3号機",
+    "power": 82.7
+  },
+  {
+    "group_id": 118,
+    "plant_name": "高浜発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 10,
+    "name": "4号機",
+    "power": 82.6
+  },
+  {
+    "group_id": 119,
+    "plant_name": "大飯発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 10,
+    "name": "3号機",
+    "power": 118.0
+  },
+  {
+    "group_id": 119,
+    "plant_name": "大飯発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 10,
+    "name": "4号機",
+    "power": 119.0
+  },
+  {
+    "group_id": 120,
+    "plant_name": "美浜発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 10,
+    "name": "3号機",
+    "power": 82.6
+  },
+  {
+    "group_id": 121,
+    "plant_name": "敦賀発電所2号機",
+    "unit_name": "単独",
+    "unit_type_id": 10,
+    "name": "2号機",
+    "power": 116.0
+  },
+  {
+    "group_id": 122,
+    "plant_name": "姫路第二発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 44,
+    "name": "1号機",
+    "power": 48.65
+  },
+  {
+    "group_id": 122,
+    "plant_name": "姫路第二発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 44,
+    "name": "2号機",
+    "power": 48.65
+  },
+  {
+    "group_id": 122,
+    "plant_name": "姫路第二発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 44,
+    "name": "3号機",
+    "power": 48.65
+  },
+  {
+    "group_id": 122,
+    "plant_name": "姫路第二発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 44,
+    "name": "4号機",
+    "power": 48.65
+  },
+  {
+    "group_id": 122,
+    "plant_name": "姫路第二発電所",
+    "unit_name": "５号機",
+    "unit_type_id": 44,
+    "name": "5号機",
+    "power": 48.65
+  },
+  {
+    "group_id": 122,
+    "plant_name": "姫路第二発電所",
+    "unit_name": "６号機",
+    "unit_type_id": 44,
+    "name": "6号機",
+    "power": 48.65
+  },
+  {
+    "group_id": 123,
+    "plant_name": "堺港発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 43,
+    "name": "1号機",
+    "power": 40.0
+  },
+  {
+    "group_id": 123,
+    "plant_name": "堺港発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 43,
+    "name": "2号機",
+    "power": 40.0
+  },
+  {
+    "group_id": 123,
+    "plant_name": "堺港発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 43,
+    "name": "3号機",
+    "power": 40.0
+  },
+  {
+    "group_id": 123,
+    "plant_name": "堺港発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 43,
+    "name": "4号機",
+    "power": 40.0
+  },
+  {
+    "group_id": 123,
+    "plant_name": "堺港発電所",
+    "unit_name": "５号機",
+    "unit_type_id": 43,
+    "name": "5号機",
+    "power": 40.0
+  },
+  {
+    "group_id": 124,
+    "plant_name": "姫路第一発電所",
+    "unit_name": "５号機",
+    "unit_type_id": 42,
+    "name": "5号機",
+    "power": 72.9
+  },
+  {
+    "group_id": 124,
+    "plant_name": "姫路第一発電所",
+    "unit_name": "６号機",
+    "unit_type_id": 42,
+    "name": "6号機",
+    "power": 71.3
+  },
+  {
+    "group_id": 125,
+    "plant_name": "泉北天然ガス第二発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 42,
+    "name": "1号機",
+    "power": 27.7
+  },
+  {
+    "group_id": 125,
+    "plant_name": "泉北天然ガス第二発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 42,
+    "name": "2号機",
+    "power": 27.7
+  },
+  {
+    "group_id": 125,
+    "plant_name": "泉北天然ガス第一発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 42,
+    "name": "3号機",
+    "power": 27.75
+  },
+  {
+    "group_id": 125,
+    "plant_name": "泉北天然ガス第一発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 42,
+    "name": "4号機",
+    "power": 27.75
+  },
+  {
+    "group_id": 126,
+    "plant_name": "神戸発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 32,
+    "name": "1号機",
+    "power": 70.0
+  },
+  {
+    "group_id": 126,
+    "plant_name": "神戸発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 32,
+    "name": "2号機",
+    "power": 70.0
+  },
+  {
+    "group_id": 126,
+    "plant_name": "神戸発電所",
+    "unit_name": "3号機",
+    "unit_type_id": 33,
+    "name": "3号機",
+    "power": 65.0
+  },
+  {
+    "group_id": 126,
+    "plant_name": "神戸発電所",
+    "unit_name": "4号機",
+    "unit_type_id": 33,
+    "name": "4号機",
+    "power": 65.0
+  },
+  {
+    "group_id": 127,
+    "plant_name": "舞鶴発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 33,
+    "name": "1号機",
+    "power": 90.0
+  },
+  {
+    "group_id": 127,
+    "plant_name": "舞鶴発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 33,
+    "name": "2号機",
+    "power": 90.0
+  },
+  {
+    "group_id": 128,
+    "plant_name": "南港発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 40,
+    "name": "1号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 128,
+    "plant_name": "南港発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 40,
+    "name": "2号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 128,
+    "plant_name": "南港発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 40,
+    "name": "3号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 129,
+    "plant_name": "電源開発高砂火力発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 31,
+    "name": "1号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 129,
+    "plant_name": "電源開発高砂火力発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 31,
+    "name": "2号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 130,
+    "plant_name": "御坊発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 50,
+    "name": "1号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 130,
+    "plant_name": "御坊発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 50,
+    "name": "2号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 130,
+    "plant_name": "御坊発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 50,
+    "name": "3号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 131,
+    "plant_name": "赤穂発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 50,
+    "name": "1号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 131,
+    "plant_name": "赤穂発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 50,
+    "name": "2号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 132,
+    "plant_name": "相生バイオマス発電所",
+    "unit_name": "単独",
+    "unit_type_id": 91,
+    "name": "",
+    "power": 30.0
+  },
+  {
+    "group_id": 133,
+    "plant_name": "船町発電所",
+    "unit_name": "第１号発電設備",
+    "unit_type_id": 41,
+    "name": "1号機",
+    "power": 14.9
+  },
+  {
+    "group_id": 134,
+    "plant_name": "酉島エネルギーセンター発電所",
+    "unit_name": "酉島エネルギーセンター発電所",
+    "unit_type_id": 42,
+    "name": "",
+    "power": 14.0
+  },
+  {
+    "group_id": 135,
+    "plant_name": "日本製鉄(株) 広畑発電所 第7号発電設備",
+    "unit_name": "広畑7号",
+    "unit_type_id": 31,
+    "name": "",
+    "power": 13.3
+  },
+  {
+    "group_id": 136,
+    "plant_name": "奥多々良木発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 30.3
+  },
+  {
+    "group_id": 136,
+    "plant_name": "奥多々良木発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 30.3
+  },
+  {
+    "group_id": 136,
+    "plant_name": "奥多々良木発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 21,
+    "name": "3号機",
+    "power": 30.3
+  },
+  {
+    "group_id": 136,
+    "plant_name": "奥多々良木発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 21,
+    "name": "4号機",
+    "power": 30.3
+  },
+  {
+    "group_id": 136,
+    "plant_name": "奥多々良木発電所",
+    "unit_name": "５号機",
+    "unit_type_id": 21,
+    "name": "5号機",
+    "power": 36.0
+  },
+  {
+    "group_id": 136,
+    "plant_name": "奥多々良木発電所",
+    "unit_name": "６号機",
+    "unit_type_id": 21,
+    "name": "6号機",
+    "power": 36.0
+  },
+  {
+    "group_id": 137,
+    "plant_name": "大河内発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 32.0
+  },
+  {
+    "group_id": 137,
+    "plant_name": "大河内発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 32.0
+  },
+  {
+    "group_id": 137,
+    "plant_name": "大河内発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 21,
+    "name": "3号機",
+    "power": 32.0
+  },
+  {
+    "group_id": 137,
+    "plant_name": "大河内発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 21,
+    "name": "4号機",
+    "power": 32.0
+  },
+  {
+    "group_id": 138,
+    "plant_name": "奥吉野発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 20.1
+  },
+  {
+    "group_id": 138,
+    "plant_name": "奥吉野発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 20.1
+  },
+  {
+    "group_id": 138,
+    "plant_name": "奥吉野発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 21,
+    "name": "3号機",
+    "power": 20.1
+  },
+  {
+    "group_id": 138,
+    "plant_name": "奥吉野発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 21,
+    "name": "4号機",
+    "power": 20.1
+  },
+  {
+    "group_id": 138,
+    "plant_name": "奥吉野発電所",
+    "unit_name": "５号機",
+    "unit_type_id": 21,
+    "name": "5号機",
+    "power": 20.1
+  },
+  {
+    "group_id": 138,
+    "plant_name": "奥吉野発電所",
+    "unit_name": "６号機",
+    "unit_type_id": 21,
+    "name": "6号機",
+    "power": 20.1
+  },
+  {
+    "group_id": 139,
+    "plant_name": "喜撰山発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 23.3
+  },
+  {
+    "group_id": 139,
+    "plant_name": "喜撰山発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 23.3
+  },
+  {
+    "group_id": 140,
+    "plant_name": "電源開発池原発電所（関西）",
+    "unit_name": "3号機",
+    "unit_type_id": 22,
+    "name": "3号機",
+    "power": 10.3
+  },
+  {
+    "group_id": 140,
+    "plant_name": "電源開発池原発電所（関西）",
+    "unit_name": "4号機",
+    "unit_type_id": 22,
+    "name": "4号機",
+    "power": 10.3
+  },
+  {
+    "group_id": 141,
+    "plant_name": "島根原子力発電所第２号機",
+    "unit_name": "単独",
+    "unit_type_id": 10,
+    "name": "2号機",
+    "power": 82.0
+  },
+  {
+    "group_id": 142,
+    "plant_name": "柳井発電所第１号系列下位",
+    "unit_name": "１-１号",
+    "unit_type_id": 41,
+    "name": "1-1号",
+    "power": 13.1
+  },
+  {
+    "group_id": 142,
+    "plant_name": "柳井発電所第１号系列上位",
+    "unit_name": "１-２号",
+    "unit_type_id": 41,
+    "name": "1-2号",
+    "power": 13.1
+  },
+  {
+    "group_id": 142,
+    "plant_name": "柳井発電所第１号系列上位",
+    "unit_name": "１-３号",
+    "unit_type_id": 41,
+    "name": "1-3号",
+    "power": 13.1
+  },
+  {
+    "group_id": 142,
+    "plant_name": "柳井発電所第１号系列上位",
+    "unit_name": "１-４号",
+    "unit_type_id": 41,
+    "name": "1-4号",
+    "power": 13.1
+  },
+  {
+    "group_id": 142,
+    "plant_name": "柳井発電所第１号系列上位",
+    "unit_name": "１-５号",
+    "unit_type_id": 41,
+    "name": "1-5号",
+    "power": 13.1
+  },
+  {
+    "group_id": 142,
+    "plant_name": "柳井発電所第１号系列上位",
+    "unit_name": "１-６号",
+    "unit_type_id": 41,
+    "name": "1-6号",
+    "power": 13.1
+  },
+  {
+    "group_id": 143,
+    "plant_name": "柳井発電所第２号系列",
+    "unit_name": "２-１号",
+    "unit_type_id": 42,
+    "name": "2-1号",
+    "power": 19.8
+  },
+  {
+    "group_id": 143,
+    "plant_name": "柳井発電所第２号系列",
+    "unit_name": "２-２号",
+    "unit_type_id": 42,
+    "name": "2-2号",
+    "power": 19.8
+  },
+  {
+    "group_id": 143,
+    "plant_name": "柳井発電所第２号系列",
+    "unit_name": "２-３号",
+    "unit_type_id": 42,
+    "name": "2-3号",
+    "power": 19.8
+  },
+  {
+    "group_id": 143,
+    "plant_name": "柳井発電所第２号系列",
+    "unit_name": "２-４号",
+    "unit_type_id": 42,
+    "name": "2-4号",
+    "power": 19.8
+  },
+  {
+    "group_id": 144,
+    "plant_name": "水島発電所第１号機",
+    "unit_name": "１号機",
+    "unit_type_id": 42,
+    "name": "1号機",
+    "power": 28.5
+  },
+  {
+    "group_id": 144,
+    "plant_name": "水島発電所第３号機",
+    "unit_name": "３号機",
+    "unit_type_id": 40,
+    "name": "3号機",
+    "power": 34.0
+  },
+  {
+    "group_id": 145,
+    "plant_name": "三隅発電所第１号機",
+    "unit_name": "１号機",
+    "unit_type_id": 33,
+    "name": "1号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 145,
+    "plant_name": "三隅発電所第２号機",
+    "unit_name": "２号機",
+    "unit_type_id": 33,
+    "name": "2号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 146,
+    "plant_name": "電源開発竹原火力発電所新１号機",
+    "unit_name": "1号機",
+    "unit_type_id": 33,
+    "name": "1号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 146,
+    "plant_name": "電源開発竹原火力発電所３号機",
+    "unit_name": "3号機",
+    "unit_type_id": 32,
+    "name": "3号機",
+    "power": 70.0
+  },
+  {
+    "group_id": 147,
+    "plant_name": "玉島発電所第１号機",
+    "unit_name": "１号機",
+    "unit_type_id": 40,
+    "name": "1号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 147,
+    "plant_name": "玉島発電所第２号機",
+    "unit_name": "２号機",
+    "unit_type_id": 50,
+    "name": "2号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 147,
+    "plant_name": "玉島発電所第３号機",
+    "unit_name": "３号機",
+    "unit_type_id": 50,
+    "name": "3号機",
+    "power": 50.0
+  },
+  {
+    "group_id": 148,
+    "plant_name": "新小野田発電所第１号機",
+    "unit_name": "１号機",
+    "unit_type_id": 32,
+    "name": "1号機",
+    "power": 50.0
+  },
+  {
+    "group_id": 148,
+    "plant_name": "新小野田発電所第２号機",
+    "unit_name": "２号機",
+    "unit_type_id": 32,
+    "name": "2号機",
+    "power": 50.0
+  },
+  {
+    "group_id": 149,
+    "plant_name": "大崎発電所第１号１軸",
+    "unit_name": "単独",
+    "unit_type_id": 31,
+    "name": "",
+    "power": 25.9
+  },
+  {
+    "group_id": 150,
+    "plant_name": "宇部興産発電所",
+    "unit_name": "5号機",
+    "unit_type_id": 31,
+    "name": "5号機",
+    "power": 14.5
+  },
+  {
+    "group_id": 150,
+    "plant_name": "宇部興産発電所",
+    "unit_name": "6号",
+    "unit_type_id": 31,
+    "name": "6号機",
+    "power": 21.6
+  },
+  {
+    "group_id": 151,
+    "plant_name": "トクヤマ東発電所第3号発電所",
+    "unit_name": "単独",
+    "unit_type_id": 31,
+    "name": "",
+    "power": 30.0
+  },
+  {
+    "group_id": 152,
+    "plant_name": "麻里布 第２発電所",
+    "unit_name": "Ｇ６",
+    "unit_type_id": 92,
+    "name": "第2G6",
+    "power": 14.9
+  },
+  {
+    "group_id": 153,
+    "plant_name": "水島製油所　B工場",
+    "unit_name": "G8",
+    "unit_type_id": 92,
+    "name": "B工場G8",
+    "power": 11.24
+  },
+  {
+    "group_id": 154,
+    "plant_name": "水島MZ",
+    "unit_name": "単独",
+    "unit_type_id": 31,
+    "name": "",
+    "power": 11.2
+  },
+  {
+    "group_id": 155,
+    "plant_name": "防府バイオマス発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 91,
+    "name": "1号機",
+    "power": 11.2
+  },
+  {
+    "group_id": 156,
+    "plant_name": "海田発電所",
+    "unit_name": "単独",
+    "unit_type_id": 91,
+    "name": "",
+    "power": 11.2
+  },
+  {
+    "group_id": 157,
+    "plant_name": "俣野川発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 157,
+    "plant_name": "俣野川発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 157,
+    "plant_name": "俣野川発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 21,
+    "name": "3号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 157,
+    "plant_name": "俣野川発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 21,
+    "name": "4号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 158,
+    "plant_name": "南原発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 31.0
+  },
+  {
+    "group_id": 158,
+    "plant_name": "南原発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 31.0
+  },
+  {
+    "group_id": 159,
+    "plant_name": "四国電力　伊方発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 10,
+    "name": "3号機",
+    "power": 89.0
+  },
+  {
+    "group_id": 160,
+    "plant_name": "四国電力　坂出発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 42,
+    "name": "1号機",
+    "power": 28.9
+  },
+  {
+    "group_id": 160,
+    "plant_name": "四国電力　坂出発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 42,
+    "name": "2号機",
+    "power": 29.6
+  },
+  {
+    "group_id": 160,
+    "plant_name": "四国電力　坂出発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 50,
+    "name": "3号機",
+    "power": 45.0
+  },
+  {
+    "group_id": 160,
+    "plant_name": "四国電力　坂出発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 40,
+    "name": "4号機",
+    "power": 35.0
+  },
+  {
+    "group_id": 161,
+    "plant_name": "電源開発橘湾火力発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 33,
+    "name": "1号機",
+    "power": 105.0
+  },
+  {
+    "group_id": 161,
+    "plant_name": "電源開発橘湾火力発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 33,
+    "name": "2号機",
+    "power": 105.0
+  },
+  {
+    "group_id": 162,
+    "plant_name": "四国電力　阿南発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 50,
+    "name": "3号機",
+    "power": 45.0
+  },
+  {
+    "group_id": 162,
+    "plant_name": "四国電力　阿南発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 50,
+    "name": "4号機",
+    "power": 45.0
+  },
+  {
+    "group_id": 163,
+    "plant_name": "四国電力　西条発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 31,
+    "name": "1号機",
+    "power": 50.0
+  },
+  {
+    "group_id": 163,
+    "plant_name": "四国電力　西条発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 31,
+    "name": "2号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 164,
+    "plant_name": "四国電力　橘湾発電所",
+    "unit_name": "単独",
+    "unit_type_id": 33,
+    "name": "",
+    "power": 70.0
+  },
+  {
+    "group_id": 165,
+    "plant_name": "壬生川火力発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 31,
+    "name": "1号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 166,
+    "plant_name": "土佐発電所",
+    "unit_name": "単独",
+    "unit_type_id": 31,
+    "name": "",
+    "power": 16.7
+  },
+  {
+    "group_id": 167,
+    "plant_name": "新居浜西火力発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 31,
+    "name": "3号機",
+    "power": 15.0
+  },
+  {
+    "group_id": 168,
+    "plant_name": "四国電力　本川発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 31.5
+  },
+  {
+    "group_id": 168,
+    "plant_name": "四国電力　本川発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 169,
+    "plant_name": "玄海原子力発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 10,
+    "name": "3号機",
+    "power": 118.0
+  },
+  {
+    "group_id": 169,
+    "plant_name": "玄海原子力発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 10,
+    "name": "4号機",
+    "power": 118.0
+  },
+  {
+    "group_id": 170,
+    "plant_name": "川内原子力発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 10,
+    "name": "1号機",
+    "power": 89.0
+  },
+  {
+    "group_id": 170,
+    "plant_name": "川内原子力発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 10,
+    "name": "2号機",
+    "power": 89.0
+  },
+  {
+    "group_id": 171,
+    "plant_name": "新大分発電所",
+    "unit_name": "１号系列第１軸",
+    "unit_type_id": 41,
+    "name": "1-1軸",
+    "power": 12.0
+  },
+  {
+    "group_id": 171,
+    "plant_name": "新大分発電所",
+    "unit_name": "１号系列第２軸",
+    "unit_type_id": 41,
+    "name": "1-2軸",
+    "power": 12.0
+  },
+  {
+    "group_id": 171,
+    "plant_name": "新大分発電所",
+    "unit_name": "１号系列第３軸",
+    "unit_type_id": 41,
+    "name": "1-3軸",
+    "power": 12.0
+  },
+  {
+    "group_id": 171,
+    "plant_name": "新大分発電所",
+    "unit_name": "１号系列第４軸",
+    "unit_type_id": 41,
+    "name": "1-4軸",
+    "power": 12.0
+  },
+  {
+    "group_id": 171,
+    "plant_name": "新大分発電所",
+    "unit_name": "１号系列第５軸",
+    "unit_type_id": 41,
+    "name": "1-5軸",
+    "power": 12.0
+  },
+  {
+    "group_id": 171,
+    "plant_name": "新大分発電所",
+    "unit_name": "１号系列第６軸",
+    "unit_type_id": 41,
+    "name": "1-6軸",
+    "power": 12.0
+  },
+  {
+    "group_id": 172,
+    "plant_name": "新大分発電所",
+    "unit_name": "２号系列第１軸",
+    "unit_type_id": 42,
+    "name": "2-1軸",
+    "power": 23.0
+  },
+  {
+    "group_id": 172,
+    "plant_name": "新大分発電所",
+    "unit_name": "２号系列第２軸",
+    "unit_type_id": 42,
+    "name": "2-2軸",
+    "power": 23.0
+  },
+  {
+    "group_id": 172,
+    "plant_name": "新大分発電所",
+    "unit_name": "２号系列第３軸",
+    "unit_type_id": 42,
+    "name": "2-3軸",
+    "power": 23.0
+  },
+  {
+    "group_id": 172,
+    "plant_name": "新大分発電所",
+    "unit_name": "２号系列第４軸",
+    "unit_type_id": 42,
+    "name": "2-4軸",
+    "power": 23.0
+  },
+  {
+    "group_id": 172,
+    "plant_name": "新大分発電所",
+    "unit_name": "３号系列第１軸",
+    "unit_type_id": 42,
+    "name": "3-1軸",
+    "power": 24.5
+  },
+  {
+    "group_id": 172,
+    "plant_name": "新大分発電所",
+    "unit_name": "３号系列第２軸",
+    "unit_type_id": 42,
+    "name": "3-2軸",
+    "power": 24.5
+  },
+  {
+    "group_id": 172,
+    "plant_name": "新大分発電所",
+    "unit_name": "３号系列第３軸",
+    "unit_type_id": 42,
+    "name": "3-3軸",
+    "power": 24.5
+  },
+  {
+    "group_id": 172,
+    "plant_name": "新大分発電所",
+    "unit_name": "３号系列第４軸",
+    "unit_type_id": 44,
+    "name": "3-4軸",
+    "power": 50.0
+  },
+  {
+    "group_id": 173,
+    "plant_name": "新小倉発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 40,
+    "name": "3号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 173,
+    "plant_name": "新小倉発電所",
+    "unit_name": "５号機",
+    "unit_type_id": 40,
+    "name": "5号機",
+    "power": 60.0
+  },
+  {
+    "group_id": 174,
+    "plant_name": "電源開発松浦火力発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 32,
+    "name": "1号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 174,
+    "plant_name": "電源開発松浦火力発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 33,
+    "name": "2号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 175,
+    "plant_name": "電源開発松島火力発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 32,
+    "name": "1号機",
+    "power": 50.0
+  },
+  {
+    "group_id": 175,
+    "plant_name": "電源開発松島火力発電所",
+    "unit_name": "2号機",
+    "unit_type_id": 32,
+    "name": "2号機",
+    "power": 50.0
+  },
+  {
+    "group_id": 176,
+    "plant_name": "松浦発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 32,
+    "name": "1号機",
+    "power": 100.0
+  },
+  {
+    "group_id": 176,
+    "plant_name": "松浦発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 33,
+    "name": "2号機",
+    "power": 70.0
+  },
+  {
+    "group_id": 177,
+    "plant_name": "苓北発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 32,
+    "name": "1号機",
+    "power": 70.0
+  },
+  {
+    "group_id": 177,
+    "plant_name": "苓北発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 33,
+    "name": "2号機",
+    "power": 70.0
+  },
+  {
+    "group_id": 178,
+    "plant_name": "豊前発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 50,
+    "name": "2号機",
+    "power": 50.0
+  },
+  {
+    "group_id": 179,
+    "plant_name": "苅田発電所",
+    "unit_name": "新１号機",
+    "unit_type_id": 33,
+    "name": "新1号機",
+    "power": 36.0
+  },
+  {
+    "group_id": 180,
+    "plant_name": "日本製鉄（株） 大分製鐵発電所 第9号発電設備",
+    "unit_name": "大分製鐵9号",
+    "unit_type_id": 31,
+    "name": "",
+    "power": 33.0
+  },
+  {
+    "group_id": 181,
+    "plant_name": "三池発電所",
+    "unit_name": "1",
+    "unit_type_id": 31,
+    "name": "",
+    "power": 17.5
+  },
+  {
+    "group_id": 182,
+    "plant_name": "大分 第２発電所",
+    "unit_name": "単独",
+    "unit_type_id": 92,
+    "name": "",
+    "power": 14.94
+  },
+  {
+    "group_id": 183,
+    "plant_name": "ひびき灘石炭・バイオマス発電所",
+    "unit_name": "単独",
+    "unit_type_id": 31,
+    "name": "",
+    "power": 11.2
+  },
+  {
+    "group_id": 184,
+    "plant_name": "響灘火力発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 31,
+    "name": "1号機",
+    "power": 11.2
+  },
+  {
+    "group_id": 185,
+    "plant_name": "小丸川発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 185,
+    "plant_name": "小丸川発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 185,
+    "plant_name": "小丸川発電所",
+    "unit_name": "３号機",
+    "unit_type_id": 21,
+    "name": "3号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 185,
+    "plant_name": "小丸川発電所",
+    "unit_name": "４号機",
+    "unit_type_id": 21,
+    "name": "4号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 186,
+    "plant_name": "天山発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 186,
+    "plant_name": "天山発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 30.0
+  },
+  {
+    "group_id": 187,
+    "plant_name": "大平発電所",
+    "unit_name": "１号機",
+    "unit_type_id": 21,
+    "name": "1号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 187,
+    "plant_name": "大平発電所",
+    "unit_name": "２号機",
+    "unit_type_id": 21,
+    "name": "2号機",
+    "power": 25.0
+  },
+  {
+    "group_id": 188,
+    "plant_name": "吉の浦1号",
+    "unit_name": "1号機",
+    "unit_type_id": 42,
+    "name": "1号機",
+    "power": 25.1
+  },
+  {
+    "group_id": 188,
+    "plant_name": "吉の浦2号",
+    "unit_name": "2号機",
+    "unit_type_id": 42,
+    "name": "2号機",
+    "power": 25.1
+  },
+  {
+    "group_id": 189,
+    "plant_name": "金武1号",
+    "unit_name": "1号機",
+    "unit_type_id": 31,
+    "name": "1号機",
+    "power": 22.0
+  },
+  {
+    "group_id": 189,
+    "plant_name": "金武2号",
+    "unit_name": "2号機",
+    "unit_type_id": 31,
+    "name": "2号機",
+    "power": 22.0
+  },
+  {
+    "group_id": 190,
+    "plant_name": "具志川1号",
+    "unit_name": "1号機",
+    "unit_type_id": 31,
+    "name": "1号機",
+    "power": 15.6
+  },
+  {
+    "group_id": 190,
+    "plant_name": "具志川2号",
+    "unit_name": "2号機",
+    "unit_type_id": 31,
+    "name": "2号機",
+    "power": 15.6
+  },
+  {
+    "group_id": 191,
+    "plant_name": "石川石炭火力発電所１号機",
+    "unit_name": "1号機",
+    "unit_type_id": 31,
+    "name": "1号機",
+    "power": 15.6
+  },
+  {
+    "group_id": 191,
+    "plant_name": "石川石炭火力発電所２号機",
+    "unit_name": "2号機",
+    "unit_type_id": 31,
+    "name": "2号機",
+    "power": 15.6
+  },
+  {
+    "group_id": 192,
+    "plant_name": "石川1号",
+    "unit_name": "1号機",
+    "unit_type_id": 50,
+    "name": "1号機",
+    "power": 12.5
+  },
+  {
+    "group_id": 192,
+    "plant_name": "石川2号",
+    "unit_name": "2号機",
+    "unit_type_id": 50,
+    "name": "2号機",
+    "power": 12.5
+  },
+  {
+    "group_id": 192,
+    "plant_name": "石川GT1号",
+    "unit_name": "GT1号機",
+    "unit_type_id": 50,
+    "name": "GT1号機",
+    "power": 10.3
+  },
+  {
+    "group_id": 193,
+    "plant_name": "牧港9号",
+    "unit_name": "9号機",
+    "unit_type_id": 50,
+    "name": "9号機",
+    "power": 12.5
+  },
+  {
+    "group_id": 193,
+    "plant_name": "牧港GT2号",
+    "unit_name": "GT2号機",
+    "unit_type_id": 50,
+    "name": "GT2号機",
+    "power": 10.3
+  }
+]

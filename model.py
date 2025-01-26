@@ -1,24 +1,55 @@
 from dataclasses import dataclass
-import const
+
+@dataclass(frozen=True)
+class Area:
+    area_id: int
+    name: str
 
 @dataclass(frozen=True)
 class Group:
-    area: const.Area
+    area_id: int
+    group_id: int
     name: str
 
 @dataclass(frozen=True)
 class Unit:
-    group: Group
-    plant_key_name: str
-    unit_key_name: str
-    type_: const.UnitType
+    group_id: int
+    unit_type_id: int
+    plant_name: str
+    unit_name: str
     name: str
     power: float
 
 @dataclass(frozen=True)
+class UnitType:
+    unit_type_id: int
+    fuel_type_id: int
+    name: str
+
+@dataclass(frozen=True)
+class FuelType:
+    fuel_type_id: int
+    colors_id: int
+    name: str
+
+@dataclass(frozen=True)
+class Colors:
+    colors_id: int
+    name: str
+    color_codes: list[str]
+
+class UnitSummary:
+    area: Area
+    group: Group
+    unit: Unit
+    unit_type: UnitType
+    fuel_type: FuelType
+    colors: Colors
+
+@dataclass(frozen=True)
 class Measurements:
-    plant_key_name: str
-    unit_key_name: str
+    plant_name: str
+    unit_name: str
     measured_at: int
     measurements: int
     updated_at: int

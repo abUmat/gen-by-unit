@@ -6,7 +6,7 @@ resource "aws_lambda_function" "gen_by_unit" {
   package_type  = "Zip"
   handler       = "main.handler"
   memory_size   = 128
-  timeout       = 10
+  timeout       = 900
   role          = aws_iam_role.gen_by_unit.arn
 }
 
@@ -16,7 +16,7 @@ resource "aws_iam_role" "gen_by_unit" {
 }
 
 resource "aws_iam_policy" "gen_by_unit" {
-  name               = "prd-hobby-gen_by_unit"
+  name   = "prd-hobby-gen_by_unit"
   policy = data.aws_iam_policy_document.gen_by_unit.json
 }
 
@@ -42,19 +42,19 @@ resource "aws_iam_role_policy_attachment" "gen_by_unit" {
 }
 
 resource "aws_cloudwatch_event_rule" "gen_by_unit_cron_trigger" {
-  name        = "prd-hobby-gen_by_unit_cron_trigger"
-  schedule_expression = "cron(0 12 * * ? *)" # 毎日UTC時間の12:00に実行
+  name                = "prd-hobby-gen_by_unit_cron_trigger"
+  schedule_expression = "cron(0 7 * * ? *)" # 毎日UTC時間の07:00 == JTC時間の16:00に実行
 }
 
 resource "aws_cloudwatch_event_target" "gen_by_unit_cron_trigger" {
-  rule      = aws_cloudwatch_event_rule.gen_by_unit_cron_trigger.name
-  arn       = aws_lambda_function.gen_by_unit.arn
+  rule = aws_cloudwatch_event_rule.gen_by_unit_cron_trigger.name
+  arn  = aws_lambda_function.gen_by_unit.arn
 }
 
 resource "aws_lambda_permission" "gen_by_unit_cron_trigger_invoke_lambda" {
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.gen_by_unit.id
-  principal     = "logs.${var.aws_region}.amazonaws.com"
+  principal     = "events.amazonaws.com"
   source_arn    = aws_cloudwatch_event_rule.gen_by_unit_cron_trigger.arn
 }
 

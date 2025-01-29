@@ -1,27 +1,29 @@
+DEPLOY_PACKAGE=deployment_package
+
 .PHONY: clean
 clean:
-	rm -rf deployment_package
+	rm -rf ${DEPLOY_PACKAGE}
 	rm -rf img
 
 .PHONY: cp
 cp:
-	mkdir -p deployment_package
-	cp -r src/* deployment_package/
-	cp -r packages deployment_package/packages/
-	cp -r IPAexfont00401 deployment_package/IPAexfont00401/
-	cp -r json_data deployment_package/json_data/
-	cp config.json deployment_package/
+	mkdir -p ${DEPLOY_PACKAGE}
+	cp -r src/* ${DEPLOY_PACKAGE}/
+	cp -r packages ${DEPLOY_PACKAGE}/packages/
+	cp -r IPAexfont00401 ${DEPLOY_PACKAGE}/IPAexfont00401/
+	cp -r json_data ${DEPLOY_PACKAGE}/json_data/
+	cp config.json ${DEPLOY_PACKAGE}/
 
 .PHONY: run
 run: clean cp
-	python3 deployment_package/main.py
+	cd ${DEPLOY_PACKAGE} && python3 main.py
 	make clean
 
 .PHONY: zip
 zip: clean cp
-	cd deployment_package && zip -r ../lambda.zip .
+	cd ${DEPLOY_PACKAGE} && zip -r ../lambda.zip .
 	make clean
 
 .PHONY: deploy
-deploy:
-	aws lambda update-function-code --region us-east-1 --function-name prd-hobby-gen_by_unit --zip-file fileb://lambda.zip
+deploy: zip
+	cd terraform && terraform apply

@@ -1,12 +1,26 @@
 .PHONY: clean
 clean:
-	rm -rf __pycache__
+	rm -rf deployment_package
 	rm -rf img
-	rm -f lambda.zip
+
+.PHONY: cp
+cp:
+	mkdir -p deployment_package
+	cp -r src/* deployment_package/
+	cp -r packages deployment_package/packages/
+	cp -r IPAexfont00401 deployment_package/IPAexfont00401/
+	cp -r json_data deployment_package/json_data/
+	cp config.json deployment_package/
+
+.PHONY: run
+run: clean cp
+	python3 deployment_package/main.py
+	make clean
 
 .PHONY: zip
-zip: clean
-	zip -r lambda.zip *.py config.json json_data/* packages/* IPAexfont00401/*
+zip: clean cp
+	cd deployment_package && zip -r ../lambda.zip .
+	make clean
 
 .PHONY: deploy
 deploy:

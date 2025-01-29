@@ -77,7 +77,8 @@
     "unit_name": "１号機",
     "unit_type_id": 31,
     "name": "1号機",
-    "power": 17.5
+    "power": 17.5,
+    "long_term_shutdown_hjks_updated_at": "2023/12/04 15:09"
   },
   {
     "group_id": 5,
@@ -85,7 +86,8 @@
     "unit_name": "２号機",
     "unit_type_id": 31,
     "name": "2号機",
-    "power": 17.5
+    "power": 17.5,
+    "long_term_shutdown_hjks_updated_at": "2023/12/04 15:10"
   },
   {
     "group_id": 6,
@@ -141,7 +143,8 @@
     "unit_name": "１号機",
     "unit_type_id": 50,
     "name": "1号機",
-    "power": 35.0
+    "power": 35.0,
+    "long_term_shutdown_hjks_updated_at": "2023/02/27 14:27"
   },
   {
     "group_id": 11,
@@ -149,7 +152,8 @@
     "unit_name": "２号機",
     "unit_type_id": 50,
     "name": "2号機",
-    "power": 35.0
+    "power": 35.0,
+    "long_term_shutdown_hjks_updated_at": "2023/02/27 14:28"
   },
   {
     "group_id": 12,
@@ -781,7 +785,8 @@
     "unit_name": "姉崎５号",
     "unit_type_id": 40,
     "name": "5号機",
-    "power": 60.0
+    "power": 60.0,
+    "long_term_shutdown_hjks_updated_at": "2022/09/01 16:53"
   },
   {
     "group_id": 42,
@@ -789,7 +794,8 @@
     "unit_name": "姉崎６号",
     "unit_type_id": 40,
     "name": "6号機",
-    "power": 60.0
+    "power": 60.0,
+    "long_term_shutdown_hjks_updated_at": "2022/10/21 18:10"
   },
   {
     "group_id": 194,
@@ -1277,7 +1283,8 @@
     "unit_name": "袖ケ浦１号",
     "unit_type_id": 40,
     "name": "1号機",
-    "power": 60.0
+    "power": 60.0,
+    "long_term_shutdown_hjks_updated_at": "2022/09/05 17:23"
   },
   {
     "group_id": 56,
@@ -1541,7 +1548,8 @@
     "unit_name": "単独",
     "unit_type_id": 91,
     "name": "",
-    "power": 11.2
+    "power": 11.2,
+    "long_term_shutdown_hjks_updated_at": "2024/12/04 16:03"
   },
   {
     "group_id": 75,
@@ -2053,7 +2061,8 @@
     "unit_name": "４-１号機",
     "unit_type_id": 41,
     "name": "4-1号機",
-    "power": 11.7
+    "power": 11.7,
+    "long_term_shutdown_hjks_updated_at": "2024/03/05 18:21"
   },
   {
     "group_id": 92,
@@ -2061,7 +2070,8 @@
     "unit_name": "４-２号機",
     "unit_type_id": 41,
     "name": "4-2号機",
-    "power": 11.7
+    "power": 11.7,
+    "long_term_shutdown_hjks_updated_at": "2024/03/05 18:20"
   },
   {
     "group_id": 92,
@@ -2069,7 +2079,8 @@
     "unit_name": "４-３号機",
     "unit_type_id": 41,
     "name": "4-3号機",
-    "power": 11.7
+    "power": 11.7,
+    "long_term_shutdown_hjks_updated_at": "2024/03/05 18:19"
   },
   {
     "group_id": 92,
@@ -2077,7 +2088,8 @@
     "unit_name": "４-４号機",
     "unit_type_id": 41,
     "name": "4-4号機",
-    "power": 11.7
+    "power": 11.7,
+    "long_term_shutdown_hjks_updated_at": "2022/09/01 17:14"
   },
   {
     "group_id": 92,
@@ -2085,7 +2097,8 @@
     "unit_name": "４-５号機",
     "unit_type_id": 41,
     "name": "4-5号機",
-    "power": 11.7
+    "power": 11.7,
+    "long_term_shutdown_hjks_updated_at": "2022/09/01 17:16"
   },
   {
     "group_id": 93,
@@ -2141,7 +2154,8 @@
     "unit_name": "３号機",
     "unit_type_id": 50,
     "name": "3号機",
-    "power": 70.0
+    "power": 70.0,
+    "long_term_shutdown_hjks_updated_at": "2024/03/05 18:23"
   },
   {
     "group_id": 95,
@@ -2149,7 +2163,8 @@
     "unit_name": "４号機",
     "unit_type_id": 50,
     "name": "4号機",
-    "power": 70.0
+    "power": 70.0,
+    "long_term_shutdown_hjks_updated_at": "2024/03/05 18:21"
   },
   {
     "group_id": 96,
@@ -2381,7 +2396,8 @@
     "unit_name": "1号機",
     "unit_type_id": 50,
     "name": "1号機",
-    "power": 24.0
+    "power": 24.0,
+    "long_term_shutdown_hjks_updated_at": "2020/10/02 17:25"
   },
   {
     "group_id": 108,
@@ -2805,7 +2821,8 @@
     "unit_name": "２号機",
     "unit_type_id": 50,
     "name": "2号機",
-    "power": 60.0
+    "power": 60.0,
+    "long_term_shutdown_hjks_updated_at": "2021/11/10 15:32"
   },
   {
     "group_id": 130,
@@ -2885,7 +2902,8 @@
     "unit_name": "３号機",
     "unit_type_id": 21,
     "name": "3号機",
-    "power": 30.3
+    "power": 30.3,
+    "long_term_shutdown_hjks_updated_at": "2019/03/04 09:47"
   },
   {
     "group_id": 136,
@@ -3685,7 +3703,8 @@
     "unit_name": "２号機",
     "unit_type_id": 50,
     "name": "2号機",
-    "power": 50.0
+    "power": 50.0,
+    "long_term_shutdown_hjks_updated_at": "2018/07/27 18:12"
   },
   {
     "group_id": 179,
@@ -3693,7 +3712,8 @@
     "unit_name": "新１号機",
     "unit_type_id": 33,
     "name": "新1号機",
-    "power": 36.0
+    "power": 36.0,
+    "long_term_shutdown_hjks_updated_at": "2024/03/11 09:30"
   },
   {
     "group_id": 180,
@@ -3869,7 +3889,8 @@
     "unit_name": "1号機",
     "unit_type_id": 50,
     "name": "1号機",
-    "power": 12.5
+    "power": 12.5,
+    "long_term_shutdown_hjks_updated_at": "2016/04/13 17:18"
   },
   {
     "group_id": 192,

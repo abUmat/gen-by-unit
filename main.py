@@ -15,6 +15,7 @@ def main():
 
     # load_data
     areas, groups, unit_summaries, unit_dict = lib.load_data()
+    groups, unit_summaries = lib.omit_long_term_shutdown_units(groups, unit_summaries)
 
     # api叩く
     frm = to = lib.get_request_date_param_by_time()

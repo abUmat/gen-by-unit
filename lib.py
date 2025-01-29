@@ -184,6 +184,18 @@ def load_data() -> tuple[list[model.Area], list[model.Group], list[model.UnitSum
     unit_dict = _unit_dict(unit_summaries)
     return areas, groups, unit_summaries, unit_dict
 
+def omit_long_term_shutdown_units(groups: list[model.Group], unit_summaries: list[model.UnitSummary]) -> tuple[list[model.Group], list[model.UnitSummary]]:
+    ret_groups: list[model.Group] = []
+    ret_unit_summaries: list[model.UnitSummary] = []
+    for unit_summary in unit_summaries:
+        if unit_summary.unit.long_term_shutdown_hjks_updated_at != "":
+            continue
+        ret_unit_summaries.append(unit_summary)
+        group = unit_summary.group
+        if group not in ret_groups:
+            ret_groups.append(group)
+    return ret_groups, ret_unit_summaries
+
 def create_area_graphs(
         area: model.Area,
         groups: list[model.Group],

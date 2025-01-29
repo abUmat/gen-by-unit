@@ -6,8 +6,8 @@ clean:
 
 .PHONY: zip
 zip: clean
-	zip -r lambda.zip *.py config.json json_data/* packages/* IPAexfont00401/* 
+	zip -r lambda.zip *.py config.json json_data/* packages/* IPAexfont00401/*
 
 .PHONY: deploy
 deploy:
-	aws lambda update-function-code --region us-east-1 --function-name ${ENV}-mdt-${pkg} --zip-file fileb://bin/${pkg}/${ZIP}
+	aws lambda update-function-code --region us-east-1 --function-name prd-hobby-gen_by_unit --zip-file fileb://lambda.zip

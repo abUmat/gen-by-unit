@@ -2,8 +2,8 @@ resource "aws_lambda_function" "gen_by_unit" {
   function_name    = "prd-hobby-gen_by_unit"
   architectures    = ["x86_64"]
   runtime          = var.python_runtime
-  filename         = "lambda.zip"
-  source_code_hash = filebase64sha256("lambda.zip") # ZIPのハッシュを使用
+  filename         = "../lambda.zip"
+  source_code_hash = filebase64sha256("../lambda.zip") # ZIPのハッシュを使用
   package_type     = "Zip"
   handler          = "main.handler"
   memory_size      = 256

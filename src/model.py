@@ -39,6 +39,7 @@ class Colors:
     name: str
     color_codes: list[str]
 
+@dataclass
 class UnitSummary:
     area: Area
     group: Group
@@ -46,6 +47,15 @@ class UnitSummary:
     unit_type: UnitType
     fuel_type: FuelType
     colors: Colors
+    generations: list[float]
+    def __init__(self):
+        self.area = None
+        self.group = None
+        self.unit = None
+        self.unit_type = None
+        self.fuel_type = None
+        self.colors = None
+        self.generations = []
 
 @dataclass(frozen=True)
 class Measurements:

@@ -1,4 +1,3 @@
-from collections import defaultdict
 from os import makedirs
 from shutil import rmtree
 import json
@@ -14,7 +13,7 @@ def main():
     makedirs(const.IMG_PATH, exist_ok=True)
 
     # load_data
-    areas, groups, unit_summaries, unit_dict = lib.load_data()
+    areas, groups, unit_summaries = lib.load_model()
 
     # api叩く
     frm = to = lib.get_request_date_param_by_time()
@@ -22,20 +21,8 @@ def main():
     measurements = lib.get_measurements(frm, to)
     logger.info('Measurement data retrieval completed successfully.')
 
-    # 測定日時の順で発電量をソート
-    measurements.sort(key=lambda x: x.measured_at)
-
     # ユニットごとに48コマ発電を入れる
-    gen_by_unit: defaultdict[model.UnitSummary, list[float]] = defaultdict(list)
-    for m in measurements:
-        if (m.plant_name, m.unit_name) in unit_dict.keys():
-            u = unit_dict[(m.plant_name, m.unit_name)]
-            # mはkWh/30minなのでMWに変換
-            gen_by_unit[u].append(lib.kwh30min_to_mw(m.measurements))
-        elif m.measurements == 0:
-            continue
-        else:
-            raise KeyError((m.plant_name, m.unit_name))
+    lib.insert_generations_to_unit_summary(unit_summaries, measurements)
 
     img_cnt = 0
     # ツイートするテキストと画像
@@ -43,7 +30,7 @@ def main():
     all_images_s: list[list[str]] = []
 
     for area in areas:
-        text, images, img_cnt = lib.create_area_graphs(area, groups, unit_summaries, gen_by_unit, frm, img_cnt)
+        text, images, img_cnt = lib.create_area_graphs(area, groups, unit_summaries, frm, img_cnt)
         logger.info(f'Image successfully saved. area: {area.name}')
 
         # ツイート内容

@@ -1,15 +1,20 @@
 import requests
-import json
 from datetime import date, datetime, timedelta
 import sys
 sys.path.append('./packages')
 from packages.matplotlib import pyplot as plt
 from packages.PIL import Image, ImageDraw, ImageFont
-import const, model
+import const, model, lib_inner
 
-def kwh30min_to_mw(kwh30min: float) -> float:
-    'kWh/30minをMWに変換'
-    return kwh30min * 2 * 1e-3
+def load_model() -> tuple[list[model.Area], list[model.Group], list[model.UnitSummary]]:
+    areas = lib_inner.load_areas()
+    groups = lib_inner.omit_long_term_shutdown_groups(lib_inner.load_groups(), lib_inner.load_units())
+    units = lib_inner.omit_long_term_shutdown_units(lib_inner.load_units())
+    unit_types = lib_inner.load_unit_types()
+    fuel_types = lib_inner.load_fuel_types()
+    colorss = lib_inner.load_colors()
+    unit_summaries = lib_inner.join_data(areas, groups, units, unit_types, fuel_types, colorss)
+    return areas, groups, unit_summaries
 
 def get_request_date_param_by_time() -> date:
     '''
@@ -77,136 +82,23 @@ def get_measurements(target_date_from: date, target_date_to: date) -> list[model
         ret += [model.Measurements(plant_name=plant_name, unit_name=unit_name, measured_at=dt + i * delta, measurements=m, updated_at=updated_at) for i, m in enumerate(measurements)]
     return ret
 
-def _load_areas() -> list[model.Area]:
-    '''
-    areas.jsonのデータをリストとして返す
-    '''
-    with open('./json_data/areas.json') as f:
-        area_json_list = json.load(f)
-    return [model.Area(**area) for area in area_json_list]
-
-def _load_groups() -> list[model.Group]:
-    '''
-    groups.jsonのデータをリストとして返す
-    '''
-    with open('./json_data/groups.json') as f:
-        group_json_list = json.load(f)
-    return [model.Group(**group) for group in group_json_list]
-
-def _load_units() -> list[model.Unit]:
-    '''
-    units.jsonのデータをリストとして返す
-    '''
-    with open('./json_data/units.json') as f:
-        unit_json_list = json.load(f)
-    return [model.Unit(**unit) for unit in unit_json_list]
-
-def _load_unit_types() -> list[model.UnitType]:
-    '''
-    unit_types.jsonのデータをリストとして返す
-    '''
-    with open('./json_data/unit_types.json') as f:
-        unit_type_json_list = json.load(f)
-    return [model.UnitType(**unit_type) for unit_type in unit_type_json_list]
-
-def _load_fuel_types() -> list[model.FuelType]:
-    '''
-    fuel_types.jsonのデータをリストとして返す
-    '''
-    with open('./json_data/fuel_types.json') as f:
-        fuel_type_json_list = json.load(f)
-    return [model.FuelType(**fuel_type) for fuel_type in fuel_type_json_list]
-
-def _load_colors() -> list[model.Colors]:
-    '''
-    colors.jsonのデータをリストとして返す
-    '''
-    with open('./json_data/colors.json') as f:
-        color_json_list = json.load(f)
-    return [model.Colors(**color) for color in color_json_list]
-
-def _omit_long_term_shutdown_groups(groups: list[model.Group], units: list[model.Unit]) -> list[model.Group]:
-    ret: list[model.Group] = []
-    for group in groups:
-        for unit in units:
-            if group.group_id == unit.group_id and not unit.long_term_shutdown:
-                ret.append(group)
-                break
-    return ret
-
-def _omit_long_term_shutdown_units(units: list[model.Unit]) -> list[model.Unit]:
-    return [unit for unit in units if not unit.long_term_shutdown]
-
-def _join_data(
-        areas: list[model.Area],
-        groups: list[model.Group],
-        units: list[model.Unit],
-        unit_types: list[model.UnitType],
-        fuel_types: list[model.FuelType],
-        colorss: list[model.Colors],
-        ) -> list[model.UnitSummary]:
-    '''
-    データを結合し, UnitSummaryのリストとして返す
-    '''
-    ret: list[model.UnitSummary] = []
-    for unit in units:
-        unit_summary = model.UnitSummary()
-        unit_summary.unit = unit
-        for group in groups:
-            if unit_summary.unit.group_id == group.group_id:
-                unit_summary.group = group
-                break
-        for area in areas:
-            if unit_summary.group.area_id == area.area_id:
-                unit_summary.area = area
-                break
-        for unit_type in unit_types:
-            if unit_summary.unit.unit_type_id == unit_type.unit_type_id:
-                unit_summary.unit_type = unit_type
-                break
-        for fuel_type in fuel_types:
-            if unit_summary.unit_type.fuel_type_id == fuel_type.fuel_type_id:
-                unit_summary.fuel_type = fuel_type
-                break
-        for colors in colorss:
-            if unit_summary.fuel_type.colors_id == colors.colors_id:
-                unit_summary.colors = colors
-                break
-        ret.append(unit_summary)
-    return ret
-
-def _unit_dict(units: list[model.UnitSummary]) -> dict[tuple[str, str], model.UnitSummary]:
-    '''
-    (発電所判別名, ユニット判別名)をキーにしてmodel.Unitを返す辞書を作成\n
-    '''
-    ret = {}
-    for unit in units:
-        key = unit.unit.plant_name, unit.unit.unit_name
-        ret[key] = unit
-    return ret
-
-def load_data() -> tuple[list[model.Area], list[model.Group], list[model.UnitSummary], dict[tuple[str, str], model.UnitSummary]]:
-    areas = _load_areas()
-    groups = _omit_long_term_shutdown_groups(_load_groups(), _load_units())
-    units = _omit_long_term_shutdown_units(_load_units())
-    unit_types = _load_unit_types()
-    fuel_types = _load_fuel_types()
-    colorss = _load_colors()
-    unit_summaries = _join_data(areas, groups, units, unit_types, fuel_types, colorss)
-    unit_dict = _unit_dict(unit_summaries)
-    return areas, groups, unit_summaries, unit_dict
+def insert_generations_to_unit_summary(unit_summaries: list[model.UnitSummary], measurements: list[model.Measurements]):
+    measurements.sort(key=lambda x: x.measured_at)
+    for m in measurements:
+        for unit_summary in unit_summaries:
+            if m.plant_name == unit_summary.unit.plant_name and m.unit_name == unit_summary.unit.unit_name:
+                unit_summary.generations.append(lib_inner.kwh30min_to_mw(m.measurements))
 
 def create_area_graphs(
         area: model.Area,
         groups: list[model.Group],
         unit_summaries: list[model.UnitSummary],
-        gen_by_unit: dict[model.UnitSummary, list[float]],
         frm: date,
         img_cnt: int,
         ) -> tuple[str, list[str], int]:
     target_groups = [g for g in groups if g.area_id == area.area_id]
 
-    # 今回ループのエリアの画像枚数 切り上げる
+    # エリアの画像枚数 切り上げる
     img_cnt_per_area = (len(target_groups) + const.GRAPH_CNT_IN_IMG - 1) // const.GRAPH_CNT_IN_IMG
 
     # ツイート内容
@@ -224,7 +116,7 @@ def create_area_graphs(
             # 画像内の場所指定 matplotlibでは, 左上から横向きに順番付けされているが, 縦に並べたいので適当に変換する
             position = (j % const.GRAPH_ROW_CNT) * const.GRAPH_COL_CNT + j // const.GRAPH_ROW_CNT + 1
 
-            subplot(group, unit_summaries, gen_by_unit, position, const.IPA_GOTHIC_FONT_PATH)
+            subplot(group, unit_summaries, position, const.IPA_GOTHIC_FONT_PATH)
 
         # 画像保存
         plt.suptitle(area.name, fontproperties={'fname': const.IPA_GOTHIC_FONT_PATH}, fontsize=const.GRAPH_SUPTITLE_FONT_SIZE)
@@ -237,8 +129,7 @@ def create_area_graphs(
     return text, images, img_cnt
 
 def subplot(group: model.Group,
-            units: list[model.UnitSummary],
-            gen_by_unit: dict[model.Unit, list[float]],
+            unit_summaries: list[model.UnitSummary],
             position: int,
             font_path: str) -> None:
     '''
@@ -254,14 +145,17 @@ def subplot(group: model.Group,
     power_limit = 0
     labels = []
     colors = []
-    for u in units:
-        if u.group.group_id != group.group_id: continue
-        generations.append(gen_by_unit.get(u, [0] * 48))
+    for unit_summary in unit_summaries:
+        if unit_summary.group.group_id != group.group_id: continue
+        if unit_summary.generations == []:
+            generations.append([0] * 48)
+        else:
+            generations.append(unit_summary.generations[::])
         # unit.powerは万kWなのでMWに変換
-        power_limit += u.unit.power * 1e4 * 1e-3
-        labels.append(f'{u.unit.name}{":" if u.unit.name else ""}{u.unit_type.name}')
+        power_limit += unit_summary.unit.power * 1e4 * 1e-3
+        labels.append(f'{unit_summary.unit.name}{":" if unit_summary.unit.name else ""}{unit_summary.unit_type.name}')
         # color 燃料別 かぶらないように
-        for c in u.colors.color_codes:
+        for c in unit_summary.colors.color_codes:
             if c not in colors:
                 colors.append(c)
                 break

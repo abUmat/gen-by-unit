@@ -15,7 +15,6 @@ def main():
 
     # load_data
     areas, groups, unit_summaries, unit_dict = lib.load_data()
-    groups, unit_summaries = lib.omit_long_term_shutdown_units(groups, unit_summaries)
 
     # api叩く
     frm = to = lib.get_request_date_param_by_time()
@@ -29,12 +28,14 @@ def main():
     # ユニットごとに48コマ発電を入れる
     gen_by_unit: defaultdict[model.UnitSummary, list[float]] = defaultdict(list)
     for m in measurements:
-        try:
+        if (m.plant_name, m.unit_name) in unit_dict.keys():
             u = unit_dict[(m.plant_name, m.unit_name)]
-        except Exception as e:
-            raise e
-        # mはkWh/30minなのでMWに変換
-        gen_by_unit[u].append(lib.kwh30min_to_mw(m.measurements))
+            # mはkWh/30minなのでMWに変換
+            gen_by_unit[u].append(lib.kwh30min_to_mw(m.measurements))
+        elif m.measurements == 0:
+            continue
+        else:
+            raise KeyError((m.plant_name, m.unit_name))
 
     img_cnt = 0
     # ツイートするテキストと画像

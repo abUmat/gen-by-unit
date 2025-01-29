@@ -17,7 +17,6 @@ cp:
 .PHONY: run
 run: clean cp
 	cd ${DEPLOY_PACKAGE} && python3 main.py
-	make clean
 
 .PHONY: zip
 zip: clean cp

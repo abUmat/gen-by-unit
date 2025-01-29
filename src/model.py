@@ -19,7 +19,7 @@ class Unit:
     unit_name: str
     name: str
     power: float
-    long_term_shutdown_hjks_updated_at: str = ""
+    long_term_shutdown: bool = False
 
 @dataclass(frozen=True)
 class UnitType:

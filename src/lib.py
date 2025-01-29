@@ -125,6 +125,18 @@ def _load_colors() -> list[model.Colors]:
         color_json_list = json.load(f)
     return [model.Colors(**color) for color in color_json_list]
 
+def _omit_long_term_shutdown_groups(groups: list[model.Group], units: list[model.Unit]) -> list[model.Group]:
+    ret: list[model.Group] = []
+    for group in groups:
+        for unit in units:
+            if group.group_id == unit.group_id and not unit.long_term_shutdown:
+                ret.append(group)
+                break
+    return ret
+
+def _omit_long_term_shutdown_units(units: list[model.Unit]) -> list[model.Unit]:
+    return [unit for unit in units if not unit.long_term_shutdown]
+
 def _join_data(
         areas: list[model.Area],
         groups: list[model.Group],
@@ -175,26 +187,14 @@ def _unit_dict(units: list[model.UnitSummary]) -> dict[tuple[str, str], model.Un
 
 def load_data() -> tuple[list[model.Area], list[model.Group], list[model.UnitSummary], dict[tuple[str, str], model.UnitSummary]]:
     areas = _load_areas()
-    groups = _load_groups()
-    units = _load_units()
+    groups = _omit_long_term_shutdown_groups(_load_groups(), _load_units())
+    units = _omit_long_term_shutdown_units(_load_units())
     unit_types = _load_unit_types()
     fuel_types = _load_fuel_types()
     colorss = _load_colors()
     unit_summaries = _join_data(areas, groups, units, unit_types, fuel_types, colorss)
     unit_dict = _unit_dict(unit_summaries)
     return areas, groups, unit_summaries, unit_dict
-
-def omit_long_term_shutdown_units(groups: list[model.Group], unit_summaries: list[model.UnitSummary]) -> tuple[list[model.Group], list[model.UnitSummary]]:
-    ret_groups: list[model.Group] = []
-    ret_unit_summaries: list[model.UnitSummary] = []
-    for unit_summary in unit_summaries:
-        if unit_summary.unit.long_term_shutdown_hjks_updated_at != "":
-            continue
-        ret_unit_summaries.append(unit_summary)
-        group = unit_summary.group
-        if group not in ret_groups:
-            ret_groups.append(group)
-    return ret_groups, ret_unit_summaries
 
 def create_area_graphs(
         area: model.Area,

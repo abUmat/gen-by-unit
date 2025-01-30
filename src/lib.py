@@ -168,10 +168,14 @@ def get_hjks_outages(target_date_from: date, target_date_to: date):
 
 def insert_outage_description_to_unit_summary(unit_summaries: list[model.UnitSummary], outage_informations: list[model.OutageInformation]):
     'UnitSummary.shutdown_descriptionにoutage_descriptionsから該当発電ユニットの停止情報を見つけて挿入する'
+    outage_informations.sort(key=lambda x: x.updated_at)
     for outage_information in outage_informations:
         for unit_summary in unit_summaries:
             if lib_inner.hyphen_equal(unit_summary.unit.plant_name, outage_information.plant_name) and lib_inner.hyphen_equal(unit_summary.unit.unit_name, outage_information.unit_name):
-                unit_summary.outage_description = f'{outage_information.shutdown_type_name}:{outage_information.shutdown_detail} {outage_information.stopped_at} {outage_information.reason}'
+                unit_summary.outage_description = outage_information.shutdown_type_name
+                if outage_information.shutdown_type_name != '計画外停止':
+                    unit_summary.outage_description += '　'
+                unit_summary.outage_description += f':{outage_information.shutdown_detail} {outage_information.stopped_at}～{outage_information.will_restarted_at}'
 
 def create_area_graphs(
         area: model.Area,
@@ -180,49 +184,52 @@ def create_area_graphs(
         frm: date,
         img_cnt: int,
         ) -> tuple[str, list[str], int]:
-    target_groups = [g for g in groups if g.area_id == area.area_id]
+    groups_in_selected_area = [g for g in groups if g.area_id == area.area_id]
 
     # エリアの画像枚数 切り上げる
-    img_cnt_per_area = (len(target_groups) + const.GRAPH_CNT_IN_IMG - 1) // const.GRAPH_CNT_IN_IMG
+    img_cnt_per_area = (len(groups_in_selected_area) + const.GRAPH_CNT_IN_IMG - 1) // const.GRAPH_CNT_IN_IMG
 
     # ツイート内容
     text = f'{area.name} {frm.isoformat()}のユニット別発電実績'
     images = [[f'{const.IMG_PATH}/{img_cnt + i:02}.png' for i in range(img_cnt_per_area)]]
 
+
     for i in range(img_cnt_per_area):
         path = f'{const.IMG_PATH}/{img_cnt:02}.png'
         # 画像設定
-        plt.figure(figsize=const.IMG_SIZE)
-        plt.subplots_adjust(left=0.03, right=0.92, bottom=0.05, top=0.90, wspace=0.45, hspace=0.3)
+        fig, axes = plt.subplots(4, 3, figsize=const.IMG_SIZE)
+        fig.subplots_adjust(left=0.03, right=0.92, bottom=0.05, top=0.90, wspace=0.45, hspace=0.3)
 
         # グラフ描画
-        for j, group in enumerate(target_groups[i * const.GRAPH_CNT_IN_IMG: (i + 1) * const.GRAPH_CNT_IN_IMG]):
-            # 画像内の場所指定 matplotlibでは, 左上から横向きに順番付けされているが, 縦に並べたいので適当に変換する
-            position = (j % const.GRAPH_ROW_CNT) * const.GRAPH_COL_CNT + j // const.GRAPH_ROW_CNT + 1
+        groups_in_img = groups_in_selected_area[i * const.GRAPH_CNT_IN_IMG: (i + 1) * const.GRAPH_CNT_IN_IMG]
 
-            subplot(group, unit_summaries, position, const.IPA_GOTHIC_FONT_PATH)
+        for j in range(const.GRAPH_COL_CNT * const.GRAPH_ROW_CNT):
+            ax = axes[j % const.GRAPH_ROW_CNT][j // const.GRAPH_ROW_CNT]
+            if j < len(groups_in_img):
+                group = groups_in_img[j]
+                subplot(ax, group, unit_summaries, const.IPA_GOTHIC_FONT_PATH)
+            else:
+                fig.delaxes(ax)
 
         # 画像保存
-        plt.suptitle(area.name, fontproperties={'fname': const.IPA_GOTHIC_FONT_PATH}, fontsize=const.GRAPH_SUPTITLE_FONT_SIZE)
-        plt.savefig(path)
-        plt.close()
+        fig.suptitle(area.name, fontproperties={'fname': const.IPA_GOTHIC_FONT_PATH}, fontsize=const.GRAPH_SUPTITLE_FONT_SIZE)
+        fig.savefig(path)
+        plt.close(fig)
 
         add_citation(path, const.IPA_GOTHIC_FONT_PATH)
         img_cnt += 1
 
     return text, images, img_cnt
 
-def subplot(group: model.Group,
+def subplot(ax: plt.Axes,
+            group: model.Group,
             unit_summaries: list[model.UnitSummary],
-            position: int,
             font_path: str) -> None:
     '''
     groupに所属するunitの発電量と認可出力をpositionで指定した位置にsubplotする
     '''
     # 場所指定
-    plt.subplot(const.GRAPH_ROW_CNT, const.GRAPH_COL_CNT, position)
-
-    plt.title(label=group.name, fontproperties={'fname': font_path}, fontsize=const.GRAPH_TITLE_FONT_SIZE)
+    ax.set_title(label=group.name, fontproperties={'fname': font_path}, fontsize=const.GRAPH_TITLE_FONT_SIZE)
 
     # 発電と認可出力の集計
     generations = []
@@ -250,28 +257,41 @@ def subplot(group: model.Group,
     generations.reverse()
     labels.reverse()
     colors.reverse()
-    plt.stackplot(range(48), generations, labels=labels, colors=colors, edgecolor='black')
-    plt.plot([power_limit] * 48, '-.', color='grey')
+    ax.stackplot(range(48), generations, labels=labels, colors=colors, edgecolor='black')
+    ax.plot([power_limit] * 48, '-.', color='grey')
 
-    plt.ylabel('MW')
-    plt.ylim(bottom=0)
+    ax.set_ylabel('MW')
+    ax.set_ylim(bottom=0, top=power_limit*1.05)
 
-    plt.xlim((-1, 48))
-    plt.xticks([0, 12, 24, 36, 47], ['00:00', '06:00', '12:00', '18:00', '24:00'])
+    ax.set_xlim((-1, 48))
+    ax.set_xticks([0, 12, 24, 36, 47])
+    ax.set_xticklabels(['00:00', '06:00', '12:00', '18:00', '24:00'])
 
     # 凡例の順番を上から1号機, 2号機となるようにする
-    h, l = plt.gca().get_legend_handles_labels()
+    h, l = ax.get_legend_handles_labels()
     # 凡例
-    plt.legend(h[::-1],
-               l[::-1],
-               loc='lower left',
-               bbox_to_anchor=(1, 0),
-               prop={'fname': font_path})
+    ax.legend(h[::-1],
+              l[::-1],
+              loc='lower left',
+              bbox_to_anchor=(1, 0),
+              prop={'fname': font_path})
 
+    pos = 0.85
     for unit_summary in unit_summaries:
         if unit_summary.group.group_id != group.group_id: continue
-        if unit_summary.outage_description != "":
-            plt.text(0, power_limit, unit_summary.outage_description, color='red', fontproperties={'fname': font_path})
+        if unit_summary.outage_description != '':
+            text = unit_summary.unit.name.replace('\n', '') + ':' + unit_summary.outage_description
+            ax.text(
+                0.01,
+                pos,
+                text,
+                ha='left',
+                transform=ax.transAxes,
+                color='red',
+                fontproperties={'fname': font_path},
+                fontsize=const.GRAPH_TEXT_FONT_SIZE
+            )
+            pos -= 0.08
 
 
 def add_citation(img_path: str, font_path: str) -> None:

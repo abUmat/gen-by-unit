@@ -1,13 +1,13 @@
-import requests
 from datetime import date, datetime, timedelta
 from urllib.parse import urlencode
-from urllib3 import ssl
 import csv
 import re
 import sys
 sys.path.append('./packages')
+from packages import requests
 from packages.matplotlib import pyplot as plt
 from packages.PIL import Image, ImageDraw, ImageFont
+from packages.urllib3 import ssl
 import const, model, lib_inner
 
 def load_model() -> tuple[list[model.Area], list[model.Group], list[model.UnitSummary]]:

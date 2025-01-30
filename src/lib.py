@@ -1,5 +1,9 @@
 import requests
 from datetime import date, datetime, timedelta
+from urllib.parse import urlencode
+from urllib3 import ssl
+import csv
+import re
 import sys
 sys.path.append('./packages')
 from packages.matplotlib import pyplot as plt
@@ -83,11 +87,91 @@ def get_measurements(target_date_from: date, target_date_to: date) -> list[model
     return ret
 
 def insert_generations_to_unit_summary(unit_summaries: list[model.UnitSummary], measurements: list[model.Measurements]):
+    'UnitSummary.generationsにmeasurementsから該当発電ユニットの発電量を見つけて挿入する'
     measurements.sort(key=lambda x: x.measured_at)
     for m in measurements:
         for unit_summary in unit_summaries:
             if m.plant_name == unit_summary.unit.plant_name and m.unit_name == unit_summary.unit.unit_name:
                 unit_summary.generations.append(lib_inner.kwh30min_to_mw(m.measurements))
+
+def get_hjks_outages(target_date_from: date, target_date_to: date):
+    '''
+    閉区間[target_date_from, target_date_to]のユニット別発電実績を発電情報公開システムから取得し,
+    list[OutageDescription]を返す
+    '''
+    session = requests.session()
+
+    # 呪文
+    ssl_context = ssl.create_default_context()
+    ssl_context.set_ciphers('DEFAULT:!aNULL:!eNULL:!MD5:!3DES:!DES:!RC4:!IDEA:!SEED:!aDSS:!SRP:!PSK')
+    adapter = requests.adapters.HTTPAdapter()
+    adapter.init_poolmanager(1, 1,  ssl_context=ssl_context)
+    session.adapters.pop('https://', None)
+    session.mount('https://', adapter)
+
+    # csrfタグ取得のためのリクエスト
+    response = session.get('https://hjks.jepx.or.jp/hjks/outages')
+    response.raise_for_status()
+    for row in response.text.split('\n'):
+        if 'name' in row and '"_csrf"' in row:
+            m = re.search(r'value="([\w-]+)"', row)
+            if m:
+                csrf_value = m.group(1)
+
+    # sessionの履歴のためのリクエスト
+    # 後のcsvダウンロードの時のpayloadと等しくする必要がある
+    url = 'https://hjks.jepx.or.jp/hjks/outages'
+    headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+    payload = {
+        'startdtfrom': f'{target_date_from.strftime(const.DATE_FORMAT_SLASHED)} 00:00',
+        'startdtto': f'{target_date_to.strftime(const.DATE_FORMAT_SLASHED)} 00:00',
+        '_csrf': csrf_value
+    }
+    encoded_payload = urlencode(payload)
+    response = session.post(url, data=encoded_payload, headers=headers)
+    response.raise_for_status()
+
+    # csv取得のためPOSTリクエストの送信
+    payload['csv'] = 'csv'
+    encoded_payload = urlencode(payload)
+    response = session.post(url, data=encoded_payload, headers=headers)
+    response.raise_for_status()
+
+    # csvファイルに保存
+    with open(f'{const.CSV_PATH}/output.csv', 'wb') as file:
+        file.write(response.content)
+
+    # encodingを変更とセル内の開業を削除
+    with open(f'{const.CSV_PATH}/output.csv', mode='r', encoding='cp932', newline='') as infile:
+        with open(f'{const.CSV_PATH}/output_modified.csv', mode='w', encoding='utf-8', newline='') as outfile:
+            reader = csv.reader(infile)
+            writer = csv.writer(outfile)
+            for row in reader:
+                # 各セルの改行を削除
+                cleaned_row = [cell.replace('\n', '').replace('\r', '').strip(',') for cell in row]
+                writer.writerow(cleaned_row)
+
+    # 末尾のカンマ削除するだけ
+    with open(f'{const.CSV_PATH}/output_modified.csv') as infile:
+        with open(f'{const.CSV_PATH}/output_ordered.csv', mode='w', encoding='utf-8') as outfile:
+            for row in infile.readlines():
+                print(row.strip().strip(','), file=outfile)
+
+    # 返り値生成
+    ret: list[model.OutageInformation] = []
+    with open(f'{const.CSV_PATH}/output_ordered.csv') as f:
+        reader = csv.reader(f)
+        for i, row in enumerate(reader):
+            if i == 0: continue # header
+            ret.append(model.OutageInformation(*row))
+    return ret
+
+def insert_outage_description_to_unit_summary(unit_summaries: list[model.UnitSummary], outage_informations: list[model.OutageInformation]):
+    'UnitSummary.shutdown_descriptionにoutage_descriptionsから該当発電ユニットの停止情報を見つけて挿入する'
+    for outage_information in outage_informations:
+        for unit_summary in unit_summaries:
+            if lib_inner.hyphen_equal(unit_summary.unit.plant_name, outage_information.plant_name) and lib_inner.hyphen_equal(unit_summary.unit.unit_name, outage_information.unit_name):
+                unit_summary.outage_description = f'{outage_information.shutdown_type_name}:{outage_information.shutdown_detail} {outage_information.stopped_at} {outage_information.reason}'
 
 def create_area_graphs(
         area: model.Area,
@@ -183,6 +267,12 @@ def subplot(group: model.Group,
                loc='lower left',
                bbox_to_anchor=(1, 0),
                prop={'fname': font_path})
+
+    for unit_summary in unit_summaries:
+        if unit_summary.group.group_id != group.group_id: continue
+        if unit_summary.outage_description != "":
+            plt.text(0, power_limit, unit_summary.outage_description, color='red', fontproperties={'fname': font_path})
+
 
 def add_citation(img_path: str, font_path: str) -> None:
     '''

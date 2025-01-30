@@ -48,6 +48,7 @@ class UnitSummary:
     fuel_type: FuelType
     colors: Colors
     generations: list[float]
+    outage_description: str
     def __init__(self):
         self.area = None
         self.group = None
@@ -56,6 +57,7 @@ class UnitSummary:
         self.fuel_type = None
         self.colors = None
         self.generations = []
+        self.outage_description = ""
 
 @dataclass(frozen=True)
 class Measurements:
@@ -64,6 +66,24 @@ class Measurements:
     measured_at: int
     measurements: int
     updated_at: int
+
+@dataclass(frozen=True)
+class OutageInformation:
+    area_name: str
+    company: str
+    code: str
+    plant_name: str
+    unit_type_name: str
+    unit_name: str
+    power: int
+    shutdown_type_name: str
+    shutdown_detail: str
+    power_down: int
+    stopped_at: str
+    restart_prospect: str
+    will_restarted_at: str
+    reason: str
+    updated_at: str
 
 class CSVParseError(Exception):
     """CSVファイルの解析中にエラーが発生した場合に使用するカスタム例外"""

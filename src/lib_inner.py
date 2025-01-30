@@ -102,3 +102,13 @@ def join_data(
 def kwh30min_to_mw(kwh30min: float) -> float:
     'kWh/30minをMWに変換'
     return kwh30min * 2 * 1e-3
+
+def hyphen_equal(a: str, b: str) -> bool:
+    'ハイフン表記ゆれでもequalと判定するため'
+    if a == b: return True
+    hyphens = '-', 'ー', '－'
+    for i in range(len(hyphens)):
+        for j in range(len(hyphens)):
+            if a.replace(hyphens[i], hyphens[j]) == b:
+                return True
+    return False

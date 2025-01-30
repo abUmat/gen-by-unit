@@ -20,6 +20,7 @@ GRAPH_SUPTITLE_FONT_SIZE = 24
 GRAPH_TITLE_FONT_SIZE = 18
 
 IMG_PATH = os.environ.get('IMG_PATH', './img')
+CSV_PATH = os.environ.get('CSV_PATH', './csv')
 
 TWITTER_API_CONFIG_FILE_PATH = './config.json'
 TWITTER_MEDIA_CNT_PER_TWEET = 4

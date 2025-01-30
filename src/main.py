@@ -11,18 +11,28 @@ def main():
     # ディレクトリ作る
     rmtree(const.IMG_PATH, ignore_errors=True)
     makedirs(const.IMG_PATH, exist_ok=True)
+    rmtree(const.CSV_PATH, ignore_errors=True)
+    makedirs(const.CSV_PATH, exist_ok=True)
 
     # load_data
     areas, groups, unit_summaries = lib.load_model()
 
-    # api叩く
     frm = to = lib.get_request_date_param_by_time()
     logger.info(f'from: {frm.isoformat()}, to: {to.isoformat()}')
+
+    # ユニット別発電実績のapi叩く
     measurements = lib.get_measurements(frm, to)
     logger.info('Measurement data retrieval completed successfully.')
 
     # ユニットごとに48コマ発電を入れる
     lib.insert_generations_to_unit_summary(unit_summaries, measurements)
+
+    # hjksのapi叩く
+    outage_informations = lib.get_hjks_outages(frm, to)
+    logger.info('Outage data retrieval completed successfully.')
+
+    # ユニットごとに48コマ発電を入れる
+    lib.insert_outage_description_to_unit_summary(unit_summaries, outage_informations)
 
     img_cnt = 0
     # ツイートするテキストと画像

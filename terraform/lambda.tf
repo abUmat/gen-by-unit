@@ -13,6 +13,7 @@ resource "aws_lambda_function" "gen_by_unit" {
   environment {
     variables = {
       "IMG_PATH" = "/tmp/img"
+      "CSV_PATH" = "/tmp/csv"
     }
   }
 }

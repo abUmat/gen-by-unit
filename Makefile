@@ -3,7 +3,7 @@ DEPLOY_PACKAGE=deployment_package
 .PHONY: clean
 clean:
 	rm -rf ${DEPLOY_PACKAGE}
-	rm -rf img
+	find . -type d -name "__pycache__" -exec rm -rf {} +
 
 .PHONY: cp
 cp:

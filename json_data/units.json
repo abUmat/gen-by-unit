@@ -126,15 +126,15 @@
     "plant_name": "日本製鉄（株）室蘭中央発電所 第5号発電設備",
     "unit_name": "室蘭中央5号",
     "unit_type_id": 31,
-    "name": "5号機",
+    "name": "室蘭中央5号機",
     "power": 10.0
   },
   {
-    "group_id": 10,
+    "group_id": 9,
     "plant_name": "釧路火力発電所",
     "unit_name": "1",
     "unit_type_id": 30,
-    "name": "",
+    "name": "釧路火力",
     "power": 11.2
   },
   {
@@ -293,27 +293,27 @@
   },
   {
     "group_id": 18,
-    "plant_name": "東北電力上越火力発電所１号機",
-    "unit_name": "１号機",
-    "unit_type_id": 44,
-    "name": "1号機",
-    "power": 57.2
-  },
-  {
-    "group_id": 19,
     "plant_name": "東北電力仙台火力発電所４号機",
     "unit_name": "４号機",
     "unit_type_id": 42,
-    "name": "4号機",
+    "name": "仙台4号機",
     "power": 46.8
   },
   {
-    "group_id": 20,
+    "group_id": 18,
     "plant_name": "東北電力八戸火力発電所５号機",
     "unit_name": "５号機",
     "unit_type_id": 42,
-    "name": "5号機",
+    "name": "八戸5号機",
     "power": 41.6
+  },
+  {
+    "group_id": 18,
+    "plant_name": "東北電力上越火力発電所１号機",
+    "unit_name": "１号機",
+    "unit_type_id": 44,
+    "name": "上越1号機",
+    "power": 57.2
   },
   {
     "group_id": 21,
@@ -438,26 +438,34 @@
   },
   {
     "group_id": 28,
-    "plant_name": "石巻雲雀野発電所",
-    "unit_name": "1号機",
-    "unit_type_id": 31,
-    "name": "1号機",
-    "power": 14.9
-  },
-  {
-    "group_id": 29,
     "plant_name": "糸魚川発電所",
     "unit_name": "単独",
     "unit_type_id": 31,
-    "name": "",
+    "name": "糸魚川",
     "power": 14.9
   },
   {
-    "group_id": 30,
+    "group_id": 28,
+    "plant_name": "仙台パワーステーション",
+    "unit_name": "単独",
+    "unit_type_id": 31,
+    "name": "仙台PS",
+    "power": 11.2
+  },
+  {
+    "group_id": 28,
+    "plant_name": "石巻雲雀野発電所",
+    "unit_name": "1号機",
+    "unit_type_id": 31,
+    "name": "石巻雲雀野",
+    "power": 14.9
+  },
+  {
+    "group_id": 28,
     "plant_name": "日本製鉄(株) 釜石火力発電所",
     "unit_name": "釜石火力発電所",
     "unit_type_id": 31,
-    "name": "",
+    "name": "釜石火力",
     "power": 13.6
   },
   {
@@ -465,23 +473,15 @@
     "plant_name": "福島いわきバイオマス発電所",
     "unit_name": "1",
     "unit_type_id": 91,
-    "name": "",
+    "name": "福島いわき",
     "power": 11.2
   },
   {
-    "group_id": 32,
+    "group_id": 31,
     "plant_name": "相馬石炭・バイオマス発電所",
     "unit_name": "単独",
     "unit_type_id": 31,
-    "name": "",
-    "power": 11.2
-  },
-  {
-    "group_id": 33,
-    "plant_name": "仙台パワーステーション",
-    "unit_name": "単独",
-    "unit_type_id": 31,
-    "name": "",
+    "name": "相馬",
     "power": 11.2
   },
   {

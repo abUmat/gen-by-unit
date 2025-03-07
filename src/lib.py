@@ -86,13 +86,19 @@ def get_measurements(target_date_from: date, target_date_to: date) -> list[model
         ret += [model.Measurements(plant_name=plant_name, unit_name=unit_name, measured_at=dt + i * delta, measurements=m, updated_at=updated_at) for i, m in enumerate(measurements)]
     return ret
 
-def insert_generations_to_unit_summary(unit_summaries: list[model.UnitSummary], measurements: list[model.Measurements]):
+def insert_generations_to_unit_summary(unit_summaries: list[model.UnitSummary], measurements: list[model.Measurements]) -> list[str]:
     'UnitSummary.generationsにmeasurementsから該当発電ユニットの発電量を見つけて挿入する'
     measurements.sort(key=lambda x: x.measured_at)
+    not_found_list = []
     for m in measurements:
+        not_found = True
         for unit_summary in unit_summaries:
             if m.plant_name == unit_summary.unit.plant_name and m.unit_name == unit_summary.unit.unit_name:
                 unit_summary.generations.append(lib_inner.kwh30min_to_mw(m.measurements))
+                not_found = False
+        if not_found and m.measurements != 0:
+            not_found_list.append(f'{m.plant_name}/{m.unit_name}')
+    return list(sorted(set(not_found_list)))
 
 def get_hjks_outages(target_date_from: date, target_date_to: date):
     '''

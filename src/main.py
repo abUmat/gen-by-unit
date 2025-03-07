@@ -25,7 +25,9 @@ def main():
     logger.info('Measurement data retrieval completed successfully.')
 
     # ユニットごとに48コマ発電を入れる
-    lib.insert_generations_to_unit_summary(unit_summaries, measurements)
+    not_found_list = lib.insert_generations_to_unit_summary(unit_summaries, measurements)
+    for not_found_unit in not_found_list:
+        logger.warning(f'Unit {not_found_unit} is not found')
 
     # hjksのapi叩く
     outage_informations = lib.get_hjks_outages(frm, to)
@@ -59,7 +61,7 @@ def main():
             all_images_s_merged.append(img)
     # tweet
     client = tweepy_client.TweepyClient(const.TWITTER_API_CONFIG_FILE_PATH)
-    # client.tweet_many(all_text_s_merged, all_images_s_merged)
+    client.tweet_many(all_text_s_merged, all_images_s_merged)
     txt = '\n' + '\n\n'.join([f'{text}\n with image {img}' for text, img in zip(all_text_s_merged, all_images_s_merged)])
     logger.info(f'Successfully tweeted message {txt}')
 

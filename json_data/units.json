@@ -815,6 +815,14 @@
     "power": 78
   },
   {
+    "group_id": 194,
+    "plant_name": "五井火力発電所3号機",
+    "unit_name": "五井3号",
+    "unit_type_id": 44,
+    "name": "3号機",
+    "power": 78
+  },
+  {
     "group_id": 43,
     "plant_name": "富津火力発電所１号系列１軸",
     "unit_name": "富津１ー１軸",
